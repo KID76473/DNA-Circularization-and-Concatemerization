@@ -37,34 +37,40 @@ t0 = time.time()
 for i in range(2):  # length
     # heads += terminate * np.random.choice([-1, 1], (N, N, N, dimension), p=[0.5, 0.5])  # step further randomly for each one
     # heads += terminate * directions[np.random.choice(range(num_dir ** 2)), :]
+    # heads += terminate * np.random.choice(directions, (N, N, N, dimension), p=[1 / num_dir ** 2] * num_dir ** 2)
     for x in range(N):
         for y in range(N):
             for z in range(N):
                 heads[x, y, z] += terminate[x, y, z] * directions[np.random.choice(range(num_dir ** 2))]
-    # heads += terminate * np.random.choice(directions, (N, N, N, dimension), p=[1 / num_dir ** 2] * num_dir ** 2)
     print("-------------------------------")
     print(f"the {i}th step")
     print(f"heads: {heads}")
 
     # count # of circularization
-    circular = (np.abs(heads) < error)  # true if any dimension is around zero within error
-    # print(f"circular: {circular}")
-    circular = circular[:, :, :, 0] * circular[:, :, :, 1] * circular[:, :, :, 2]  # all dimensions must be true
+    circular = (np.abs(heads) < error)
+    circular = circular[:, :, :, 0] * circular[:, :, :, 1] * circular[:, :, :, 2]
     num_cir.append(np.sum(circular))
     # print(f"circular: {num_cir[i]}")
     print(f"circular: {circular.astype(int)}")
 
-    # count # of concatemerization including circularization
-    concatemer = (np.abs(heads % concentration) < error)
+    # count # of concatemerization
+    # concatemer = (np.abs(heads % concentration) < error and not np.abs(heads) < error)
+    # concatemer = np.logical_or(np.abs(heads % concentration) < error, np.logical_not(np.abs(heads) < error))
+    concatemer = (np.abs(heads) % concentration) < error
     concatemer = concatemer[:, :, :, 0] * concatemer[:, :, :, 1] * concatemer[:, :, :, 2]
-    # record all terminated molecules
-    terminate = (np.ones((N, N, N), dtype=np.int8) - concatemer)[..., np.newaxis]
-    leftover[i] = np.sum(terminate)  # count how may dna do not meet self or others
-    # remove circularization from concatemerization
-    concatemer = concatemer.astype(np.int8) - circular.astype(np.int8)
+    for x in range(N):
+        for y in range(N):
+            for z in range(N):
+                if np.abs(heads[x, y, z, 0]) < error and np.abs(heads[x, y, z, 1]) < error and np.abs(heads[x, y, z, 2]) < error:
+                    concatemer[x, y, z] = False
+    # # remove circularization from concatemerization
+    # concatemer = concatemer.astype(np.int8) - circular.astype(np.int8)
     num_con.append(np.sum(concatemer))
     # print(f"concatemer: {num_con[i]}")
-    print(f"concatemer: {concatemer}")
+    print(f"concatemer: {concatemer.astype(int)}")
+
+    terminate = (np.ones((N, N, N), dtype=np.int8) - concatemer - circular)[..., np.newaxis]
+    leftover[i] = np.sum(terminate)  # count how may dna do not meet self or others
 
     # if i % 100 == 0:  # print every 100 length
     #     print(i, np.sum(terminate))
