@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 # error = 0.01
 # num_dir = 4  # number of angles
 
-# new
+# test
 dimension = 3
 N = 32  # number of molecules = N^3
 length = 10000
