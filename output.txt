@@ -1,0 +1,11 @@
+The program started running at 1716221630.389977
+Dimension: 3
+Number of molecule: 32768
+Length of DNA: 10000
+Each extension / distance between two adjacent molecules: 1 / 2
+Amount of directions: 90
+Error: 0.5
+Number of circularization is 0, and 0 concatemerization
+average of furthest distance from tail / length = 7130.24988505573 / 10000
+It takes 10.974858045578003 seconds
+The program finished at 1716221641.364835
