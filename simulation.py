@@ -16,6 +16,8 @@ import matplotlib.pyplot as plt
 # error = 1
 # num_dir = 4  # number of angles
 # furthest_avg = 0
+# last_dir = np.zeros([N, N, N, 2])
+# expel = 0  # angle of area that next extension will not be
 
 # test
 dimension = 3
@@ -24,9 +26,11 @@ length = 10000
 concentration = 2  # distance between every pair of adjacent points
 heads = np.zeros((N, N, N, dimension))
 furthest = np.zeros((N, N, N, dimension))
-error = 1
+error = 0.5
 num_dir = 90  # number of angles
 furthest_avg = 0
+last_dir = np.zeros([N, N, N, 2])
+expel = np.pi / 4  # angle of area that next extension will not be
 
 # set up all directions
 angles = np.linspace(0, 2 * np.pi, num_dir, endpoint=False)
@@ -43,12 +47,54 @@ for i in range(num_dir):  # angle of xy plane
 # for i in range(num_dir ** 2):  # determine precision
 #     print(np.abs(directions[i, 0] ** 2 + directions[i, 1] ** 2 + directions[i, 2] ** 2 - 1) < 0.001)
 
+def is_within_expel(last_direction, direction, expel):
+    dot_product = np.dot(last_direction, direction)
+    angle = np.arccos(dot_product / (np.linalg.norm(last_direction) * np.linalg.norm(direction)))
+    return np.abs(angle) <= expel
+
 t0 = time.time()
 
 for i in range(length):  # length
-    # let heads move
-    random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
+    random_directions = np.zeros((N, N, N, dimension))
+    for x in range(N):
+        for y in range(N):
+            for z in range(N):
+                temp_directions = directions.copy()
+                np.random.shuffle(temp_directions)
+                for direction in temp_directions:
+                    if not is_within_expel(last_dir[x, y, z], direction, expel):
+                        random_directions[x, y, z] = direction
+                        last_dir[x, y, z] = direction  # Update last_dir with the chosen direction
+                        break
     heads += random_directions
+
+    # Record if heads reach the furthest distance from tail
+    heads_squared_dist = np.sum(heads ** 2, axis=-1)
+    furthest_squared_dist = np.sum(furthest ** 2, axis=-1)
+    mask = heads_squared_dist > furthest_squared_dist
+    furthest[mask] = heads[mask]
+
+    # # new
+    # let heads move
+    # random_directions = np.zeros((N, N, N, 2))
+    # for x in range(N):
+    #     for y in range(N):
+    #         for z in range(N):
+    #             temp = directions.copy()
+    #             temp = np.where(temp != last_dir[x, y, z])
+    #             # out of bound error needs to be solved
+    #             start = np.where(directions == last_dir - expel)
+    #             start = start[0] * num_dir ** 2 + start[1] * num_dir + start[2]
+    #             end = np.where(directions == last_dir + expel)
+    #             end = end[0] * num_dir ** 2 + end[1] * num_dir + end[2]
+    #             for j in range(start, end):
+    #                 temp.delete(np.where(directions == directions[j]))
+    #             heads += temp[np.random.choice(len(temp), size=(N, N, N, 3))]
+    # last_dir = random_directions
+
+    # # old
+    # random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
+    # heads += random_directions
 
     # record if heads reach the furthest distance from tail
     heads_squared_dist = np.sum(heads ** 2, axis=-1)
@@ -65,10 +111,6 @@ t1 = time.time()
 np.save('heads.npy', heads)
 np.save('furthest.npy', furthest)
 
-# furthest_squared_dist = np.sum(furthest ** 2, axis=-1)
-# furthest_dist = np.sqrt(furthest_squared_dist)
-# total_distance = np.sum(furthest_dist)
-# furthest_avg = total_distance / (N ** 3)
 for x in range(N):
     for y in range(N):
         for z in range(N):
