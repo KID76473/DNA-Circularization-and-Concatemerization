@@ -29,7 +29,7 @@ furthest = np.zeros((N, N, N, dimension))
 error = 0.5
 num_dir = 90  # number of angles
 furthest_avg = 0
-last_dir = np.zeros([N, N, N, 2])
+last_dir = np.zeros([N, N, N, 3])
 expel = np.pi / 4  # angle of area that next extension will not be
 
 # set up all directions
@@ -41,20 +41,36 @@ for i in range(num_dir):  # angle of xy plane
         directions[i * num_dir + j, 2] = np.sin(angles[j])
         directions[i * num_dir + j, 1] = np.cos(angles[j]) * np.sin(angles[i])
         directions[i * num_dir + j, 0] = np.cos(angles[j]) * np.cos(angles[i])
-# print(len(directions))
+# print(np.shape(directions))
 
 # # test whether the length is 1 or not
 # for i in range(num_dir ** 2):  # determine precision
 #     print(np.abs(directions[i, 0] ** 2 + directions[i, 1] ** 2 + directions[i, 2] ** 2 - 1) < 0.001)
 
 def is_within_expel(last_direction, direction, expel):
-    dot_product = np.dot(last_direction, direction)
-    angle = np.arccos(dot_product / (np.linalg.norm(last_direction) * np.linalg.norm(direction)))
-    return np.abs(angle) <= expel
+    if not (last_direction == 0).all():
+        dot_product = np.dot(last_direction, direction)
+        norms_product = np.linalg.norm(last_direction) * np.linalg.norm(direction)
+
+        # Ensure norms_product is not zero to avoid division by zero
+        if norms_product == 0:
+            return False
+
+        # Calculate the cosine of the angle and clamp it to the range [-1, 1]
+        cos_angle = dot_product / norms_product
+        cos_angle = np.clip(cos_angle, -1.0, 1.0)
+
+        # Calculate the angle
+        angle = np.arccos(cos_angle)
+
+        return np.abs(angle) <= expel
+    else:
+        return False
 
 t0 = time.time()
 
 for i in range(length):  # length
+    # too slow
     random_directions = np.zeros((N, N, N, dimension))
     for x in range(N):
         for y in range(N):
@@ -62,17 +78,12 @@ for i in range(length):  # length
                 temp_directions = directions.copy()
                 np.random.shuffle(temp_directions)
                 for direction in temp_directions:
+                    # print(is_within_expel(last_dir[x, y, z], direction, expel))
                     if not is_within_expel(last_dir[x, y, z], direction, expel):
                         random_directions[x, y, z] = direction
                         last_dir[x, y, z] = direction  # Update last_dir with the chosen direction
                         break
     heads += random_directions
-
-    # Record if heads reach the furthest distance from tail
-    heads_squared_dist = np.sum(heads ** 2, axis=-1)
-    furthest_squared_dist = np.sum(furthest ** 2, axis=-1)
-    mask = heads_squared_dist > furthest_squared_dist
-    furthest[mask] = heads[mask]
 
     # # new
     # let heads move
@@ -102,8 +113,9 @@ for i in range(length):  # length
     mask = heads_squared_dist > furthest_squared_dist
     furthest[mask] = heads[mask]
 
-    # print("-------------------------------")
-    # print(f"the {i}th step")
+    print("-------------------------------")
+    print(f"the {i}th step")
+    print(time.time())
     # print(f"heads: {heads}")
 
 t1 = time.time()
