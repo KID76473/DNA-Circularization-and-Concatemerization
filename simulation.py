@@ -4,6 +4,55 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# v1
+# This method detects whether given direction is expelled
+def is_within_expel(last_direction, direction, expel):
+    if not (last_direction == 0).all():
+        dot_product = np.dot(last_direction, direction)
+        norms_product = np.linalg.norm(last_direction) * np.linalg.norm(direction)
+
+        # Calculate the cosine of the angle and clamp it to the range [-1, 1]
+        cos_angle = dot_product / norms_product
+        cos_angle = np.clip(cos_angle, -1.0, 1.0)
+
+        angle = np.arccos(cos_angle)  # cos(theta) = A x B / (|A| * |B|)
+        return np.abs(angle) <= expel
+    else:
+        return False
+
+
+# v2
+# This method randomly chooses one direction from all available and normally distributed directions
+def choose_random_direction(last_direction, all_dir, expel):  # last_direction here is a 1 * 3 array
+    if (last_direction == 0).all():
+        # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        return all_dir[np.random.choice(num_dir)]
+
+    removed_num = int(expel * num_dir / np.pi)
+    removed_dir = np.zeros((removed_num, 3))
+    for i in range(num_dir):
+        dot_product = np.dot(last_direction, directions[i])
+        # print(dot_product)
+        norm_product = np.linalg.norm(last_direction) * np.linalg.norm(directions[i])
+        # print(norm_product)
+        cosine = np.clip(dot_product / norm_product, -1.0, 1.0)
+        # print(cosine)
+        angle = np.arccos(cosine)
+        # print(np.shape(angle))
+        if angle <= expel:
+            np.append(removed_dir, directions[i])
+    mask_in_method = np.isin(all_dir, removed_dir)
+    avail_directions = all_dir[~mask_in_method]
+
+    indices = np.arange(num_dir - removed_num)
+    print(np.shape(indices))
+    probabilities = np.exp(-0.5 * ((indices - np.where(all_dir == -last_direction)) / 1) ** 2)
+    probabilities /= probabilities.sum()  # Normalize to create a probability distribution
+    idx = np.random.choice(indices, p=probabilities)
+
+    return avail_directions[idx]
+
+
 # dimension = 3 N = 64 length = 1000 concentration = 10 num_dir = 360 error = 0.0001
 
 # # check
@@ -47,36 +96,31 @@ for i in range(num_dir):  # angle of xy plane
 # for i in range(num_dir ** 2):  # determine precision
 #     print(np.abs(directions[i, 0] ** 2 + directions[i, 1] ** 2 + directions[i, 2] ** 2 - 1) < 0.001)
 
-def is_within_expel(last_direction, direction, expel):
-    if not (last_direction == 0).all():
-        dot_product = np.dot(last_direction, direction)
-        norms_product = np.linalg.norm(last_direction) * np.linalg.norm(direction)
-
-        # Calculate the cosine of the angle and clamp it to the range [-1, 1]
-        cos_angle = dot_product / norms_product
-        cos_angle = np.clip(cos_angle, -1.0, 1.0)
-
-        angle = np.arccos(cos_angle)  # cos(theta) = A x B / (|A| * |B|)
-        return np.abs(angle) <= expel
-    else:
-        return False
-
 t0 = time.time()
 
 for i in range(length):  # length
-    # too slow
+    # # v1
+    # random_directions = np.zeros((N, N, N, dimension))
+    # for x in range(N):
+    #     for y in range(N):
+    #         for z in range(N):
+    #             temp_directions = directions.copy()
+    #             np.random.shuffle(temp_directions)
+    #             for direction in temp_directions:
+    #                 # print(is_within_expel(last_dir[x, y, z], direction, expel))
+    #                 if not is_within_expel(last_dir[x, y, z], direction, expel):
+    #                     random_directions[x, y, z] = direction
+    #                     last_dir[x, y, z] = direction  # Update last_dir with the chosen direction
+    #                     break
+    # heads += random_directions
+
+    # v2
     random_directions = np.zeros((N, N, N, dimension))
     for x in range(N):
         for y in range(N):
             for z in range(N):
-                temp_directions = directions.copy()
-                np.random.shuffle(temp_directions)
-                for direction in temp_directions:
-                    # print(is_within_expel(last_dir[x, y, z], direction, expel))
-                    if not is_within_expel(last_dir[x, y, z], direction, expel):
-                        random_directions[x, y, z] = direction
-                        last_dir[x, y, z] = direction  # Update last_dir with the chosen direction
-                        break
+                random_directions[x, y, z] = choose_random_direction(last_dir[x, y, z], directions, expel)
+                last_dir[x, y, z] = random_directions[x, y, z]
     heads += random_directions
 
     # # old
