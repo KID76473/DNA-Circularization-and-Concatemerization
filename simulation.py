@@ -52,17 +52,11 @@ def is_within_expel(last_direction, direction, expel):
         dot_product = np.dot(last_direction, direction)
         norms_product = np.linalg.norm(last_direction) * np.linalg.norm(direction)
 
-        # Ensure norms_product is not zero to avoid division by zero
-        if norms_product == 0:
-            return False
-
         # Calculate the cosine of the angle and clamp it to the range [-1, 1]
         cos_angle = dot_product / norms_product
         cos_angle = np.clip(cos_angle, -1.0, 1.0)
 
-        # Calculate the angle
-        angle = np.arccos(cos_angle)
-
+        angle = np.arccos(cos_angle)  # cos(theta) = A x B / (|A| * |B|)
         return np.abs(angle) <= expel
     else:
         return False
@@ -84,24 +78,6 @@ for i in range(length):  # length
                         last_dir[x, y, z] = direction  # Update last_dir with the chosen direction
                         break
     heads += random_directions
-
-    # # new
-    # let heads move
-    # random_directions = np.zeros((N, N, N, 2))
-    # for x in range(N):
-    #     for y in range(N):
-    #         for z in range(N):
-    #             temp = directions.copy()
-    #             temp = np.where(temp != last_dir[x, y, z])
-    #             # out of bound error needs to be solved
-    #             start = np.where(directions == last_dir - expel)
-    #             start = start[0] * num_dir ** 2 + start[1] * num_dir + start[2]
-    #             end = np.where(directions == last_dir + expel)
-    #             end = end[0] * num_dir ** 2 + end[1] * num_dir + end[2]
-    #             for j in range(start, end):
-    #                 temp.delete(np.where(directions == directions[j]))
-    #             heads += temp[np.random.choice(len(temp), size=(N, N, N, 3))]
-    # last_dir = random_directions
 
     # # old
     # random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
