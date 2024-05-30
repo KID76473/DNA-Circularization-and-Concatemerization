@@ -1,5 +1,7 @@
 # simulation.py:
 the final version and go to output.txt to check output
+# reader.py
+to heads.npy and furthest.npy generated in simulation.py
 # original.py:
 the original version
 # oop.py:

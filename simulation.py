@@ -25,7 +25,6 @@ def is_within_expel(last_direction, direction, expel):
 # This method randomly chooses one direction from all available and normally distributed directions
 def choose_random_direction(last_direction, all_dir, expel):  # last_direction here is a 1 * 3 array
     if (last_direction == 0).all():
-        # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         return all_dir[np.random.choice(num_dir)]
 
     removed_num = int(expel * num_dir / np.pi)
@@ -55,31 +54,33 @@ def choose_random_direction(last_direction, all_dir, expel):  # last_direction h
 
 # dimension = 3 N = 64 length = 1000 concentration = 10 num_dir = 360 error = 0.0001
 
-# # check
+# # check validity
 # dimension = 3
 # N = 3  # number of molecules = N^3
 # length = 2
 # concentration = 2  # distance between every pair of adjacent points
-# heads = np.zeros((N, N, N, dimension))
-# furthest = np.zeros((N, N, N, dimension))
 # error = 1
-# num_dir = 4  # number of angles
+# num_dir = 360  # number of angles
 # furthest_avg = 0
 # last_dir = np.zeros([N, N, N, 2])
 # expel = 0  # angle of area that next extension will not be
+# heads = np.zeros((N, N, N, dimension))
+# furthest = np.zeros((N, N, N, dimension))
+# print_log = 0
 
 # test
 dimension = 3
 N = 32  # number of molecules = N^3
 length = 10000
 concentration = 2  # distance between every pair of adjacent points
-heads = np.zeros((N, N, N, dimension))
-furthest = np.zeros((N, N, N, dimension))
-error = 0.5
-num_dir = 90  # number of angles
+error = 1
+num_dir = 360  # number of angles
 furthest_avg = 0
 last_dir = np.zeros([N, N, N, 3])
 expel = np.pi / 4  # angle of area that next extension will not be
+heads = np.zeros((N, N, N, dimension))
+furthest = np.zeros((N, N, N, dimension))
+print_log = 0
 
 # set up all directions
 angles = np.linspace(0, 2 * np.pi, num_dir, endpoint=False)
@@ -99,7 +100,7 @@ for i in range(num_dir):  # angle of xy plane
 t0 = time.time()
 
 for i in range(length):  # length
-    # # v1
+    # # directions self-propelled
     # random_directions = np.zeros((N, N, N, dimension))
     # for x in range(N):
     #     for y in range(N):
@@ -114,18 +115,9 @@ for i in range(length):  # length
     #                     break
     # heads += random_directions
 
-    # v2
-    random_directions = np.zeros((N, N, N, dimension))
-    for x in range(N):
-        for y in range(N):
-            for z in range(N):
-                random_directions[x, y, z] = choose_random_direction(last_dir[x, y, z], directions, expel)
-                last_dir[x, y, z] = random_directions[x, y, z]
+    # any direction
+    random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
     heads += random_directions
-
-    # # old
-    # random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
-    # heads += random_directions
 
     # record if heads reach the furthest distance from tail
     heads_squared_dist = np.sum(heads ** 2, axis=-1)
@@ -133,10 +125,11 @@ for i in range(length):  # length
     mask = heads_squared_dist > furthest_squared_dist
     furthest[mask] = heads[mask]
 
-    print("-------------------------------")
-    print(f"the {i}th step")
-    print(time.time())
-    # print(f"heads: {heads}")
+    if print_log:
+        print("-------------------------------")
+        print(f"the {i}th step")
+        print(time.time())
+        print(f"heads: {heads}")
 
 t1 = time.time()
 
@@ -160,10 +153,11 @@ with open('output.txt', 'w') as f:
     sys.stdout = f
     print(f"The program started running at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t0))}")
     print(f"Dimension: {dimension}")
-    print(f"Number of molecule: {N ** 3}")
+    print(f"Length of one axis: {N}, and number of molecule: {N ** 3}")
     print(f"Length of DNA: {length}")
-    print(f"Each extension | distance between two adjacent molecules | radius of error: 1 | {concentration} | {error}")
-    print(f"Amount of directions: {num_dir}")
+    print(f"Each extension | distance between two adjacent molecules | radius of error:")
+    print(f" 1 | {concentration} | {error}")
+    print(f"Number of directions: {num_dir}")
 
     if concatemer == 0:
         print(f"Number of circularization is {circular}, and 0 concatemerization")
@@ -171,6 +165,8 @@ with open('output.txt', 'w') as f:
         print(f"Number of circularization is {circular}")
         print(f"Number of concatemerization is {concatemer}")
         print(f"circularization / concatemerization is {circular / concatemer}")
+    print(f"Rate of circularization: {circular / (N ** 3)}")
+    print(f"Rate of concatemerization: {concatemer / (N ** 3)}, which should be {np.pi * error ** 2 / (concentration ** 2)}")
     print(f"average of furthest distance from tail / length = {furthest_avg} / {length}")
     print(f"It takes {t1 - t0} seconds")
     print(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t1))}")
