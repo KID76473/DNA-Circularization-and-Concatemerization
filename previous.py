@@ -1,6 +1,56 @@
+import sys
 import time
 import numpy as np
 import matplotlib.pyplot as plt
+
+
+# v1
+# This method detects whether given direction is expelled
+def is_within_expel(last_direction, direction, expel):
+    if not (last_direction == 0).all():
+        dot_product = np.dot(last_direction, direction)
+        norms_product = np.linalg.norm(last_direction) * np.linalg.norm(direction)
+
+        # Calculate the cosine of the angle and clamp it to the range [-1, 1]
+        cos_angle = dot_product / norms_product
+        cos_angle = np.clip(cos_angle, -1.0, 1.0)
+
+        angle = np.arccos(cos_angle)  # cos(theta) = A x B / (|A| * |B|)
+        return np.abs(angle) <= expel
+    else:
+        return False
+
+
+# v2
+# This method randomly chooses one direction from all available and normally distributed directions
+def choose_random_direction(last_direction, all_dir, expel):  # last_direction here is a 1 * 3 array
+    if (last_direction == 0).all():
+        # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        return all_dir[np.random.choice(num_dir)]
+
+    removed_num = int(expel * num_dir / np.pi)
+    removed_dir = np.zeros((removed_num, 3))
+    for i in range(num_dir):
+        dot_product = np.dot(last_direction, directions[i])
+        # print(dot_product)
+        norm_product = np.linalg.norm(last_direction) * np.linalg.norm(directions[i])
+        # print(norm_product)
+        cosine = np.clip(dot_product / norm_product, -1.0, 1.0)
+        # print(cosine)
+        angle = np.arccos(cosine)
+        # print(np.shape(angle))
+        if angle <= expel:
+            np.append(removed_dir, directions[i])
+    mask_in_method = np.isin(all_dir, removed_dir)
+    avail_directions = all_dir[~mask_in_method]
+
+    indices = np.arange(num_dir - removed_num)
+    print(np.shape(indices))
+    probabilities = np.exp(-0.5 * ((indices - np.where(all_dir == -last_direction)) / 1) ** 2)
+    probabilities /= probabilities.sum()  # Normalize to create a probability distribution
+    idx = np.random.choice(indices, p=probabilities)
+
+    return avail_directions[idx]
 
 
 # dimension = 3 N = 64 length = 1000 concentration = 10 num_dir = 360 error = 0.0001
@@ -8,30 +58,28 @@ import matplotlib.pyplot as plt
 # # check
 # dimension = 3
 # N = 3  # number of molecules = N^3
-# length = 1000
+# length = 2
 # concentration = 2  # distance between every pair of adjacent points
 # heads = np.zeros((N, N, N, dimension))
-# # terminate = np.ones((N, N, N, dimension))
-# num_cir = []
-# num_con = []
-# error = 0.01
+# furthest = np.zeros((N, N, N, dimension))
+# error = 1
 # num_dir = 4  # number of angles
 # furthest_avg = 0
+# last_dir = np.zeros([N, N, N, 2])
+# expel = 0  # angle of area that next extension will not be
 
 # test
 dimension = 3
 N = 32  # number of molecules = N^3
 length = 10000
-concentration = 4  # distance between every pair of adjacent points
+concentration = 2  # distance between every pair of adjacent points
 heads = np.zeros((N, N, N, dimension))
 furthest = np.zeros((N, N, N, dimension))
-# terminate = np.ones((N, N, N, dimension))
-num_cir = []
-num_con = []
 error = 0.5
 num_dir = 90  # number of angles
 furthest_avg = 0
-
+last_dir = np.zeros([N, N, N, 3])
+expel = np.pi / 4  # angle of area that next extension will not be
 
 # set up all directions
 angles = np.linspace(0, 2 * np.pi, num_dir, endpoint=False)
@@ -42,7 +90,7 @@ for i in range(num_dir):  # angle of xy plane
         directions[i * num_dir + j, 2] = np.sin(angles[j])
         directions[i * num_dir + j, 1] = np.cos(angles[j]) * np.sin(angles[i])
         directions[i * num_dir + j, 0] = np.cos(angles[j]) * np.cos(angles[i])
-# print(len(directions))
+# print(np.shape(directions))
 
 # # test whether the length is 1 or not
 # for i in range(num_dir ** 2):  # determine precision
@@ -51,62 +99,44 @@ for i in range(num_dir):  # angle of xy plane
 t0 = time.time()
 
 for i in range(length):  # length
-    # new
-    random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
-    heads += random_directions
-
-    # # old
+    # # v1
+    # random_directions = np.zeros((N, N, N, dimension))
     # for x in range(N):
     #     for y in range(N):
     #         for z in range(N):
-    #             heads[x, y, z] +=  directions[np.random.choice(range(num_dir ** 2))]
+    #             temp_directions = directions.copy()
+    #             np.random.shuffle(temp_directions)
+    #             for direction in temp_directions:
+    #                 # print(is_within_expel(last_dir[x, y, z], direction, expel))
+    #                 if not is_within_expel(last_dir[x, y, z], direction, expel):
+    #                     random_directions[x, y, z] = direction
+    #                     last_dir[x, y, z] = direction  # Update last_dir with the chosen direction
+    #                     break
+    # heads += random_directions
 
+    # v2
+    random_directions = np.zeros((N, N, N, dimension))
     for x in range(N):
         for y in range(N):
             for z in range(N):
-                if heads[x, y, z, 0] ** 2 + heads[x, y, z, 1] ** 2 + heads[x, y, z, 2] ** 2 > \
-                        furthest[x, y, z, 0] ** 2 + furthest[x, y, z, 1] ** 2 + furthest[x, y, z, 2] ** 2:
-                    furthest[x, y, z, :] = heads[x, y, z, :]
+                random_directions[x, y, z] = choose_random_direction(last_dir[x, y, z], directions, expel)
+                last_dir[x, y, z] = random_directions[x, y, z]
+    heads += random_directions
 
-    # print("-------------------------------")
-    # print(f"the {i}th step")
+    # # old
+    # random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
+    # heads += random_directions
+
+    # record if heads reach the furthest distance from tail
+    heads_squared_dist = np.sum(heads ** 2, axis=-1)
+    furthest_squared_dist = np.sum(furthest ** 2, axis=-1)
+    mask = heads_squared_dist > furthest_squared_dist
+    furthest[mask] = heads[mask]
+
+    print("-------------------------------")
+    print(f"the {i}th step")
+    print(time.time())
     # print(f"heads: {heads}")
-
-    # count # of circularization
-
-    # # old
-    # circular = (np.abs(heads) < error)
-    # circular = circular[:, :, :, 0] * circular[:, :, :, 1] * circular[:, :, :, 2]
-    # num_cir.append(np.sum(circular))
-
-    # new
-    circular = (np.abs(heads) < error).all(axis=-1)
-    num_cir.append(np.sum(circular))
-
-    # print(f"circular: {num_cir[i]}")
-    # print(f"circular: {circular.astype(int)}")
-
-    # count # of concatemerization
-
-    # # old
-    # concatemer = (np.abs(heads) % concentration) < error
-    # concatemer = concatemer[:, :, :, 0] * concatemer[:, :, :, 1] * concatemer[:, :, :, 2]
-    # for x in range(N):
-    #     for y in range(N):
-    #         for z in range(N):
-    #             if np.abs(heads[x, y, z, 0]) < error and np.abs(heads[x, y, z, 1]) < error and np.abs(heads[x, y, z, 2]) < error:
-    #                 concatemer[x, y, z] = False
-    # num_con.append(np.sum(concatemer))
-
-    # new
-    concatemer = (np.abs(heads) % concentration < error).all(axis=-1)
-    concatemer &= ~circular
-    num_con.append(np.sum(concatemer))
-
-    # print(f"concatemer: {num_con[i]}")
-    # print(f"concatemer: {concatemer.astype(int)}")
-
-    # terminate = (np.ones((N, N, N), dtype=np.int8) - concatemer - circular)[..., np.newaxis]
 
 t1 = time.time()
 
@@ -119,23 +149,29 @@ for x in range(N):
             furthest_avg += (furthest[x, y, z, 0] ** 2 + furthest[x, y, z, 1] ** 2 + furthest[x, y, z, 2] ** 2) ** 1 / 2
 furthest_avg /= N ** 3
 
+circular = np.sum((np.abs(heads) < error).all(axis=-1))
+concatemer = np.sum((np.abs(heads) % concentration < error).all(axis=-1)) - circular
+
 # plt.plot(np.array(range(length)), leftover)
 # plt.show()
 
-print("-------------------------------")
-print(f"Dimension: {dimension}")
-print(f"Number of molecule: {N ** 3}")
-print(f"Length of DNA: {length}")
-print(f"(Each extension / distance between two adjacent molecules): 1 / {concentration}")
-print(f"Number of directions: {num_dir}")
-print(f"Error: {error}")
+output = sys.stdout
+with open('output.txt', 'w') as f:
+    sys.stdout = f
+    print(f"The program started running at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t0))}")
+    print(f"Dimension: {dimension}")
+    print(f"Number of molecule: {N ** 3}")
+    print(f"Length of DNA: {length}")
+    print(f"Each extension | distance between two adjacent molecules | radius of error: 1 | {concentration} | {error}")
+    print(f"Amount of directions: {num_dir}")
 
-if num_con[-1] == 0:
-    print(f"Number of circularization is {num_cir[-1]}, and 0 concatemerization")
-else:
-    print(f"Number of circularization is {num_cir[-1]}")
-    print(f"Number of concatemerization is {num_con[-1]}")
-    print(f"circularization / concatemerization is {num_cir[-1] / num_con[-1]}")
-print(f"average of furthest distance from tail / length = {furthest_avg} / {length}")
-print(f"It takes {t1 - t0} seconds")
-
+    if concatemer == 0:
+        print(f"Number of circularization is {circular}, and 0 concatemerization")
+    else:
+        print(f"Number of circularization is {circular}")
+        print(f"Number of concatemerization is {concatemer}")
+        print(f"circularization / concatemerization is {circular / concatemer}")
+    print(f"average of furthest distance from tail / length = {furthest_avg} / {length}")
+    print(f"It takes {t1 - t0} seconds")
+    print(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t1))}")
+    sys.stdout = output
