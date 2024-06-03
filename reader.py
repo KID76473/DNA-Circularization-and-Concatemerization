@@ -1,6 +1,8 @@
 import numpy as np
 
 
-data = np.load('heads.npy')
-# data = np.load('furthest.npy')
-print(data)
+heads = np.load('heads.npy')
+print(heads[0, 0, 0])
+
+furthest = np.load('furthest.npy')
+print(furthest[0, 0, 0])

@@ -52,6 +52,7 @@ def choose_random_direction(last_direction, all_dir, expel):  # last_direction h
     return avail_directions[idx]
 
 
+# 3mm test tube, 3.5nm each step
 # dimension = 3 N = 64 length = 1000 concentration = 10 num_dir = 360 error = 0.0001
 
 # # check validity
@@ -70,9 +71,9 @@ def choose_random_direction(last_direction, all_dir, expel):  # last_direction h
 
 # test
 dimension = 3
-N = 32  # number of molecules = N^3
-length = 10000
-concentration = 2  # distance between every pair of adjacent points
+N = 64  # number of molecules = N^3
+length = 1000
+concentration = 10  # distance between every pair of adjacent points
 error = 1
 num_dir = 360  # number of angles
 furthest_avg = 0
@@ -166,7 +167,7 @@ with open('output.txt', 'w') as f:
         print(f"Number of concatemerization is {concatemer}")
         print(f"circularization / concatemerization is {circular / concatemer}")
     print(f"Rate of circularization: {circular / (N ** 3)}")
-    print(f"Rate of concatemerization: {concatemer / (N ** 3)}, which should be {np.pi * error ** 2 / (concentration ** 2)}")
+    print(f"Rate of concatemerization: {concatemer / (N ** 3)}, which should be {4 * np.pi * error ** 3 / (concentration ** 3 * 3)}")
     print(f"average of furthest distance from tail / length = {furthest_avg} / {length}")
     print(f"It takes {t1 - t0} seconds")
     print(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t1))}")
