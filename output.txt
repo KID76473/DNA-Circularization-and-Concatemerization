@@ -1,15 +1,15 @@
-The program started running at 2024-06-03 15:10:23
+The program started running at 2024-06-04 10:34:06
 Dimension: 3
 Length of one axis: 64, and number of molecule: 262144
 Length of DNA: 1000
 Each extension | distance between two adjacent molecules | radius of error:
- 1 | 10 | 1
+ 1 | 29 | 1
 Number of directions: 360
-Number of circularization is 20
-Number of concatemerization is 430
-circularization / concatemerization is 0.046511627906976744
-Rate of circularization: 7.62939453125e-05
-Rate of concatemerization: 0.00164031982421875, which should be 0.0041887902047863905
-average of furthest distance from tail / length = 705.7557690273406 / 1000
-It takes 19.137434005737305 seconds
-The program finished at 2024-06-03 15:10:42
+Number of circularization is 18
+Number of concatemerization is 25
+circularization / concatemerization is 0.72
+Rate of circularization: 6.866455078125e-05
+Rate of concatemerization: 9.5367431640625e-05, which should be 0.0001717491576032798
+average of furthest distance from tail / length = 705.0637876989404 / 1000
+It takes 16.325011014938354 seconds
+The program finished at 2024-06-04 10:34:22
