@@ -136,31 +136,40 @@ save_output = 0  # save output in output.txt
 # test_directions(num_dir, get_directions(num_dir))
 
 save_summary = 1
-num = 100
+num = 10
 array_cir = np.zeros(num)
 array_con = np.zeros(num)
+for j in range(num):
+    # print(j)
+    concentration = 24 + j
+    for i in range(num):
+        print(str(j) + str(i))
+        array_cir[j] += simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)[0]
+        array_con[j] += simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)[1]
+    array_cir[j] /= num
+    array_con[j] /= num
+label = []
 for i in range(num):
-    print(i)
-    array_cir[i], array_con[i], _ = simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
+    label.append([array_cir[i], array_con[i]])
 
 if save_summary:
     np.save('circularization.npy', array_cir)
     np.save('concatemerization.npy', array_con)
 
-plt.figure(figsize=(10, 10))
+fig, ax = plt.figure(figsize=(10, 10))
 
-plt.subplot(2, 1, 1)
-plt.plot(array_cir, label='Circularization', color='blue')
-plt.plot(array_con, label='Concatemerization', color='red')
-plt.xlabel('Simulation Index')
-plt.ylabel('Count')
-plt.title('Circularization and Concatemerization over 100 Simulations with 29 units distance')
-plt.legend()
+# plt.subplot(2, 1, 1)
+# plt.plot(array_avg)
+# plt.xlabel('Simulation Index')
+# plt.title('Average Furthest Distance over 100 Simulations with 29 units distance')
+# plt.legend()
 
-plt.subplot(2, 1, 2)
-plt.plot(range(num), [1] * num, color='red')
-plt.scatter(range(num), array_cir / array_con)
-plt.title("Ratio of Circularization / Concatemerization over 100 Simulations with 29 units distance")
+# plt.subplot(2, 1, 2)
+plt.plot(range(24, 24 + num), [1] * num, color='red')
+plt.scatter(range(24, 24 + num), array_cir / array_con)
+for i, l in enumerate(label):
+    ax.text(24 + i, array_cir[i] / array_con[i], l)
+ax.set_title("Ratio of Circularization / Concatemerization \nover 10 Simulations for each distance from 24 to 34")
 plt.grid(True)
 
 plt.tight_layout()
