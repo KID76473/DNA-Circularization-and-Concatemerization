@@ -29,7 +29,7 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
     heads = np.zeros((N, N, N, dimension))
     furthest = np.zeros((N, N, N, dimension))
     furthest_avg = 0
-    t0 = time.time()
+    t0_func = time.time()
 
     for i in range(length):  # length
         # # directions self-propelled
@@ -63,10 +63,7 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
             print(time.time())
             print(f"heads: {heads}")
 
-    t1 = time.time()
-
-    np.save('heads.npy', heads)
-    np.save('furthest.npy', furthest)
+    t1_func = time.time()
 
     for x in range(N):
         for y in range(N):
@@ -79,10 +76,12 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
     concatemer = np.sum((np.abs(heads) % concentration < error).all(axis=-1)) - circular
 
     if save_output:
+        np.save('./data/heads.npy', heads)
+        np.save('./data/furthest.npy', furthest)
         output = sys.stdout
         with open('output.txt', 'w') as f:
             sys.stdout = f
-            print(f"The program started running at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t0))}")
+            print(f"The program started running at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t0_func))}")
             print(f"Dimension: {dimension}")
             print(f"Length of one axis: {N}, and number of molecule: {N ** 3}")
             print(f"Length of DNA: {length}")
@@ -100,8 +99,8 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
             print(
                 f"Rate of concatemerization: {concatemer / (N ** 3)}, which should be {4 * np.pi * error ** 3 / (concentration ** 3 * 3)}")
             print(f"average of furthest distance from tail / length = {furthest_avg} / {length}")
-            print(f"It takes {t1 - t0} seconds")
-            print(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t1))}")
+            print(f"It takes {t1_func - t0_func} seconds")
+            print(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t1_func))}")
             sys.stdout = output
 
     return circular, concatemer, furthest_avg
@@ -131,10 +130,12 @@ concentration = 29  # distance between every pair of adjacent points
 error = 1
 num_dir = 360  # number of angles
 print_log = 0  # print out heads every loop
-save_output = 0  # save output in output.txt
+save_output = 1  # save output in output.txt
 
 # test_directions(num_dir, get_directions(num_dir))
 
+# increasing distance and fixed DNA length
+t0 = time.time()
 save_summary = 1
 num = 10
 array_cir = np.zeros(num)
@@ -143,20 +144,40 @@ for j in range(num):
     # print(j)
     concentration = 24 + j
     for i in range(num):
-        print(str(j) + str(i))
-        array_cir[j] += simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)[0]
-        array_con[j] += simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)[1]
+        temp1, temp2, _ = simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
+        array_cir[j] += temp1
+        array_con[j] += temp2
+        print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
     array_cir[j] /= num
     array_con[j] /= num
+
+# # increasing DNA length and fixed distance
+# t0 = time.time()
+# save_summary = 1
+# num = 10
+# array_cir = np.zeros(num)
+# array_con = np.zeros(num)
+# for j in range(num):
+#     # print(j)
+#     length = 1000 + j * 1000
+#     for i in range(num):
+#         temp1, temp2, _ = simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
+#         array_cir[j] += temp1
+#         array_con[j] += temp2
+#         print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
+#     array_cir[j] /= num
+#     array_con[j] /= num
+
 label = []
 for i in range(num):
     label.append([array_cir[i], array_con[i]])
 
 if save_summary:
-    np.save('circularization.npy', array_cir)
-    np.save('concatemerization.npy', array_con)
+    np.save('./data/circularization.npy', array_cir)
+    np.save('./data/concatemerization.npy', array_con)
+    print("Data saved")
 
-fig, ax = plt.figure(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(6, 6))
 
 # plt.subplot(2, 1, 1)
 # plt.plot(array_avg)
@@ -169,7 +190,8 @@ plt.plot(range(24, 24 + num), [1] * num, color='red')
 plt.scatter(range(24, 24 + num), array_cir / array_con)
 for i, l in enumerate(label):
     ax.text(24 + i, array_cir[i] / array_con[i], l)
-ax.set_title("Ratio of Circularization / Concatemerization \nover 10 Simulations for each distance from 24 to 34")
+# ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from 24 to 34")
+ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
 plt.grid(True)
 
 plt.tight_layout()
