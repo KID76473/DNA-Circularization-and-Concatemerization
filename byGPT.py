@@ -50,8 +50,8 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
 
     t1 = time.time()
 
-    np.save('heads.npy', heads)
-    np.save('furthest.npy', furthest)
+    np.save('data/heads.npy', heads)
+    np.save('data/furthest.npy', furthest)
 
     for x in range(N):
         for y in range(N):

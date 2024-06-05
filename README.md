@@ -3,7 +3,7 @@ the final version and go to output.txt to check output
 # npyReader.py
 to heads.npy and furthest.npy generated in simulation.py
 # distance.png
-ratio of cir and con with increasing distance and fixed length
+ratio of cir and con with increasing distance and fixed DNA length
 # original.py:
 the original version
 # previous.py:

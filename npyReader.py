@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-heads = np.load('heads.npy')
-furthest = np.load('furthest.npy')
-cir = np.load('circularization.npy')
-con = np.load('concatemerization.npy')
+heads = np.load('data/heads.npy')
+furthest = np.load('data/furthest.npy')
+cir = np.load('data/circularization.npy')
+con = np.load('data/concatemerization.npy')
 
 num = 10
 print(f"circularization: {cir}")
@@ -15,13 +15,14 @@ label = []
 for i in range(num):
     label.append([cir[i], con[i]])
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6, 6))
 
 plt.plot(range(24, 24 + num), [1] * num, color='red')
 plt.scatter(range(24, 24 + num), cir / con)
 plt.xlabel("Distance between DNA Molecule(10 simulations for every distance)")
 plt.ylabel("Ratio of Circularization / Concatemerization")
-ax.set_title("Ratio of Circularization / Concatemerization \nover 10 Simulations for each distance from 24 to 34")
+# ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from 24 to 34")
+ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
 
 for i, l in enumerate(label):
     ax.text(24 + i, cir[i] / con[i], l)
