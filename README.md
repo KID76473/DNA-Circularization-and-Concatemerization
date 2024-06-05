@@ -2,10 +2,10 @@
 the final version and go to output.txt to check output
 # npyReader.py
 to heads.npy and furthest.npy generated in simulation.py
+# distance.png
+ratio of cir and con with increasing distance and fixed length
 # original.py:
 the original version
-# oop.py:
-using oop to simulate, abandoned now
 # previous.py:
 a temporary file saving last edition
 # byGPT.py:
