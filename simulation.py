@@ -134,24 +134,9 @@ save_output = 1  # save output in output.txt
 
 # test_directions(num_dir, get_directions(num_dir))
 
-# increasing distance and fixed DNA length
-t0 = time.time()
-save_summary = 1
-num = 10
-array_cir = np.zeros(num)
-array_con = np.zeros(num)
-for j in range(num):
-    # print(j)
-    concentration = 24 + j
-    for i in range(num):
-        temp1, temp2, _ = simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
-        array_cir[j] += temp1
-        array_con[j] += temp2
-        print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
-    array_cir[j] /= num
-    array_con[j] /= num
+# simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
 
-# # increasing DNA length and fixed distance
+# # increasing distance and fixed DNA length
 # t0 = time.time()
 # save_summary = 1
 # num = 10
@@ -159,7 +144,7 @@ for j in range(num):
 # array_con = np.zeros(num)
 # for j in range(num):
 #     # print(j)
-#     length = 1000 + j * 1000
+#     concentration = 24 + j
 #     for i in range(num):
 #         temp1, temp2, _ = simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
 #         array_cir[j] += temp1
@@ -167,32 +152,49 @@ for j in range(num):
 #         print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
 #     array_cir[j] /= num
 #     array_con[j] /= num
-
-label = []
-for i in range(num):
-    label.append([array_cir[i], array_con[i]])
-
-if save_summary:
-    np.save('./data/circularization.npy', array_cir)
-    np.save('./data/concatemerization.npy', array_con)
-    print("Data saved")
-
-fig, ax = plt.subplots(figsize=(6, 6))
-
-# plt.subplot(2, 1, 1)
-# plt.plot(array_avg)
-# plt.xlabel('Simulation Index')
-# plt.title('Average Furthest Distance over 100 Simulations with 29 units distance')
-# plt.legend()
-
-# plt.subplot(2, 1, 2)
-plt.plot(range(24, 24 + num), [1] * num, color='red')
-plt.scatter(range(24, 24 + num), array_cir / array_con)
-for i, l in enumerate(label):
-    ax.text(24 + i, array_cir[i] / array_con[i], l)
-# ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from 24 to 34")
-ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
-plt.grid(True)
-
-plt.tight_layout()
-plt.show()
+#
+# # # increasing DNA length and fixed distance
+# # t0 = time.time()
+# # save_summary = 1
+# # num = 10
+# # array_cir = np.zeros(num)
+# # array_con = np.zeros(num)
+# # for j in range(num):
+# #     # print(j)
+# #     length = 1000 + j * 1000
+# #     for i in range(num):
+# #         temp1, temp2, _ = simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
+# #         array_cir[j] += temp1
+# #         array_con[j] += temp2
+# #         print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
+# #     array_cir[j] /= num
+# #     array_con[j] /= num
+#
+# label = []
+# for i in range(num):
+#     label.append([array_cir[i], array_con[i]])
+#
+# if save_summary:
+#     np.save('./data/circularization.npy', array_cir)
+#     np.save('./data/concatemerization.npy', array_con)
+#     print("Data saved")
+#
+# fig, ax = plt.subplots(figsize=(6, 6))
+#
+# # plt.subplot(2, 1, 1)
+# # plt.plot(array_avg)
+# # plt.xlabel('Simulation Index')
+# # plt.title('Average Furthest Distance over 100 Simulations with 29 units distance')
+# # plt.legend()
+#
+# # plt.subplot(2, 1, 2)
+# plt.plot(range(24, 24 + num), [1] * num, color='red')
+# plt.scatter(range(24, 24 + num), array_cir / array_con)
+# for i, l in enumerate(label):
+#     ax.text(24 + i, array_cir[i] / array_con[i], l)
+# # ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from 24 to 34")
+# ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
+# plt.grid(True)
+#
+# plt.tight_layout()
+# plt.show()
