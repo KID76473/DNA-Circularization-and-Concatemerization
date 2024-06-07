@@ -125,7 +125,7 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
 # test
 dimension = 3
 N = 64  # number of molecules = N^3
-length = 500
+length = 2000
 concentration = 29  # distance between every pair of adjacent points
 error = 1
 num_dir = 360  # number of angles
@@ -193,8 +193,8 @@ plt.plot(range(start, start + num), [1] * num, color='red')
 plt.scatter(range(start, start + num), array_cir / array_con)
 for i, l in enumerate(label):
     ax.text(start + i, array_cir[i] / array_con[i], l)
-# ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from 24 to 34")
-ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
+ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from 24 to 34")
+# ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
 plt.grid(True)
 
 plt.tight_layout()
