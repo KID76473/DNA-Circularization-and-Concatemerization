@@ -14,7 +14,7 @@ def get_directions(num):
     return directions
 
 
-num = 10000
+num = 100000
 length = 1000
 num_dir = 360
 cir = 0
