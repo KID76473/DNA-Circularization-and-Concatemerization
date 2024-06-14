@@ -140,7 +140,7 @@ save_output = 1  # save output in output.txt
 t0 = time.time()
 save_summary = 1
 num = 10
-start = 16
+start = 35
 array_cir = np.zeros(num)
 array_con = np.zeros(num)
 for j in range(num):
@@ -193,7 +193,7 @@ plt.plot(range(start, start + num), [1] * num, color='red')
 plt.scatter(range(start, start + num), array_cir / array_con)
 for i, l in enumerate(label):
     ax.text(start + i, array_cir[i] / array_con[i], l)
-ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from 24 to 34")
+ax.set_title(f"Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from {start} to {start + 10}")
 # ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
 plt.grid(True)
 
