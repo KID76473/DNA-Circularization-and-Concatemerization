@@ -17,7 +17,7 @@ def eventual_ret_for(steps):
     n = (int) (steps / 2)
     total_prob = 0
     factor = Decimal((1 / 6) ** steps)
-    possible_config_factor = ma.factorial(steps)
+    possible_config_factor = Decimal(ma.factorial(steps))
     for i in range(0, n):
         for j in range(0, i):
             j_factorial = Decimal(ma.factorial(j))
@@ -26,7 +26,7 @@ def eventual_ret_for(steps):
             if (z_val < 0):
                 z_val = 0
             z_factorial = Decimal(ma.factorial(z_val))
-            val = j_factorial * k_factorial * z_factorial
+            val = Decimal(j_factorial * k_factorial * z_factorial)
             denom = val ** 2
             prob = (possible_config_factor) / (denom)
             total_prob = total_prob + prob
