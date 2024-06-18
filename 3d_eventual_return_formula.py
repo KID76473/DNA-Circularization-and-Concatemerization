@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from decimal import Decimal
 
 leng_start = 0
-leng_end = 900
+leng_end = 800
 
 x_vals = []
 y_vals = []
@@ -14,12 +14,12 @@ output_file = open("eventual_return_formula_output", "a")
 def eventual_ret_for(steps):
     #link to formula:
     #https://dspace.mit.edu/bitstream/handle/1721.1/100853/18-304-spring-2006/contents/projects/randomwalks.pdf
-    n = (int) (steps / 2)
+    n = steps // 2
     total_prob = 0
     factor = Decimal((1 / 6) ** steps)
     possible_config_factor = Decimal(ma.factorial(steps))
-    for i in range(0, n):
-        for j in range(0, i):
+    for i in range(0, n + 1):
+        for j in range(0, i + 1):
             j_factorial = Decimal(ma.factorial(j))
             k_factorial = Decimal(ma.factorial(i))
             z_val = n - j - i
