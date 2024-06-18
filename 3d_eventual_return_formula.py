@@ -2,6 +2,8 @@ import math as ma
 
 #even steps have a chance of returning, odd steps will not return
 def eventual_ret_for(steps):
+    #link to formula:
+    #https://dspace.mit.edu/bitstream/handle/1721.1/100853/18-304-spring-2006/contents/projects/randomwalks.pdf
     n = steps / 2
     prob = 0
     factor = (1 / 6) ** steps
