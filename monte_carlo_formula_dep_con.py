@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import sys
 
 radius = 1 #closeness of DNA spheres where concatemerization happens
-conc_start = 1
+conc_start = 1 #smaller the conc val (denoting the distance between 2 DNA spheres) the greater the concentration
 conc_end = 1000
 
 output_filename = open("monte_carlo_out", "a")
