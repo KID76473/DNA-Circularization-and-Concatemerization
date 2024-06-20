@@ -1,12 +1,18 @@
-import math as ma
+import mpmath as mp
 import matplotlib.pyplot as plt
-from decimal import Decimal
+
+#assuming 6 directions of movement
+#eventual return to the origin point
 
 leng_start = 0
-leng_end = 800
+leng_end = 2000
+
+direction = mp.fdiv(1, 6)
 
 x_vals = []
 y_vals = []
+
+mp.dps = 1000
 
 output_file = open("eventual_return_formula_output", "a")
 
@@ -16,23 +22,24 @@ def eventual_ret_for(steps):
     #https://dspace.mit.edu/bitstream/handle/1721.1/100853/18-304-spring-2006/contents/projects/randomwalks.pdf
     n = steps // 2
     total_prob = 0
-    factor = Decimal((1 / 6) ** steps)
-    possible_config_factor = Decimal(ma.factorial(steps))
+    factor = mp.power(direction, steps)
+    possible_config_factor = mp.factorial(steps)
     for i in range(0, n + 1):
         for j in range(0, i + 1):
             z_val = n - j - i
             if (z_val >= 0):
-                j_factorial = Decimal(ma.factorial(j))
-                k_factorial = Decimal(ma.factorial(i))
-                z_factorial = Decimal(ma.factorial(z_val))
-                val = Decimal(j_factorial * k_factorial * z_factorial)
-                denom = val ** 2
-                prob = (possible_config_factor) / (denom)
-                total_prob = total_prob + prob
-    total_prob = total_prob * factor
+                j_factorial = mp.factorial(j)
+                k_factorial = mp.factorial(i)
+                z_factorial = mp.factorial(z_val)
+                val_1 = mp.fmul(j_factorial, k_factorial)
+                val_2 = mp.fmul(val_1, z_factorial)
+                denom = mp.power(val_2, 2)
+                prob = mp.fdiv(possible_config_factor, denom)
+                total_prob = mp.fadd(total_prob, prob)
+    total_prob = mp.fmul(total_prob, factor)
     return total_prob
 
-for i in range(leng_start, leng_end, 2):
+for i in range(leng_start, leng_end + 2, 2): # + 2 to include the upper bound
     x_vals.append(i)
     return_prob = eventual_ret_for(i)
     y_vals.append(return_prob)
