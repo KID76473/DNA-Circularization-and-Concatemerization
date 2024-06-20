@@ -20,24 +20,21 @@ def eventual_ret_for(steps):
     possible_config_factor = Decimal(ma.factorial(steps))
     for i in range(0, n + 1):
         for j in range(0, i + 1):
-            j_factorial = Decimal(ma.factorial(j))
-            k_factorial = Decimal(ma.factorial(i))
             z_val = n - j - i
-            if (z_val < 0):
-                z_val = 0
-            z_factorial = Decimal(ma.factorial(z_val))
-            val = Decimal(j_factorial * k_factorial * z_factorial)
-            denom = val ** 2
-            prob = (possible_config_factor) / (denom)
-            total_prob = total_prob + prob
+            if (z_val >= 0):
+                j_factorial = Decimal(ma.factorial(j))
+                k_factorial = Decimal(ma.factorial(i))
+                z_factorial = Decimal(ma.factorial(z_val))
+                val = Decimal(j_factorial * k_factorial * z_factorial)
+                denom = val ** 2
+                prob = (possible_config_factor) / (denom)
+                total_prob = total_prob + prob
     total_prob = total_prob * factor
     return total_prob
 
-for i in range(leng_start, leng_end):
+for i in range(leng_start, leng_end, 2):
     x_vals.append(i)
-    return_prob = 0
-    if (i % 2 == 0): #even
-        return_prob = eventual_ret_for(i)
+    return_prob = eventual_ret_for(i)
     y_vals.append(return_prob)
     output_file.write(f"length: {i}; return probability: {return_prob} \n")
 
