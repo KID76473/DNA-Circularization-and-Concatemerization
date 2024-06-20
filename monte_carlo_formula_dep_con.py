@@ -4,7 +4,7 @@ import sys
 
 radius = 1 #closeness of DNA spheres where concatemerization happens
 conc_start = 1
-conc_end = 200
+conc_end = 1000
 
 output_filename = open("monte_carlo_out", "a")
 
