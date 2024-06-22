@@ -19,11 +19,11 @@ cirs = np.zeros(4)
 heads = np.zeros((4, 3))
 error = 1
 directions = get_directions(num_dir)
-concentration = 30
+distance = 30
 
 output_filename = sys.argv[1]
 with open(output_filename, 'w') as f:
-    f.write("Starting new run circularization\n")
+    f.write("Starting new run concatemerization\n")
 
 t0 = time.time()
 i = 0
@@ -37,7 +37,7 @@ while i < num:
             heads[index] = head
     # count number of circularization
     for j in range(len(heads)):
-        if (np.abs(heads[j]) < error).all():
+        if (np.abs(heads[j]) % distance < error).all():
             cirs[j] += 1
         i += 1
     n = 10000
