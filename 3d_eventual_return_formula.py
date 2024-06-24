@@ -12,9 +12,9 @@ direction = mp.fdiv(1, 6)
 x_vals = []
 y_vals = []
 
-mp.dps = 1000
+mp.dps = 10000
 
-output_file = open("eventual_return_formula_output", "a")
+output_file = open("eventual_return_formula_output_2", "a")
 
 #even steps have a chance of returning, odd steps will not return
 def eventual_ret_for(steps):
