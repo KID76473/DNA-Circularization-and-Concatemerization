@@ -18,6 +18,8 @@ output_file = open("data/other_eventual_return_formula_output_3", "a")
 
 #even steps have a chance of returning, odd steps will not return
 def eventual_ret_for(steps):
+    #formula:
+    #https://math.dartmouth.edu/~prob/prob/prob.pdf pg 486
     n = steps // 2
     total_prob = 0
     factor = mp.power(direction, steps)
