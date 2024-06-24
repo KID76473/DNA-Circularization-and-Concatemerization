@@ -20,7 +20,7 @@ y_vals = []
 
 start_pos = [0, 0, 0] #[x, y, z]
 
-file_output = open("rand_walk_output", "w")
+file_output = open("simple_3d_rand_walk_output", "w")
 
 def random_walk(pos, dir):
     if dir == 0: #east
