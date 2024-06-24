@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 x_vals =[]
 y_vals = []
 
-file = open("eventual_return_formula_output_1", "r")
+file = open("data/other_eventual_return_formula_output_3", "r")
 
 for line in file:
     split = line.split()
