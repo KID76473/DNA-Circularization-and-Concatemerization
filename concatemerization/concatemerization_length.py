@@ -31,7 +31,7 @@ while i < num:
     # every case
     head = np.zeros(3)
     for j in range(length):
-        head += directions[np.random.choice(num_dir ** 2)]
+        head += directions[np.random.choice(num_dir * num_dir / 2)]
         if j in [499, 999, 1499, 1999]:
             index = int(j / 500)
             heads[index] = head
