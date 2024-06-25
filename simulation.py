@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # set up all directions
 def get_directions(num):
-    directions = np.zeros((num_dir ** 2, dimension))
+    directions = np.zeros((num ** 2, dimension))
     angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
     # print(np.shape(directions))
     for i in range(num):  # angle of xy plane
