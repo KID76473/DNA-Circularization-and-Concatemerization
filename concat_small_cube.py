@@ -106,8 +106,8 @@ for num in len_list:
 
         if all(concat_result):
             total_concat += 1
-            #for debuggin
-            print("concat")
+            #for debugging
+            # print("concat")
 
         # making sure the file is running
         # if i % 100000 == 0:
