@@ -15,8 +15,8 @@ num_2000 = []
 
 # Process each file
 for i in range(32):
-    cir_filename = f"output_thread_{i}.txt"  # circularization
-    con_filename = f"concat_thread_{i}.txt"  # concatemerization
+    cir_filename = f"data/output_thread_{i}.txt"  # circularization
+    con_filename = f"data/concat_thread_{i}.txt"  # concatemerization
     with open(cir_filename, 'r') as file:
         lines = file.readlines()
         # Extract the relevant lines (last 4-5 lines)

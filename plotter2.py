@@ -7,7 +7,7 @@ lengths = []
 
 # Loop through all files named concat_thread_x_concentration.txt
 for i in range(32):
-    filename = f'concat_thread_{i}_concentration.txt'
+    filename = f'data/concat_thread_{i}_concentration.txt'
 
     with open(filename, 'r') as file:
         lines = file.readlines()
@@ -26,7 +26,7 @@ for i in range(32):
                 break
 
 # Write the lengths of each array into a file called test_output.txt
-with open('test_output', 'w') as f:
+with open('data/test_output', 'w') as f:
     for i, length in enumerate(lengths):
         f.write(f'Array {i}: Length {length}\n')
 
