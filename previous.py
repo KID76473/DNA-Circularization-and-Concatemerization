@@ -156,7 +156,7 @@ concatemer = np.sum((np.abs(heads) % concentration < error).all(axis=-1)) - circ
 # plt.show()
 
 output = sys.stdout
-with open('output.txt', 'w') as f:
+with open('data/output.txt', 'w') as f:
     sys.stdout = f
     print(f"The program started running at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t0))}")
     print(f"Dimension: {dimension}")
