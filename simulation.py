@@ -79,7 +79,7 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
         np.save('./data/heads.npy', heads)
         np.save('./data/furthest.npy', furthest)
         output = sys.stdout
-        with open('output.txt', 'w') as f:
+        with open('data/output.txt', 'w') as f:
             sys.stdout = f
             print(f"The program started running at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t0_func))}")
             print(f"Dimension: {dimension}")

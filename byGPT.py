@@ -65,7 +65,7 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
 
     output = sys.stdout
     if save_output:
-        with open('output.txt', 'w') as f:
+        with open('data/output.txt', 'w') as f:
             sys.stdout = f
             print(f"The program started running at {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(t0))}")
             print(f"Dimension: {dimension}")

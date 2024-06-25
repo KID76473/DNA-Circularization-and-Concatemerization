@@ -6,7 +6,7 @@ radius = 1 #closeness of DNA spheres where concatemerization happens
 conc_start = 1 #smaller the conc val (denoting the distance between 2 DNA spheres) the greater the concentration
 conc_end = 2001
 
-output_filename = open("monte_carlo_out", "a")
+output_filename = open("data/monte_carlo_out", "a")
 
 x_vals = []
 y_vals = []
