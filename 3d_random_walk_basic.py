@@ -1,17 +1,11 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import random as rand
+import time
 
 #this can be generalized to 2d as well using numpy
 
 #self circularization can be represented as a 2d or 3d random walk
 
-num_dir = 6
-
-total_cir = 0
-
-num_trials = 10000000
-len = 1000
+num_trials = 1000
 
 len_list = [500, 1000, 1500, 2000]
 
@@ -20,7 +14,9 @@ y_vals = []
 
 start_pos = [0, 0, 0] #[x, y, z]
 
-file_output = open("simple_3d_rand_walk_output", "w")
+file_output = open("data/basic_3d_rand_walk_output", "w")
+
+t0 = time.time()
 
 def random_walk(pos, dir):
     if dir == 0: #east
@@ -41,17 +37,27 @@ for num in len_list:
     total_cir = 0
     for i in range(num_trials + 1):
         pos = [0, 0, 0]
+
         for j in range(0, num):
             direction = rand.randint(0, 5)
             pos = random_walk(pos, direction)
+
         if pos == start_pos:
             total_cir += 1
+        
+        # if i % 100000 == 0: #making sure the file is running
+        #     print(f"length: {num} total_cir: {total_cir} total: {num_trials} \n")
+        
     x_vals.append(num)
     y_vals.append(total_cir)
     file_output.write(f"length: {num} total_cir: {total_cir} total: {num_trials} \n")
 
+t1 = time.time()
 
-#print(f"circularized: {total_cir}; total trials: {num_trials}")
+print(f"time taken: {t1 - t0}")
+file_output.write(f"time taken: {t1 - t0}\n")
+
+file_output.close
 
 print(x_vals)
 print(y_vals)
