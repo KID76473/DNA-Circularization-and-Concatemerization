@@ -14,7 +14,7 @@ y_vals = []
 
 mp.dps = 10000
 
-output_file = open("eventual_return_formula_output_2", "a")
+output_file = open("data/eventual_return_formula_output_1", "a")
 
 #even steps have a chance of returning, odd steps will not return
 def eventual_ret_for(steps):
@@ -44,6 +44,8 @@ for i in range(leng_start, leng_end + 2, 2): # + 2 to include the upper bound
     return_prob = eventual_ret_for(i)
     y_vals.append(return_prob)
     output_file.write(f"length: {i}; return probability: {return_prob} \n")
+
+output_file.close
 
 plt.plot(x_vals, y_vals)
 plt.xlabel('length')

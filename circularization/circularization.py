@@ -22,7 +22,7 @@ directions = get_directions(num_dir)
 concentration = 30
 
 output_filename = sys.argv[1]
-with open(output_filename, 'w') as f:
+with open("data/" + str(output_filename), 'w') as f:
     f.write("Starting new run circularization\n")
 
 t0 = time.time()
@@ -43,7 +43,7 @@ while i < num:
     n = 10000
     # write the result to file every 100000 loops
     if i % n == 0:
-        with open(output_filename, 'a') as f:
+        with open("data/" + str(output_filename), 'a') as f:
             f.write(f"{i} loops\n")
             for k in range(len(cirs)):
                 if cirs[k] == 0:
