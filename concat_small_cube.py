@@ -7,17 +7,67 @@
 # we say a cir event occured if all pts of the start_pos and end pt of rand walk are <=1
 # note: this model does not account for the case when the end point is both near the starting_pos and a randomly generated tail
 
+
+# link to the conversion formulas: https://docs.google.com/document/d/14pQsaA6IZTagrJpcgAL1EwJqNiYf2U6codAn_8r85zs/edit?usp=sharing 
+
+
 import random as rand
 import mpmath as mp 
 import time
 
 error = 1
 
-num_trials = 100
+num_idxs = 3
 
-concentration = mp.fdiv(1, 5) # 1 molecules per 5 unit^3
+num_dir = 6
 
-domain_space = mp.fdiv(1, concentration)
+num_trials = 10
+
+# grams per nucleotide
+nucleo_mass = mp.fmul(8.08, mp.power(10, -22))
+
+# grams per mole of bp
+molecular_weight_bp = mp.fmul(2, 487)
+
+# case grams / liters (need to fix the consts)
+
+grams = mp.fmul(1, mp.power(10, -9))
+
+liters = mp.fmul(1, mp.power(10, -6))
+
+numerator = mp.fdiv(grams, nucleo_mass)
+
+vol_in_cub_meters = mp.fmul(liters, mp.power(10, -3))
+
+# case moles / liters
+
+moles_DNA = 1
+
+bp = 500
+
+molar_mass_dsDNA = mp.fmul(bp, molecular_weight_bp)
+
+grams_of_nucleotides = mp.fmul(molar_mass_dsDNA, moles_DNA)
+
+# number of nucleotides
+numerator = mp.fdiv(grams_of_nucleotides, nucleo_mass)
+
+# both cases share the same denominator bc both have liters as a denominator
+denominator = mp.fdiv(vol_in_cub_meters, mp.power(mp.fmul(3.4, 10**-10), 3))
+
+
+concentration = mp.fdiv(numerator, denominator) #x molecule of nucleotide per y steps^3 (nucleo^3)
+print(numerator)
+print(denominator)
+print(concentration)
+
+# 1 / inverse of the concentration (so we only have to generate 1 point)
+domain_space = concentration ** -1  # denom here is the size of the cube for 1 dna molecule
+print(domain_space)
+
+# cube root to get the nucleotide dimension (instead of nucleotide^3)
+domain_space = mp.cbrt(domain_space)
+print(domain_space)
 
 domain_space_halved = mp.fdiv(domain_space, 2)
 
@@ -62,7 +112,7 @@ def list_comp(list1: list, list2: list):
 for num in len_list:
     total_cir = 0
     total_concat = 0
-    for i in range(num_trials + 1):
+    for i in range(num_trials):
         pos = [0, 0, 0]
 
         # 3d rand walk
@@ -79,8 +129,8 @@ for num in len_list:
         cube_boundaries = []
 
         # 0 and 3 for idx = 0, 1 and 4 for idx = 1, 2 and 5 for idx = 2
-        for i in range(0, 6):
-            idx = i % 3
+        for i in range(0, num_dir):
+            idx = i % num_idxs
             if (i % 2 == 0): #even
                 val = pos[idx] - domain_space_halved
                 cube_boundaries.append(val)
@@ -95,23 +145,23 @@ for num in len_list:
         tail = [x_pos, y_pos, z_pos]
         
         #for debugging
-        print(f"pos {pos}")
-        print(f"tail {tail}")
-        print(f"domain half {domain_space_halved}")
-        print(f"0 {cube_boundaries[0]}")
-        print(f"3 {cube_boundaries[3]}")
+        # print(f"pos {pos}")
+        # print(f"tail {tail}")
+        # print(f"domain half {domain_space_halved}")
+        # print(f"0 {cube_boundaries[0]}")
+        # print(f"3 {cube_boundaries[3]}")
 
         # concat case
         concat_result = list_comp(pos, tail)
 
         if all(concat_result):
             total_concat += 1
-            #for debugging
+            #for debuggin
             # print("concat")
 
         # making sure the file is running
-        # if i % 100000 == 0:
-        #     print(f"length: {num} total_cir: {total_cir} total: {num_trials} \n")
+        if i % 100 == 0:
+            print(f"length: {num} total_cir: {total_cir} total_concat: {total_concat} concentration: {concentration} total: {num_trials} \n")
         
     cir_vals.append(total_cir)
     concat_vals.append(total_concat)
