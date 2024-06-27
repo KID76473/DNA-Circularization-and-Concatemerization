@@ -41,6 +41,7 @@ while i < num:
     for j in range(len(heads)):
         if (np.abs(heads[j]) < error).all():
             cirs[j] += 1
+    # count number of concatemerization
     for c in range(len(concentrations)):
         tail = np.random.uniform(0, concentrations[c], size=2)
         if (np.abs(heads[-1]) % concentrations[c] - tail < error).all():
