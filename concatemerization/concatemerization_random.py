@@ -42,7 +42,8 @@ while i < num:
         if (np.abs(heads[j]) < error).all():
             cirs[j] += 1
     for c in range(len(concentrations)):
-        if (np.abs(heads[-1]) % concentrations[c] < error).all():
+        tail = np.random.uniform(0, concentrations[c], size=2)
+        if (np.abs(heads[-1]) % concentrations[c] - tail < error).all():
             cons[c] += 1
     i += 1
     n = 10000
@@ -55,6 +56,6 @@ while i < num:
                     f.write(f"i: {(k + 1) * 500}, head: {heads[k]}, no cir\n")
                 else:
                     f.write(f"i: {(k + 1) * 500}, head: {heads[k]}, cir: {cirs[k]}, cir / num: {cirs[k] / i}\n")
-            f.write("concatemerization:")
-            f.write(f"concentrations   : {range(2, 21)}")
-            f.write(f"concatemerization: {concentrations}")
+            f.write("concatemerization:\n")
+            f.write(f"concentrations   : {range(2, 21)}\n")
+            f.write(f"concatemerization: {concentrations}\n")
