@@ -20,6 +20,7 @@ output_file = open("data/other_eventual_return_formula_output_3", "a")
 def eventual_ret_for(steps):
     #formula:
     #https://math.dartmouth.edu/~prob/prob/prob.pdf pg 486
+    #https://sites.math.washington.edu/~morrow/336_19/papers19/Legrand.pdf
     n = steps // 2
     total_prob = 0
     factor = mp.power(direction, steps)
