@@ -16,7 +16,7 @@ y_vals = []
 
 start_pos = [0, 0, 0] #[x, y, z]
 
-file_output = open("basic_3d_rand_walk_output", "w")
+file_output = open("data/basic_3d_rand_walk_output", "w")
 
 t0 = time.time()
 
