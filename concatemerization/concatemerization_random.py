@@ -15,7 +15,7 @@ def get_directions(num_dir):
 
 
 def get_6_directions():
-    return [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1], ]
+    return [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
 
 
 num = 1000000000000
@@ -37,18 +37,21 @@ while i < num:
     # every case
     head = np.zeros(3)
     for j in range(length):
-        head += directions[np.random.choice(num_dir ** 2)]
+        # head += directions[np.random.choice(num_dir ** 2)]  # many directions
+        head += get_6_directions()[np.random.choice(6)]  # 6 directions
         if j in [499, 999, 1499, 1999]:
             index = int(j / 500)
             heads[index] = head
     # count number of circularization
     for j in range(len(heads)):
         if (np.abs(heads[j]) < error).all():
+            # with open("data/" + str(output_filename), 'a') as f:
+            #     f.write(f"heads[j]: {heads[j]}\n")
             cirs[j] += 1
     # count number of concatemerization
     for c in range(len(concentrations)):
-        tail = np.random.uniform(0, concentrations[c], size=2)
-        if (np.abs(heads[-1]) % concentrations[c] - tail < error).all():
+        tail = np.random.uniform(0, concentrations[c], size=3)
+        if not (np.abs(heads[-1]) < error).all() and (np.abs(heads[-1]) % concentrations[c] - tail < error).all():
             cons[c] += 1
     i += 1
     n = 10000
@@ -56,11 +59,12 @@ while i < num:
     if i % n == 0:
         with open("data/" + str(output_filename), 'a') as f:
             f.write(f"{i} loops\n")
+            f.write("circularization:\n")
             for k in range(len(cirs)):
                 if cirs[k] == 0:
-                    f.write(f"i: {(k + 1) * 500}, head: {heads[k]}, no cir\n")
+                    f.write(f"i: {(k + 1) * 500}, no cir\n")
                 else:
-                    f.write(f"i: {(k + 1) * 500}, head: {heads[k]}, cir: {cirs[k]}, cir / num: {cirs[k] / i}\n")
-            f.write("concatemerization:\n")
-            f.write(f"concentrations   : {range(2, 21)}\n")
-            f.write(f"concatemerization: {concentrations}\n")
+                    f.write(f"i: {(k + 1) * 500}, cir: {cirs[k]}, cir / num: {cirs[k] / i}\n")
+            f.write("concatemerization(length: 2000):\n")
+            f.write(f"number: {cons}\n")
+            f.write(f"rate: {cons / i}\n")
