@@ -62,5 +62,5 @@ while i < num:
                 else:
                     f.write(f"i: {(k + 1) * 500}, head: {heads[k]}, cir: {cirs[k]}, cir / num: {cirs[k] / i}\n")
             f.write("concatemerization:\n")
-            f.write(f"concentrations   : {range(2, 21)}\n")
-            f.write(f"concatemerization: {concentrations}\n")
+            f.write(f"concentrations   : {concentrations}\n")
+            f.write(f"concatemerization: {cons}\n")
