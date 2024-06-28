@@ -14,6 +14,10 @@ def get_directions(num_dir):
     return d
 
 
+def get_6_directions():
+    return [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1], ]
+
+
 num = 1000000000000
 length = 2000
 num_dir = 360
