@@ -7,10 +7,6 @@
 # we say a cir event occured if all pts of the start_pos and end pt of rand walk are <=1
 # note: this model does not account for the case when the end point is both near the starting_pos and a randomly generated tail
 
-
-# link to the conversion formulas: https://docs.google.com/document/d/14pQsaA6IZTagrJpcgAL1EwJqNiYf2U6codAn_8r85zs/edit?usp=sharing 
-
-
 import random as rand
 import mpmath as mp 
 import time
@@ -21,13 +17,16 @@ num_idxs = 3
 
 num_dir = 6
 
-num_trials = 10
+num_trials = 1000
 
 # grams per nucleotide
 nucleo_mass = mp.fmul(8.08, mp.power(10, -22))
 
 # grams per mole of bp
 molecular_weight_bp = mp.fmul(2, 487)
+
+# avagrado's number
+av_num = mp.fmul(6.02, mp.power(10, 23))
 
 # case grams / liters (need to fix the consts)
 
@@ -45,15 +44,15 @@ moles_DNA = 1
 
 bp = 500
 
-molar_mass_dsDNA = mp.fmul(bp, molecular_weight_bp)
+nucleotides_per_dsDNA_molecule = mp.fmul(bp, 2)
 
-grams_of_nucleotides = mp.fmul(molar_mass_dsDNA, moles_DNA)
+tot_nucleotides = mp.fmul(nucleotides_per_dsDNA_molecule, av_num)
 
-# number of nucleotides
-numerator = mp.fdiv(grams_of_nucleotides, nucleo_mass)
+tot_nucleo_respect_to_moles = mp.fmul(tot_nucleotides, moles_DNA)
 
 # both cases share the same denominator bc both have liters as a denominator
-denominator = mp.fdiv(vol_in_cub_meters, mp.power(mp.fmul(3.4, 10**-10), 3))
+# 10^-30 because approximating the volume of a nucleotide as a cube
+denominator = mp.fdiv(vol_in_cub_meters, mp.power(10, -30))
 
 
 concentration = mp.fdiv(numerator, denominator) #x molecule of nucleotide per y steps^3 (nucleo^3)
