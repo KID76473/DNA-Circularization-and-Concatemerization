@@ -104,7 +104,7 @@ def visualize_directions(directions):
 num_dir = 30
 dimension = 3
 # directions = get_directions(num_dir)
-directions = get_propelled_directions(num_dir, [0, 1, 0], np.pi / 2)
+directions = get_propelled_directions(num_dir, [0, 1, 0], np.pi / 6)
 # print(directions)
 test_directions(directions)
 # print(len(directions))
