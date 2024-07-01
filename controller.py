@@ -15,7 +15,7 @@ def run_circularization(thread_id, temp):
                                     capture_output=True, text=True)
         else:  # circularization
             output_filename = f'circle_thread_{thread_id}.txt'
-            result = subprocess.run(['python', 'circularization.py', output_filename], capture_output=True, text=True)
+            result = subprocess.run(['python', './circularization/circularization.py', output_filename], capture_output=True, text=True)
         if result.returncode != 0:
             return f"An error occurred in thread {thread_id}: {result.stderr}"
         return output_filename
@@ -26,7 +26,7 @@ def run_circularization(thread_id, temp):
 # Main function to execute the script using multi-threading
 def main():
     num_threads = 32
-    temp = 1  # 0 for circularization 1 for concatemerization
+    temp = 0  # 0 for circularization 1 for concatemerization
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
         futures = [executor.submit(run_circularization, i, temp) for i in range(num_threads)]
