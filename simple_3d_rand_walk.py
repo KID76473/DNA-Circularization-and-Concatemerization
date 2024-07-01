@@ -1,8 +1,8 @@
 import random as rand
-from numba import jit, clear_cache
+from numba import jit
 import numpy as np
 
-clear_cache()
+# clear_cache()
 
 #this can be generalized to 2d as well using numpy
 
