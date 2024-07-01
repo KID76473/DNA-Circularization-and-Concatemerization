@@ -1,21 +1,8 @@
 import numpy as np
 import sys
-
-
-def get_directions(num_dir):
-    d = np.zeros((num_dir * num_dir, 3))
-    angles = np.linspace(0, 2 * np.pi, num_dir, endpoint=False)  # xy
-    phi_angles = np.linspace(0, 2 * np.pi, num_dir, endpoint=False)  # z
-    for i in range(num_dir):  # angle of xy plane
-        for j in range(num_dir):  # angle of z plane
-            d[i * num_dir + j, 2] = np.sin(phi_angles[j])
-            d[i * num_dir + j, 1] = np.cos(phi_angles[j]) * np.sin(angles[i])
-            d[i * num_dir + j, 0] = np.cos(phi_angles[j]) * np.cos(angles[i])
-    return d
-
-
-def get_6_directions():
-    return [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'parent_dir')))
+import direction_functions
 
 
 num = 1000000000000
@@ -26,7 +13,8 @@ concentrations = np.linspace(2, 20, 19)
 cons = np.zeros(19)
 heads = np.zeros((4, 3))
 error = 1
-directions = get_directions(num_dir)
+directions = direction_functions.get_directions(num_dir)
+deg = np.pi / 2
 
 output_filename = sys.argv[1]
 with open("data/" + str(output_filename), 'w') as f:
@@ -36,9 +24,24 @@ i = 0
 while i < num:
     # every case
     head = np.zeros(3)
+    last = np.array([0, 0, 0])
     for j in range(length):
-        # head += directions[np.random.choice(num_dir ** 2)]  # many directions
-        head += get_6_directions()[np.random.choice(6)]  # 6 directions
+        # # many directions
+        # head += directions[np.random.choice(num_dir ** 2)]
+
+        # # 6 directions
+        # head += direction_functions.get_6_directions()[np.random.choice(6)]
+
+        # 5 directions
+        temp = direction_functions.get_5_directions(last)[np.random.choice(6)]
+        head += temp
+        last = temp
+
+        # # choose random direction based on the last step
+        # temp = direction_functions.get_propelled_directions(num_dir, last, deg)
+        # head += temp
+        # last = temp
+
         if j in [499, 999, 1499, 1999]:
             index = int(j / 500)
             heads[index] = head
