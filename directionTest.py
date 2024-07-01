@@ -15,14 +15,13 @@ def get_directions(num):
     return d
 
 
+# generates directions based on last step
 def get_propelled_directions(num, last, deg):
     phi = np.arcsin(last[2])
     theta = np.arcsin(last[1] / np.cos(phi))
-    # print(theta, phi, deg)
     theta_angles = helper(np.linspace(0, 2 * np.pi, num, endpoint=False), theta - deg, theta + deg)
     phi_angles = helper(np.linspace(0, 2 * np.pi, num, endpoint=False), phi - deg, phi + deg)
     d = []
-    print(len(theta_angles), len(phi_angles))
     for i in range(len(theta_angles)):  # angle of xy plane
         for j in range(len(phi_angles)):  # angle of z plane
             arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
@@ -32,23 +31,17 @@ def get_propelled_directions(num, last, deg):
     return np.array(d)
 
 
+# removes propelled angles
 def helper(angles, a, b):
-    if a < 0:
-        print("a < 0")
-        temp = a
-        a = b
-        b = temp + 2 * np.pi
-        i = 0
-        while i < len(angles):
-            if a > angles[i] or angles[i] > b:
-                angles = np.delete(angles, i)
-            else:
-                i += 1
-    elif b >= 2 * np.pi:
-        print("b > 2pi")
-        temp = b
-        b = a
-        a = 2 * np.pi - temp
+    if a < 0 or b >= 2 * np.pi:  # range out of 0 or 2pi
+        if a < 0:
+            temp = a
+            a = b
+            b = temp + 2 * np.pi
+        elif b >= 2 * np.pi:
+            temp = b
+            b = a
+            a = 2 * np.pi - temp
         i = 0
         while i < len(angles):
             if a > angles[i] or angles[i] > b:
@@ -56,11 +49,8 @@ def helper(angles, a, b):
             else:
                 i += 1
     else:
-        print("in the range")
-        print(a, b)
         i = 0
         while i < len(angles):
-            print(angles[i])
             if a < angles[i] < b:
                 angles = np.delete(angles, i)
             else:
@@ -68,7 +58,7 @@ def helper(angles, a, b):
     return angles
 
 
-# test whether the length is 1 or not
+# test whether the length is 1 or not and repetition
 def test_directions(directions):
     seen = [[]]
     repeated = 0
@@ -101,10 +91,10 @@ def visualize_directions(directions):
     plt.show()
 
 
-num_dir = 30
+num_dir = 90
 dimension = 3
 # directions = get_directions(num_dir)
-directions = get_propelled_directions(num_dir, [0, 1, 0], np.pi / 6)
+directions = get_propelled_directions(num_dir, [0, 1, 0], np.pi / 12)
 # print(directions)
 test_directions(directions)
 # print(len(directions))
