@@ -37,7 +37,7 @@ def random_walk(pos, dir):
     return pos
 
 
-# @jit(target_backend='cuda')
+# @jit()
 def main():
     with open("data/completed_3d_rand_walk_100_mil_trials", "w") as file_output:
         for num in len_list:
