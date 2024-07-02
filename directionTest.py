@@ -1,19 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import direction_functions
 
-# set up all directions
-def get_directions(num):
-    directions = np.zeros((num * num, dimension))
-    angles = np.linspace(0, 2 * np.pi, num, endpoint=False)  # xy
-    phi_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)  # z
-    for i in range(num):  # angle of xy plane
-        for j in range(num):  # angle of z plane
-            directions[i * num + j, 2] = np.sin(phi_angles[j])
-            directions[i * num + j, 1] = np.cos(phi_angles[j]) * np.sin(angles[i])
-            directions[i * num + j, 0] = np.cos(phi_angles[j]) * np.cos(angles[i])
-    return directions
 
-# test whether the length is 1 or not
+# test whether the length is 1 or not and repetition
 def test_directions(directions):
     seen = [[]]
     repeated = 0
@@ -25,14 +15,15 @@ def test_directions(directions):
         if temp not in seen:
             seen.append(temp)
         else:
-            print("!!!repeated!!!")
-            print(f"d is {d}")
-            repeated_directions = seen[seen.index(temp)]
-            print(f"repeated is [{repeated_directions}]")
-            print(f"difference is {d - repeated_directions}")
+            # print("!!!repeated!!!")
+            # print(f"d is {d}")
+            # repeated_directions = seen[seen.index(temp)]
+            # print(f"repeated is [{repeated_directions}]")
+            # print(f"difference is {d - repeated_directions}")
             repeated += 1
     # print(len(seen))
     print(f"repeated: {repeated}, overall: {len(directions)}, ratio: {repeated / len(directions)}")
+
 
 # Visualize the directions
 def visualize_directions(directions):
@@ -45,8 +36,10 @@ def visualize_directions(directions):
     plt.show()
 
 
-num_dir = 360
-dimension = 3
-directions = get_directions(num_dir)
+num_dir = 90
+# directions = get_directions(num_dir)
+directions = direction_functions.get_propelled_directions(num_dir, np.array([0, 0, 0]), np.pi / 6)
+# print(directions)
 test_directions(directions)
+# print(len(directions))
 visualize_directions(directions)
