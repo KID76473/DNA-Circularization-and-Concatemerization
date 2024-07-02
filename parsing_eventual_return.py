@@ -5,8 +5,9 @@ x_vals =[]
 calculated_cir_vals = []
 
 x_vals2 = [500, 1000, 1500, 2000]
-simulated_cir_vals_6_directions = [5962/ 100000000, 2127 / 100000000, 1068 / 100000000, 726 / 100000000]
+simulated_cir_vals_6_directions = [5962 / 100000001, 2127 / 100000001, 1068 / 100000001, 726 / 100000001]
 simulated_cir_vals_360_sq_directions = [float(6.428571428571429e-05), float(2.316326530612245e-05), float(1.316326530612245e-05), float(8.061224489795918e-06)]
+simulated_cir_vals_excluding_previous = [35 / 1000001, 11 / 1000001, 9 / 1000001, 5 / 1000001]
 
 # i: 500, head: [-27.93062734  16.80206253 -15.2447046 ], cir: 1260.0, cir / num: 6.428571428571429e-05
 # i: 1000, head: [-39.54447639  16.40907344 -22.19282782], cir: 454.0, cir / num: 2.316326530612245e-05
@@ -30,11 +31,13 @@ plt.plot(x_vals, calculated_cir_vals, color='blue', marker='o', label = "calcula
 
 plt.plot(x_vals2, simulated_cir_vals_6_directions, color="red", marker='o', label = "6 dir simulated")
 
-plt.plot(x_vals2, simulated_cir_vals_360_sq_directions, color='green', marker='o', label = "360 dir simulated" )
+plt.plot(x_vals2, simulated_cir_vals_360_sq_directions, color='green', marker='o', label = "360 dir simulated")
+
+plt.plot(x_vals, simulated_cir_vals_excluding_previous, color='purple', marker='o', label = "5 dir simulated")
 
 for i in range(0, 4):
     plt.annotate(f"{round(simulated_cir_vals_360_sq_directions[i], 8)}", (x_vals2[i], simulated_cir_vals_360_sq_directions[i]))
-    # plt.annotate(f"{round(simulated_cir_vals[i], 8)}", (x_vals2[i], simulated_cir_vals[i]))
+    plt.annotate(f"{round(simulated_cir_vals_excluding_previous[i], 8)}", (x_vals2[i], simulated_cir_vals_excluding_previous[i]))
 
 
 plt.yscale('log')
