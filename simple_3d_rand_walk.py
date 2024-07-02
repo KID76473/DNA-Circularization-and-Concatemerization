@@ -1,5 +1,4 @@
 import random as rand
-from numba import jit
 import numpy as np
 
 # clear_cache()
