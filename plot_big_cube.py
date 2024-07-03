@@ -31,6 +31,7 @@ def plot_last_loop(data):
     plt.xlabel('Concentration')
     plt.ylabel('Probability of Concatemerization')
     plt.grid(True)
+    plt.savefig("big_cube_center_cube")
     plt.show()
 
 
