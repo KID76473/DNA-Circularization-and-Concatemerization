@@ -5,7 +5,7 @@
 import random as rand
 import time
 
-num_trials = 100000
+num_trials = 25000000
 
 len_list = [500, 1000, 1500, 2000]
 
@@ -16,7 +16,7 @@ y_vals = []
 
 start_pos = [0, 0, 0] #[x, y, z]
 
-file_output = open("data/basic_3d_rand_walk_output", "w")
+file_output = open("basic_3d_rand_walk_5_dir_output", "w")
 
 t0 = time.time()
 
@@ -37,7 +37,7 @@ def random_walk(pos, dir):
 
 for num in len_list:
     total_cir = 0
-    for i in range(num_trials + 1):
+    for i in range(num_trials):
         pos = [0, 0, 0]
         not_allowed = 0
 
@@ -50,6 +50,9 @@ for num in len_list:
 
         if pos == start_pos:
             total_cir += 1
+
+        if i % 100000 == 0:
+            print(num, i, total_cir)
         
     x_vals.append(num)
     y_vals.append(total_cir)
@@ -60,7 +63,7 @@ t1 = time.time()
 print(f"time taken: {t1 - t0}")
 file_output.write(f"time taken: {t1 - t0}\n")
 
-file_output.close
+file_output.close()
 
 print(x_vals)
 print(y_vals)
