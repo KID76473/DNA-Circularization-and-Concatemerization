@@ -33,13 +33,18 @@ def visualize_directions(directions):
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
+    ax.set_xlim([-1, 1])
+    ax.set_ylim([-1, 1])
+    ax.set_zlim([-1, 1])
+    ax.set_box_aspect([1, 1, 1])
     plt.show()
 
 
-num_dir = 90
+num_dir = 90  # off if odd
 # directions = get_directions(num_dir)
-directions = direction_functions.get_propelled_directions(num_dir, np.array([0, 0, 0]), np.pi / 6)
+# directions = direction_functions.get_propelled_directions(num_dir, np.array([0, 1, 0]), np.pi / 6)
+directions = direction_functions.another_way(num_dir, np.array([0, 0, 0]), np.pi / 6)
 # print(directions)
+print(len(directions))
 test_directions(directions)
-# print(len(directions))
 visualize_directions(directions)
