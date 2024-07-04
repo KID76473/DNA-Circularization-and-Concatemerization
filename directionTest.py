@@ -43,7 +43,7 @@ def visualize_directions(directions):
 num_dir = 90  # off if odd
 # directions = get_directions(num_dir)
 # directions = direction_functions.get_propelled_directions(num_dir, np.array([0, 1, 0]), np.pi / 6)
-directions = direction_functions.another_way(num_dir, np.array([0, 0, 0]), np.pi / 6)
+directions = direction_functions.another_way(num_dir, np.array([0, 1, 0]), np.pi / 2)
 # print(directions)
 print(len(directions))
 test_directions(directions)
