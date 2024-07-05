@@ -79,15 +79,18 @@ def another_way(num, last, deg):
     theta = np.arcsin(last[1] / np.cos(phi))
     theta_angles = np.linspace(0, np.pi, num, endpoint=False)
     phi_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
+    curvy_radius = deg  # = 2pi * r * deg / 2pi = deg
     d = []
     for i in range(len(theta_angles)):  # angle of xy plane
         for j in range(len(phi_angles)):  # angle of z plane
-            if spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > np.sin(deg):
+            if spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > curvy_radius:
                 temp.append(spherical_distance([theta_angles[i], phi_angles[j]], [theta, phi]))
                 arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
                        np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
                        np.sin(phi_angles[j])]
                 d.append(arr)
+            else:
+                print(spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]))
     return np.array(d)
 
 
