@@ -82,6 +82,7 @@ def another_way(num, last, deg):
     d = []
     for i in range(len(theta_angles)):  # angle of xy plane
         for j in range(len(phi_angles)):  # angle of z plane
+            if spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > np.sin(deg):
                 temp.append(spherical_distance([theta_angles[i], phi_angles[j]], [theta, phi]))
                 arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
                        np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
