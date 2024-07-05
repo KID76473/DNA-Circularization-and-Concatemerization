@@ -74,7 +74,6 @@ def helper(angles, a, b):
 
 
 def another_way(num, last, deg):
-    temp = []
     phi = np.arcsin(last[2])
     theta = np.arcsin(last[1] / np.cos(phi))
     theta_angles = np.linspace(0, np.pi, num, endpoint=False)
@@ -84,22 +83,13 @@ def another_way(num, last, deg):
     for i in range(len(theta_angles)):  # angle of xy plane
         for j in range(len(phi_angles)):  # angle of z plane
             if spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > curvy_radius:
-                temp.append(spherical_distance([theta_angles[i], phi_angles[j]], [theta, phi]))
                 arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
                        np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
                        np.sin(phi_angles[j])]
                 d.append(arr)
-            else:
-                print(spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]))
     return np.array(d)
 
 
 # return the distance over sphere between two points
 def spherical_distance(a, b):
-    # dlat = np.abs(b[0] - a[0])
-    # dlon = np.abs(b[1] - a[1])
-    # a = np.sin(dlat / 2) ** 2 + np.cos(a[0]) * np.cos(b[0]) * np.sin(dlon / 2) ** 2
-    # distance = 2 * np.arcsin(np.sqrt(a))
-    # # return distance
-
     return 2 * np.arcsin(np.sqrt((np.sin(np.abs(a[1] - b[1]) / 2)) ** 2 + np.cos(a[1]) * np.cos(b[1]) * (np.sin(np.abs(a[0] - b[0]) / 2)) ** 2))
