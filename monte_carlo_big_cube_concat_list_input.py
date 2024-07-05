@@ -24,7 +24,7 @@ vol_of_standard_reactor = mp.fmul(100, one_micro)
 
 sphere_radius = 1
 
-num_trials = 1
+num_trials = 10000
 
 # grams / Liter
 input_num_grams_list = [mp.fmul(.1, one_micro), one_micro, mp.fmul(10, one_micro), mp.fmul(100, one_micro), mp.fmul(1000, one_micro)]
@@ -113,8 +113,9 @@ def comp_sphere(list: list, radius: int):
 
 # monte carlo simulation with a unit shape around the origin and a big cube around the origin
 
+output_file = open("real_world_big_cube_concat_00_10k_trials", "a")
 
-def monte_carlo_simulation(radius: int, num_trials: int, num_tails_list: list):
+def monte_carlo_simulation(radius: int, num_trials: int, num_tails_list: list, file):
     output = []
     size = len(num_tails_list)
     for i in range(0, 1):
@@ -131,15 +132,16 @@ def monte_carlo_simulation(radius: int, num_trials: int, num_tails_list: list):
                 if comp_sphere(randomly_generated_tail_loc, radius):
                     num_concatemerized += 1
                 if k % 100000 == 0:
-                    print(k, num_concatemerized)
+                    file.write(round_num_tails, j, k, num_concatemerized)
         output.append(num_concatemerized)
+        file.write(round_num_tails, num_concatemerized, num_trials)
     return output
 
 x_vals = input_num_grams_list
 
 t0 = time.time()
 
-y_vals = monte_carlo_simulation(sphere_radius, num_trials, num_tails_grams_list)
+y_vals = monte_carlo_simulation(sphere_radius, num_trials, num_tails_grams_list, output_file)
 
 t1 = time.time()
 
