@@ -14,7 +14,7 @@ cons = np.zeros(19)
 heads = np.zeros((4, 3))
 error = 1
 directions = direction_functions.get_directions(num_dir)
-deg = np.pi / 2
+deg = np.pi / 6
 
 output_filename = sys.argv[1]
 with open("data/" + str(output_filename), 'w') as f:
@@ -32,15 +32,15 @@ while i < num:
         # # 6 directions
         # head += direction_functions.get_6_directions()[np.random.choice(6)]
 
-        # 5 directions
-        temp = direction_functions.get_5_directions(last)[np.random.choice(6)]
-        head += temp
-        last = temp
-
-        # # choose random direction based on the last step
-        # temp = direction_functions.get_propelled_directions(num_dir, last, deg)
+        # # 5 directions
+        # temp = direction_functions.get_5_directions(last)[np.random.choice(6)]
         # head += temp
         # last = temp
+
+        # choose random direction based on the last step
+        temp = direction_functions.get_propelled_directions(num_dir, last, deg)
+        head += temp
+        last = temp
 
         if j in [499, 999, 1499, 1999]:
             index = int(j / 500)
