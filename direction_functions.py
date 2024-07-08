@@ -26,54 +26,6 @@ def get_directions(num):
 
 # generates directions based on last step
 def get_propelled_directions(num, last, deg):
-    num_xy = int(num / 2)
-    if (last == 0).all():
-        theta_angles = np.linspace(0, np.pi, num_xy, endpoint=False)
-        phi_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
-    else:
-        phi = np.arcsin(last[2])
-        theta = np.arcsin(last[1] / np.cos(phi))
-        theta_angles = helper(np.linspace(0, np.pi, num_xy, endpoint=False), theta - deg, theta + deg)
-        phi_angles = helper(np.linspace(0, 2 * np.pi, num, endpoint=False), phi - deg, phi + deg)
-    d = []
-    for i in range(len(theta_angles)):  # angle of xy plane
-        for j in range(len(phi_angles)):  # angle of z plane
-            arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
-                   np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
-                   np.sin(phi_angles[j])]
-            d.append(arr)
-    return np.array(d)
-
-
-# removes propelled angles
-def helper(angles, a, b):
-    upper_bound = angles[-1]
-    if a < 0 or b >= upper_bound:  # range out of 0 or 2pi
-        if a < 0:
-            temp = a
-            a = b
-            b = temp + upper_bound
-        elif b >= upper_bound:
-            temp = b
-            b = a
-            a = upper_bound - temp
-        i = 0
-        while i < len(angles):
-            if a > angles[i] or angles[i] > b:
-                angles = np.delete(angles, i)
-            else:
-                i += 1
-    else:
-        i = 0
-        while i < len(angles):
-            if a < angles[i] < b:
-                angles = np.delete(angles, i)
-            else:
-                i += 1
-    return angles
-
-
-def another_way(num, last, deg):
     phi = np.arcsin(last[2])
     theta = np.arcsin(last[1] / np.cos(phi))
     theta_angles = np.linspace(0, np.pi, num, endpoint=False)
