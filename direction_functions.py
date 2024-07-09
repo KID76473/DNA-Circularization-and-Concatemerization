@@ -31,8 +31,12 @@ def get_propelled_directions(num, last, deg):
         temp = True
     else:
         try:
+            if last[2] < -1 or last[2] > 1:
+                print("000000000000000000000000000000000000000000000000000")
             phi = np.arcsin(last[2])
             # print(last[1] / np.cos(phi))
+            if last[1] / np.cos(phi) < -1 or last[1] / np.cos(phi) > 1:
+                print("111111111111111111111111111111111111111111111111")
             theta = np.arcsin(last[1] / np.cos(phi))
         except ValueError as e:
             raise ValueError(f"Invalid input from outer to arcsin: {last}. Details: {e}")
@@ -64,9 +68,12 @@ def spherical_distance(a, b):
     cos_lat2 = np.cos(lat2)
 
     a = sin_lat + cos_lat1 * cos_lat2 * sin_lon
-    try:
-        c = 2 * np.arcsin(np.sqrt(a))
-    except ValueError as e:
-        raise ValueError(f"Invalid input from inner to arcsin: {a}. Details: {e}")
+    c = 2 * np.arcsin(np.sqrt(a))
+    # try:
+    #     if a < 0:
+    #         print("222222222222222222222222222222222222222222222222")
+    #     c = 2 * np.arcsin(np.sqrt(a))
+    # except ValueError as e:
+    #     raise ValueError(f"Invalid input from inner to arcsin: {a}. Details: {e}")
 
     return c

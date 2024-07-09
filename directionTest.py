@@ -1,4 +1,6 @@
 import warnings
+warnings.filterwarnings('always', category=RuntimeWarning)
+import random
 import numpy as np
 import matplotlib.pyplot as plt
 import direction_functions
@@ -48,7 +50,7 @@ with warnings.catch_warnings(record=True) as w:
     for d in input:
         print(d)
         directions, length = direction_functions.get_propelled_directions(num_dir, d, np.pi / 6)
-        print(directions[np.random.choice(length)])
+        print(directions[random.randint(0, length - 1)])
         # print(np.size(directions))
         # test_directions(directions)
         print("--------------------------------------")
