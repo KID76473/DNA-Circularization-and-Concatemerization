@@ -26,46 +26,27 @@ def get_directions(num):
 
 # generates directions based on last step
 def get_propelled_directions(num, last, deg):
+    temp = False
     if (last == 0).all():
-        theta_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
-        phi_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
+        temp = True
     else:
         phi = np.arcsin(last[2])
+        print(last[1] / np.cos(phi))
         theta = np.arcsin(last[1] / np.cos(phi))
-        theta_angles = helper(np.linspace(0, 2 * np.pi, num, endpoint=False), theta - deg, theta + deg)
-        phi_angles = helper(np.linspace(0, 2 * np.pi, num, endpoint=False), phi - deg, phi + deg)
+        curvy_radius = deg  # = 2pi * r * deg / 2pi = deg
+    theta_angles = np.linspace(0, np.pi, num, endpoint=False)
+    phi_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
     d = []
     for i in range(len(theta_angles)):  # angle of xy plane
         for j in range(len(phi_angles)):  # angle of z plane
-            arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
-                   np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
-                   np.sin(phi_angles[j])]
-            d.append(arr)
-    return np.array(d)
+            if temp or spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > curvy_radius:
+                arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
+                       np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
+                       np.sin(phi_angles[j])]
+                d.append(arr)
+    return np.array(d), len(d)
 
 
-# removes propelled angles
-def helper(angles, a, b):
-    if a < 0 or b >= 2 * np.pi:  # range out of 0 or 2pi
-        if a < 0:
-            temp = a
-            a = b
-            b = temp + 2 * np.pi
-        elif b >= 2 * np.pi:
-            temp = b
-            b = a
-            a = 2 * np.pi - temp
-        i = 0
-        while i < len(angles):
-            if a > angles[i] or angles[i] > b:
-                angles = np.delete(angles, i)
-            else:
-                i += 1
-    else:
-        i = 0
-        while i < len(angles):
-            if a < angles[i] < b:
-                angles = np.delete(angles, i)
-            else:
-                i += 1
-    return angles
+# return the distance over sphere between two points
+def spherical_distance(a, b):
+    return 2 * np.arcsin(np.sqrt((np.sin(np.abs(a[1] - b[1]) / 2)) ** 2 + np.cos(a[1]) * np.cos(b[1]) * (np.sin(np.abs(a[0] - b[0]) / 2)) ** 2))

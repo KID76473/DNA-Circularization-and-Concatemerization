@@ -10,7 +10,7 @@ def run_circularization(thread_id, temp):
             # result = subprocess.run(['python', 'concatemerization_length.py', output_filename], capture_output=True, text=True)
             # output_filename = f'concat_thread_{thread_id}_concentration.txt'
             # result = subprocess.run(['python', 'concatemerization_concentration.py', output_filename], capture_output=True, text=True)
-            output_filename = f'random_concat_thread_{thread_id}.txt'
+            output_filename = f'random_concat_thread_{thread_id}_cannot_back.txt'
             result = subprocess.run(['python', './concatemerization/concatemerization_random.py', output_filename],
                                     capture_output=True, text=True)
         else:  # circularization
@@ -26,7 +26,7 @@ def run_circularization(thread_id, temp):
 # Main function to execute the script using multi-threading
 def main():
     num_threads = 32
-    temp = 0  # 0 for circularization 1 for concatemerization
+    temp = 1  # 0 for circularization 1 for concatemerization
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
         futures = [executor.submit(run_circularization, i, temp) for i in range(num_threads)]
