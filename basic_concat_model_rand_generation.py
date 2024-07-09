@@ -35,4 +35,4 @@ def run(num_tails, side_len_halved, radius):
 cir = run(num_tails, side_len / 2, sphere_radius)
 file = open("big_cube_concat_24_square", "w")
 
-file.write(f"tail: {num_tails} cir: {cir}")
+file.write(f"tail: {num_tails} cir: {cir} trials {num_trails}")
