@@ -1,3 +1,4 @@
+import warnings
 import numpy as np
 import matplotlib.pyplot as plt
 import direction_functions
@@ -40,10 +41,19 @@ def visualize_directions(directions):
     plt.show()
 
 
-num_dir = 90  # hemispheres are off if num_dir is odd
-# directions = get_directions(num_dir)
-directions = direction_functions.get_propelled_directions(num_dir, np.array([0, -1, 0]), np.pi / 6)
-# print(directions)
-# print(len(directions))
-test_directions(directions)
-visualize_directions(directions)
+with warnings.catch_warnings(record=True) as w:
+    warnings.simplefilter("always")
+    num_dir = 90  # hemispheres are off if num_dir is odd
+    input = direction_functions.get_directions(num_dir)
+    for d in input:
+        print(d)
+        directions, length = direction_functions.get_propelled_directions(num_dir, d, np.pi / 6)
+        print(directions[np.random.choice(length)])
+        # print(np.size(directions))
+        # test_directions(directions)
+        print("--------------------------------------")
+    # print(directions)
+    # print(len(directions))
+    # visualize_directions(directions)
+    for warning in w:
+        print(f"Warning detected: {warning.message}")
