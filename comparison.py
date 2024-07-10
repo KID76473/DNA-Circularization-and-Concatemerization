@@ -21,9 +21,10 @@ for i in range(len(data)):
     temp1, temp2 = [], []
     for j in range(len(data[i])):
         temp1.append(mp.fdiv(mp.fmul(data[i][j], v_sphere), v_all))
-        temp2.append(1 - (mp.power(1 - mp.fdiv(v_sphere, v_all), data[i][j])))
+        temp2.append(1 - (1 - mp.fmul(mp.fdiv(v_sphere, v_all), data[i][j])))
     model1.append(temp1)
     model2.append(temp2)
 
 print(model1)
+print("---------------------------------------------------------------")
 print(model2)

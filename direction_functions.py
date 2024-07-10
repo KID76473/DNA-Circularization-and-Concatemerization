@@ -51,7 +51,7 @@ def get_propelled_directions(num, last, deg):
                        np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
                        np.sin(phi_angles[j])]
                 d.append(arr)
-    return np.array(d), len(d)
+    return np.array(d)
 
 
 # return the distance over sphere between two points
