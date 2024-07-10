@@ -90,6 +90,7 @@ def run(simulated_tails, trials, cube_vol):
             heads = []
             tails = []
             for k in range(tails_count):
+                print(tails_count)
                 # generating random head
                 head = [rand.uniform(-adjusted_big_cue_side_len_halved, adjusted_big_cue_side_len_halved), rand.uniform(-adjusted_big_cue_side_len_halved, adjusted_big_cue_side_len_halved), rand.uniform(-adjusted_big_cue_side_len_halved, adjusted_big_cue_side_len_halved)]
                                 

@@ -1,12 +1,11 @@
 import mpmath as mp
+import time
 import matplotlib.pyplot as plt
 
 #assuming 6 directions of movement
 #eventual return to the origin point
 
-leng_start = 0
-leng_end = 2000
-
+length = [50000]
 direction = mp.fdiv(1, 6)
 
 x_vals = []
@@ -14,7 +13,7 @@ y_vals = []
 
 mp.dps = 10000
 
-output_file = open("data/other_eventual_return_formula_output_3", "a")
+output_file = open("other_eventual_return_formula_output_4", "a")
 
 #even steps have a chance of returning, odd steps will not return
 def eventual_ret_for(steps):
@@ -37,14 +36,22 @@ def eventual_ret_for(steps):
                 denom = mp.power(val_2, 2)
                 prob = mp.fdiv(possible_config_factor, denom)
                 total_prob = mp.fadd(total_prob, prob)
+        if i % 100 == 0:
+            print(i)
     total_prob = mp.fmul(total_prob, factor)
     return total_prob
 
-for i in range(leng_start, leng_end + 2, 2): # + 2 to include the upper bound
-    x_vals.append(i)
-    return_prob = eventual_ret_for(i)
+t0 = time.time()
+
+for num in length: # + 2 to include the upper bound
+    x_vals.append(num)
+    return_prob = eventual_ret_for(num)
     y_vals.append(return_prob)
-    output_file.write(f"length: {i}; return probability: {return_prob} \n")
+    output_file.write(f"length: {num}; return probability: {return_prob} \n")
+
+t1 = time.time()
+
+print(f"time: {t1 - t0}")
 
 plt.plot(x_vals, y_vals)
 plt.xlabel('length')

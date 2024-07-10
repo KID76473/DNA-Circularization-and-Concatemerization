@@ -1,0 +1,9 @@
+length: 500; return probability: 5.89299191739383e-5 
+length: 1000; return probability: 2.08504968733022e-5 
+length: 500; return probability: 5.89299191739383e-5 
+length: 1000; return probability: 2.08504968733022e-5 
+length: 2000; return probability: 7.37452810116553e-6 
+length: 5000; return probability: 1.86604420114764e-6 
+length: 10000; return probability: 6.59795734661119e-7 
+length: 20000; return probability: 2.33281766771726e-7 
+length: 50000; return probability: 5.90174654293721e-8 
