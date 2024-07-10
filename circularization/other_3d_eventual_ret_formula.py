@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 #assuming 6 directions of movement
 #eventual return to the origin point
 
-leng_start = 0
-leng_end = 2000
+lengths = [500, 1000, 2000, 5000, 10000, 20000, 50000]
 
 direction = mp.fdiv(1, 6)
 
@@ -14,7 +13,7 @@ y_vals = []
 
 mp.dps = 10000
 
-output_file = open("data/other_eventual_return_formula_output_3", "a")
+output_file = open("proper_cir_calculations_500_to_50k", "a")
 
 #even steps have a chance of returning, odd steps will not return
 def eventual_ret_for(steps):
@@ -28,7 +27,7 @@ def eventual_ret_for(steps):
     for i in range(0, n + 1):
         for j in range(0, n + 1):
             z_val = n - j - i
-            if (z_val >= 0):
+            if z_val >= 0:
                 j_factorial = mp.factorial(j)
                 k_factorial = mp.factorial(i)
                 z_factorial = mp.factorial(z_val)
@@ -40,11 +39,12 @@ def eventual_ret_for(steps):
     total_prob = mp.fmul(total_prob, factor)
     return total_prob
 
-for i in range(leng_start, leng_end + 2, 2): # + 2 to include the upper bound
-    x_vals.append(i)
-    return_prob = eventual_ret_for(i)
+
+for length in lengths:
+    x_vals.append(length)
+    return_prob = eventual_ret_for(length)
     y_vals.append(return_prob)
-    output_file.write(f"length: {i}; return probability: {return_prob} \n")
+    output_file.write(f"length: {length}; return probability: {return_prob} \n")
 
 plt.plot(x_vals, y_vals)
 plt.xlabel('length')

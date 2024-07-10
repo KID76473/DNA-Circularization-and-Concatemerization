@@ -3,6 +3,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'parent_dir')))
 import direction_functions
+import random
 
 
 num = 1000000000000
@@ -38,8 +39,8 @@ while i < num:
         # last = temp
 
         # choose random direction based on the last step
-        temp, upper_bound = direction_functions.get_propelled_directions(num_dir, last, deg)
-        temp = temp[np.random.choice(upper_bound)]
+        temp, length = direction_functions.get_propelled_directions(num_dir, last, deg)
+        temp = temp[random.randint(0, length)]
         head += temp
         last = temp
 

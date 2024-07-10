@@ -1,3 +1,5 @@
+import math
+
 import mpmath as mp
 import random as rand
 import time
@@ -24,7 +26,7 @@ vol_of_standard_reactor = mp.fmul(100, one_micro)
 
 sphere_radius = 1
 
-num_trials = 10000
+num_trials = 100000
 
 # grams / Liter
 input_num_grams_list = [mp.fmul(.1, one_micro), one_micro, mp.fmul(10, one_micro), mp.fmul(100, one_micro), mp.fmul(1000, one_micro)]
@@ -103,9 +105,10 @@ def comp_cube(list: list, radius: int):
 
 
 def comp_sphere(list: list, radius: int):
-    val1 = mp.fadd(mp.power(list[0], 2), mp.power(list[1], 2))
-    val2 = mp.fadd(val1, mp.power(list[2], 2))
-    distance = mp.sqrt(val2)
+    val1 = list[0] ** 2
+    val2 = list[1] ** 2
+    val3 = list[2] ** 2
+    distance = math.sqrt(val1 + val2 + val3)
     if distance <= radius:
         return True
     else:
@@ -113,12 +116,12 @@ def comp_sphere(list: list, radius: int):
 
 # monte carlo simulation with a unit shape around the origin and a big cube around the origin
 
-output_file = open("real_world_big_cube_concat_00_10k_trials", "a")
+output_file = open("real_world_big_cube_concat_24_square", "a")
 
 def monte_carlo_simulation(radius: int, num_trials: int, num_tails_list: list, file):
     output = []
     size = len(num_tails_list)
-    for i in range(0, 1):
+    for i in range(21, 22):
         num_concatemerized = 0
         round_num_tails = int(num_tails_list[i])
         print(round_num_tails)
@@ -133,7 +136,7 @@ def monte_carlo_simulation(radius: int, num_trials: int, num_tails_list: list, f
                     num_concatemerized += 1
                 if k % 100000 == 0:
                     print(f"num_tails {round_num_tails}, trial_num: {j}, tail_num {k}, num_concated: {num_concatemerized}")
-                    file.write(f"num_tails {round_num_tails}, trial_num: {j}, tail_num {k}, num_concated: {num_concatemerized}")
+                    # file.write(f"num_tails {round_num_tails}, trial_num: {j}, tail_num {k}, num_concated: {num_concatemerized}")
         output.append(num_concatemerized)
         file.write(f"num_tails {round_num_tails}, num_concated: {num_concatemerized}, tot_num_trials: {num_trials}")
     return output
