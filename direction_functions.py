@@ -31,8 +31,11 @@ def get_propelled_directions(num, last, deg):
         temp = True
     else:
         try:
+            assert last[2] <= 1, f"got {last[2]}"
+            assert last[2] >= -1, f"got {last[2]}"
             phi = np.arcsin(last[2])
-            # print(last[1] / np.cos(phi))
+            assert (last[1] / np.cos(phi)) <= 1, f"got as last1: {last[1]} got as cos: {np.cos(phi)} got as phi: {phi} division: {last[1] / np.cos(phi)}"
+            assert (last[1] / np.cos(phi)) >= -1, f"got as last1: {last[1]} got as cos: {np.cos(phi)} got as phi: {phi} division: {last[1] / np.cos(phi)}"
             theta = np.arcsin(last[1] / np.cos(phi))
         except ValueError as e:
             raise ValueError(f"Invalid input from outer to arcsin: {last}. Details: {e}")

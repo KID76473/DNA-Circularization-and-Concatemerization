@@ -40,7 +40,8 @@ while i < num:
 
         # choose random direction based on the last step
         temp, length = direction_functions.get_propelled_directions(num_dir, last, deg)
-        temp = temp[random.randint(0, length)]
+        print(np.shape(temp))
+        temp = temp[random.randint(0, length - 1)]
         head += temp
         last = temp
 
