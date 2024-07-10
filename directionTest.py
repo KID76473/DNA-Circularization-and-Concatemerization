@@ -43,21 +43,21 @@ def visualize_directions(directions):
     plt.show()
 
 
-# with warnings.catch_warnings(record=True) as w:
-#     warnings.simplefilter("always")
-#     num_dir = 90  # hemispheres are off if num_dir is odd
-#     input = direction_functions.get_directions(num_dir)
-#     for d in input:
-#         print(d)
-#         directions, length = direction_functions.get_propelled_directions(num_dir, d, np.pi / 6)
-#         print(directions[random.randint(0, length - 1)])
-#         # print(np.size(directions))
-#         # test_directions(directions)
-#         print("--------------------------------------")
-#     # print(directions)
-#     # print(len(directions))
-#     for warning in w:
-#         print(f"Warning detected: {warning.message}")
+with warnings.catch_warnings(record=True) as w:
+    warnings.simplefilter("always")
+    num_dir = 90  # hemispheres are off if num_dir is odd
+    input = direction_functions.get_directions(num_dir)
+    for d in input:
+        print(d)
+        directions, length = direction_functions.get_propelled_directions(num_dir, d, np.pi / 6)
+        print(directions[random.randint(0, length - 1)])
+        # print(np.size(directions))
+        # test_directions(directions)
+        print("--------------------------------------")
+    # print(directions)
+    # print(len(directions))
+    for warning in w:
+        print(f"Warning detected: {warning.message}")
 
-directions = direction_functions.get_propelled_directions(90, np.array([1, 0, 0]), np.pi / 6)
-visualize_directions(directions)
+# directions = direction_functions.get_propelled_directions(60, np.array([0, 0, -1]), np.pi / 6)
+# visualize_directions(directions)
