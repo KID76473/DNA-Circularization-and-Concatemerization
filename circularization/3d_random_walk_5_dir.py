@@ -2,24 +2,17 @@
 # if previously went right, cannot go left on current turn
 # does not mean that it cannot go back to all other positions it has visited
 
-import random as rand
+import numpy as np
 import time
+from numba import njit, types
 
-num_trials = 100000
+len_list = np.array([10000, 20000, 50000])
 
-len_list = [500, 1000, 1500, 2000]
+dir_list = np.array([-3, -2, -1, 1, 2, 3])
 
-dir_list = [-3, -2, -1, 1, 2, 3]
+file_output = open("jit_3d_rand_walk_5_dir_50_to_50k", "w")
 
-x_vals = []
-y_vals = []
-
-start_pos = [0, 0, 0] #[x, y, z]
-
-file_output = open("data/basic_3d_rand_walk_output", "w")
-
-t0 = time.time()
-
+@njit
 def random_walk(pos, dir):
     if dir == -3: #east
         pos[0] += 1
@@ -35,32 +28,45 @@ def random_walk(pos, dir):
         pos[2] -= 1 
     return pos
 
-for num in len_list:
-    total_cir = 0
-    for i in range(num_trials + 1):
-        pos = [0, 0, 0]
-        not_allowed = 0
+@njit(types.Tuple([types.List(types.int64), types.List(types.int64)])(types.int64[:]))
+def run(len_listi):
+    dir_listi = np.array([-3, -2, -1, 1, 2, 3])
+    start_pos = np.array([0, 0, 0]) #[x, y, z]
+    x_vals = list()
+    y_vals = list()
+    for num in len_listi:
+        total_cir = 0
+        for i in range(50000000): # num_trails = 50000000
+            pos = np.array([0, 0, 0], dtype=np.int64)
+            not_allowed = 0
 
-        for j in range(0, num):
-            direction = rand.choice(dir_list)
-            while direction == not_allowed:
-                direction = rand.choice(dir_list)
-            not_allowed = -direction
-            pos = random_walk(pos, direction)
+            for j in range(num):
+                direction = np.random.choice(dir_listi, 1)[0]
+                while direction == not_allowed:
+                    direction = np.random.choice(dir_listi, 1)[0]
+                not_allowed = -direction
+                pos = random_walk(pos, direction)
 
-        if pos == start_pos:
-            total_cir += 1
-        
-    x_vals.append(num)
-    y_vals.append(total_cir)
-    file_output.write(f"length: {num} total_cir: {total_cir} total: {num_trials} \n")
+            if np.array_equal(pos, start_pos):
+                total_cir += 1
+
+            if i % 100000 == 0:
+                print(num, i, total_cir)
+
+        x_vals.append(num)
+        y_vals.append(total_cir)
+    return x_vals, y_vals
+
+t0 = time.time()
+
+out_x, out_y = run(len_list)
 
 t1 = time.time()
 
 print(f"time taken: {t1 - t0}")
 file_output.write(f"time taken: {t1 - t0}\n")
 
-file_output.close
+file_output.close()
 
-print(x_vals)
-print(y_vals)
+print(out_x)
+print(out_y)
