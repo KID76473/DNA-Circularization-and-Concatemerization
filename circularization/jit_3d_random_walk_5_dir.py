@@ -32,27 +32,27 @@ def random_walk(pos, dir):
 def run(len_listi):
     dir_listi = np.array([-3, -2, -1, 1, 2, 3])
     start_pos = np.array([0, 0, 0]) #[x, y, z]
-    x_vals = list([20000, 30000, 40000, 50000])
-    y_vals = list([0, 0, 0, 0])
+    x_vals = list([500, 1000, 2000, 5000, 10000, 20000, 30000, 40000, 50000])
+    y_vals = list([0, 0, 0, 0, 0, 0, 0, 0, 0])
     for num in len_listi:
-        for i in range(100000): # num_trails = 50000000
+        for i in range(1000000000): # num_trails
             pos = np.array([0, 0, 0], dtype=np.int64)
             not_allowed = 0
 
-            for j in range(num):
+            for j in range(1, num + 1):
                 direction = np.random.choice(dir_listi, 1)[0]
                 while direction == not_allowed:
                     direction = np.random.choice(dir_listi, 1)[0]
                 not_allowed = -direction
                 pos = random_walk(pos, direction)
                 if j in x_vals:
-                    cir_idx = x_vals.index(j)
                     if np.array_equal(pos, start_pos):
-                        y_vals[cir_idx] += 1
+                        y_vals[x_vals.index(j)] += 1
 
             if i % 100000 == 0:
                 print(num, i, y_vals)
-
+    print(x_vals)
+    print(y_vals)
     return x_vals, y_vals
 
 t0 = time.time()
