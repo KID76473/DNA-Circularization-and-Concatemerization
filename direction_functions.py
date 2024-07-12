@@ -1,3 +1,4 @@
+import math
 import numpy as np
 
 
@@ -25,34 +26,26 @@ def get_directions(num):
 
 
 # generates directions based on last step
-def get_propelled_directions(num, last, deg):
+def fibonacci_sphere(last, deg, samples=1000):
     temp = False
     if (last == 0).all():
         temp = True
-    else:
-        try:
-            # if last[2] < -1 or last[2] > 1:
-            #     print("000000000000000000000000000000000000000000000000000")
-            phi = np.arcsin(last[2])
-            # print(last[1] / np.cos(phi))
-            # if last[1] / np.cos(phi) < -1 or last[1] / np.cos(phi) > 1:
-            #     print("111111111111111111111111111111111111111111111111")
-            theta = np.arcsin(last[1] / np.cos(phi))
-            # print(f"theta: {theta}, phi: {phi}")
-        except ValueError as e:
-            raise ValueError(f"Invalid input from outer to arcsin: {last}. Details: {e}")
-        curvy_radius = deg  # = 2pi * r * deg / 2pi = deg
-    theta_angles = np.linspace(0, np.pi, num, endpoint=False)
-    phi_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
-    d = []
-    for i in range(len(theta_angles)):  # angle of xy plane
-        for j in range(len(phi_angles)):  # angle of z plane
-            if temp or spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > curvy_radius:
-                arr = [np.cos(phi_angles[j]) * np.cos(theta_angles[i]),
-                       np.cos(phi_angles[j]) * np.sin(theta_angles[i]),
-                       np.sin(phi_angles[j])]
-                d.append(arr)
-    return np.array(d), len(d)
+    dist = deg  # = 2pi * r * deg / 2pi = deg
+    points = []
+    phi = math.pi * (math.sqrt(5.) - 1.)  # golden angle in radians
+    for i in range(samples):
+        y = 1 - (i / float(samples - 1)) * 2  # y goes from 1 to -1
+        radius = math.sqrt(1 - y * y)  # radius at y
+        theta = phi * i  # golden angle increment
+        x = math.cos(theta) * radius
+        z = math.sin(theta) * radius
+        p1 = np.arcsin(z)
+        t1 = np.arcsin(y / np.cos(p1))
+        p2 = np.arcsin(last[2])
+        t2 = np.arcsin(last[1] / np.cos(p2))
+        if temp or spherical_distance([t1, p1], [t2, p2]) > dist:
+            points.append((x, y, z))
+    return np.array(points)
 
 
 # return the distance over sphere between two points

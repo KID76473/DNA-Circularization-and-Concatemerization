@@ -48,9 +48,9 @@ with warnings.catch_warnings(record=True) as w:
     num_dir = 90  # hemispheres are off if num_dir is odd
     input = direction_functions.get_directions(num_dir)
     for d in input:
-        print(d)
-        directions, length = direction_functions.get_propelled_directions(num_dir, d, np.pi / 6)
-        print(directions[random.randint(0, length - 1)])
+        # print(d)
+        directions = direction_functions.fibonacci_sphere(np.array([0, 0.707, 0.707]), np.pi / 6, samples=2000)
+        # print(directions[random.randint(0, length - 1)])
         # print(np.size(directions))
         # test_directions(directions)
         print("--------------------------------------")
@@ -59,5 +59,6 @@ with warnings.catch_warnings(record=True) as w:
     for warning in w:
         print(f"Warning detected: {warning.message}")
 
-# directions = direction_functions.get_propelled_directions(60, np.array([0, 0, -1]), np.pi / 6)
+# directions = direction_functions.fibonacci_sphere(np.array([0, 0.707, 0.707]), np.pi / 6, samples=2000)
+# # print(np.shape(directions))
 # visualize_directions(directions)
