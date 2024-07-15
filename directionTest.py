@@ -43,22 +43,22 @@ def visualize_directions(directions):
     plt.show()
 
 
-with warnings.catch_warnings(record=True) as w:
-    warnings.simplefilter("always")
-    num_dir = 90  # hemispheres are off if num_dir is odd
-    input = direction_functions.get_directions(num_dir)
-    for d in input:
-        # print(d)
-        directions = direction_functions.fibonacci_sphere(np.array([0, 0.707, 0.707]), np.pi / 6, samples=2000)
-        # print(directions[random.randint(0, length - 1)])
-        # print(np.size(directions))
-        # test_directions(directions)
-        print("--------------------------------------")
-    # print(directions)
-    # print(len(directions))
-    for warning in w:
-        print(f"Warning detected: {warning.message}")
+# with warnings.catch_warnings(record=True) as w:
+#     warnings.simplefilter("always")
+#     num_dir = 90  # hemispheres are off if num_dir is odd
+#     input = direction_functions.get_directions(num_dir)
+#     for d in input:
+#         # print(d)
+#         directions = direction_functions.fibonacci_sphere(d, np.pi / 6, samples=2000)
+#         print(directions[random.randint(0, len(directions) - 1)])
+#         # print(np.size(directions))
+#         # test_directions(directions)
+#         print("--------------------------------------")
+#     # print(directions)
+#     # print(len(directions))
+#     for warning in w:
+#         print(f"Warning detected: {warning.message}")
 
-# directions = direction_functions.fibonacci_sphere(np.array([0, 0.707, 0.707]), np.pi / 6, samples=2000)
-# # print(np.shape(directions))
-# visualize_directions(directions)
+directions = direction_functions.fibonacci_sphere(np.array([0, 0.707, 0.707]), np.pi / 5, samples=2000)
+# print(np.shape(directions))
+visualize_directions(directions)

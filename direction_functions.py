@@ -27,9 +27,9 @@ def get_directions(num):
 
 # generates directions based on last step
 def fibonacci_sphere(last, deg, samples=1000):
-    temp = False
+    remain_all = False  # exclude some directions too closed to last direction
     if (last == 0).all():
-        temp = True
+        remain_all = True  # remain all direction if it is the first step
     dist = deg  # = 2pi * r * deg / 2pi = deg
     points = []
     phi = math.pi * (math.sqrt(5.) - 1.)  # golden angle in radians
@@ -43,9 +43,9 @@ def fibonacci_sphere(last, deg, samples=1000):
         t1 = np.arcsin(y / np.cos(p1))
         p2 = np.arcsin(last[2])
         t2 = np.arcsin(last[1] / np.cos(p2))
-        if temp or spherical_distance([t1, p1], [t2, p2]) > dist:
+        if remain_all or spherical_distance([t1, p1], [t2, p2]) > dist:
             points.append((x, y, z))
-    return np.array(points)
+    return np.array(points), len(points)
 
 
 # return the distance over sphere between two points

@@ -16,8 +16,10 @@ error = 1
 directions = direction_functions.get_directions(num_dir)
 deg = np.pi / 6
 
-output_filename = sys.argv[1]
-with open("data/" + str(output_filename), 'w') as f:
+# output_filename = sys.argv[1]  # use this in lab computer
+# with open("data/" + str(output_filename), 'w') as f:
+output_filename = "cir_random_pc"  # use this in persona computer
+with open("../" + str(output_filename), 'w') as f:
     f.write("Starting new run circularization\n")
 
 i = 0
@@ -38,7 +40,8 @@ while i < num:
         # last = temp
 
         # choose random direction based on the last step
-        temp = direction_functions.get_propelled_directions(num_dir, last, deg)
+        temp, length = direction_functions.fibonacci_sphere(last, deg)
+        temp = temp[np.random.choice(length)]
         head += temp
         last = temp
 
@@ -60,7 +63,8 @@ while i < num:
     n = 10000
     # write the result to file every 100000 loops
     if i % n == 0:
-        with open("data/" + str(output_filename), 'a') as f:
+        print(i)
+        with open("../" + str(output_filename), 'a') as f:
             f.write(f"{i} loops\n")
             f.write("circularization:\n")
             for k in range(len(cirs)):
