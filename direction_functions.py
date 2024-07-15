@@ -1,4 +1,6 @@
 import math
+import numba
+from numba import njit
 import numpy as np
 
 
@@ -26,6 +28,7 @@ def get_directions(num):
 
 
 # generates directions based on last step
+@njit
 def fibonacci_sphere(last, deg, samples=1000):
     remain_all = False  # exclude some directions too closed to last direction
     if (last == 0).all():
@@ -49,6 +52,7 @@ def fibonacci_sphere(last, deg, samples=1000):
 
 
 # return the distance over sphere between two points
+@njit
 def spherical_distance(a, b):
     return 2 * np.arcsin(np.sqrt((np.sin(np.abs(a[1] - b[1]) / 2)) ** 2 + np.cos(a[1]) * np.cos(b[1]) * (np.sin(np.abs(a[0] - b[0]) / 2)) ** 2))
     # lat1, lon1 = a
