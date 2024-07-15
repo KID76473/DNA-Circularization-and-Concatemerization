@@ -6,9 +6,9 @@ import random as rand
 import time
 from numba import jit
 
-num_trials = 50000000
+num_trials = 10000
 
-len_list = [5000, 10000, 20000, 50000]
+len_list = [10000]
 
 dir_list = [-3, -2, -1, 1, 2, 3]
 
