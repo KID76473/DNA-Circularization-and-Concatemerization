@@ -16,7 +16,7 @@ deg = np.pi / 2
 
 output_filename = sys.argv[1]
 with open("data/" + str(output_filename), 'w') as f:
-    f.write("Starting new run circularization\n")
+    f.write("Starting new run circularization??????\n")
 
 t0 = time.time()
 i = 0
@@ -29,7 +29,8 @@ while i < num:
         # head += directions[np.random.choice(num_dir ** 2)]
 
         # choose random direction based on the last step
-        temp = direction_functions.get_propelled_directions(num_dir, last, deg)
+        temp, length = direction_functions.fibonacci_sphere(last, deg)
+        temp = temp[np.random.choice(length)]
         head += temp
         last = temp
         if j in [499, 999, 1499, 1999]:
@@ -39,10 +40,11 @@ while i < num:
     for j in range(len(heads)):
         if (np.abs(heads[j]) < error).all():
             cirs[j] += 1
-        i += 1
+    i += 1
     n = 10000
     # write the result to file every 100000 loops
     if i % n == 0:
+        print(i)
         with open("data/" + str(output_filename), 'a') as f:
             f.write(f"{i} loops\n")
             for k in range(len(cirs)):

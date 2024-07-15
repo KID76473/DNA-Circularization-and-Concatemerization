@@ -31,7 +31,7 @@ while i < num:
         # head += directions[np.random.choice(num_dir ** 2)]
 
         # choose random direction based on the last step
-        temp = direction_functions.get_propelled_directions(num_dir, last, deg)
+        temp = direction_functions.fibonacci_sphere(last, deg)
         head += temp
         last = temp
 
