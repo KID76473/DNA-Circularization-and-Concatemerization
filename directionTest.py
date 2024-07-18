@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+<<<<<<< HEAD
 
 
 # set up all directions
@@ -56,6 +57,9 @@ def helper(angles, a, b):
             else:
                 i += 1
     return angles
+=======
+import direction_functions
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
 
 
 # test whether the length is 1 or not and repetition
@@ -92,9 +96,14 @@ def visualize_directions(directions):
 
 
 num_dir = 90
+<<<<<<< HEAD
 dimension = 3
 # directions = get_directions(num_dir)
 directions = get_propelled_directions(num_dir, [0, 1, 0], np.pi / 12)
+=======
+# directions = get_directions(num_dir)
+directions = direction_functions.get_propelled_directions(num_dir, np.array([0, 0, 0]), np.pi / 6)
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
 # print(directions)
 test_directions(directions)
 # print(len(directions))

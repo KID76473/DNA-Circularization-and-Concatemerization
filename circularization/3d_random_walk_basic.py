@@ -5,7 +5,11 @@ import time
 
 #self circularization can be represented as a 2d or 3d random walk
 
+<<<<<<< HEAD
 num_trials = 10
+=======
+num_trials = 1000
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
 
 len_list = [500, 1000, 1500, 2000]
 
@@ -14,7 +18,11 @@ y_vals = []
 
 start_pos = [0, 0, 0] #[x, y, z]
 
+<<<<<<< HEAD
 file_output = open("basic_3d_rand_walk_output", "w")
+=======
+file_output = open("data/basic_3d_rand_walk_output", "w")
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
 
 t0 = time.time()
 

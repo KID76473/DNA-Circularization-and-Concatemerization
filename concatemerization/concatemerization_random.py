@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+<<<<<<< HEAD
 
 
 def get_directions(num_dir):
@@ -16,6 +17,11 @@ def get_directions(num_dir):
 
 def get_6_directions():
     return [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
+=======
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'parent_dir')))
+import direction_functions
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
 
 
 num = 1000000000000
@@ -26,7 +32,12 @@ concentrations = np.linspace(2, 20, 19)
 cons = np.zeros(19)
 heads = np.zeros((4, 3))
 error = 1
+<<<<<<< HEAD
 directions = get_directions(num_dir)
+=======
+directions = direction_functions.get_directions(num_dir)
+deg = np.pi / 2
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
 
 output_filename = sys.argv[1]
 with open("data/" + str(output_filename), 'w') as f:
@@ -36,9 +47,30 @@ i = 0
 while i < num:
     # every case
     head = np.zeros(3)
+<<<<<<< HEAD
     for j in range(length):
         # head += directions[np.random.choice(num_dir ** 2)]  # many directions
         head += get_6_directions()[np.random.choice(6)]  # 6 directions
+=======
+    last = np.array([0, 0, 0])
+    for j in range(length):
+        # # many directions
+        # head += directions[np.random.choice(num_dir ** 2)]
+
+        # # 6 directions
+        # head += direction_functions.get_6_directions()[np.random.choice(6)]
+
+        # 5 directions
+        temp = direction_functions.get_5_directions(last)[np.random.choice(6)]
+        head += temp
+        last = temp
+
+        # # choose random direction based on the last step
+        # temp = direction_functions.get_propelled_directions(num_dir, last, deg)
+        # head += temp
+        # last = temp
+
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
         if j in [499, 999, 1499, 1999]:
             index = int(j / 500)
             heads[index] = head

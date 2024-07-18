@@ -7,6 +7,13 @@
 # we say a cir event occured if all pts of the start_pos and end pt of rand walk are <=1
 # note: this model does not account for the case when the end point is both near the starting_pos and a randomly generated tail
 
+<<<<<<< HEAD
+=======
+
+# link to the conversion formulas: https://docs.google.com/document/d/14pQsaA6IZTagrJpcgAL1EwJqNiYf2U6codAn_8r85zs/edit?usp=sharing
+
+
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
 import random as rand
 import mpmath as mp 
 import time

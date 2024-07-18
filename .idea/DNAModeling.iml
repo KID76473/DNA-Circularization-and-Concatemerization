@@ -4,7 +4,11 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="inheritedJdk" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.11 (DNAModeling)" jdkType="Python SDK" />
+>>>>>>> 9521a518d321760724ecfba7f2e7810af0fb17be
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
