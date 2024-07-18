@@ -21,7 +21,7 @@ import time
 # remove tail as well
 # Note: There's a chance a tail or head can directly spawn on an existing head or tail
 
-trials = 1
+trials = 1500000
 sphere_radius = 1
 
 num_steps = [500, 1000, 2000, 5000, 10000, 20000, 50000]
