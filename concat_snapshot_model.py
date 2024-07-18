@@ -78,7 +78,9 @@ def run(simulated_vols, trials, tails_list):
         adjusted_big_cue_side_len_halved = adjusted_big_cue_side_len / 2
         shadow_realm = [-adjusted_big_cue_side_len, adjusted_big_cue_side_len, adjusted_big_cue_side_len]
         cir_event = 0
+        cir_prob = 0
         concat_event = 0
+        concat_prob = 0
         tails_count = round(tails_list[i])
         covar = num_steps[i] * np.identity(3)
         #print(f"boundary {adjusted_big_cue_side_len_halved}")
@@ -135,13 +137,19 @@ def run(simulated_vols, trials, tails_list):
                             tails[s] = shadow_realm
                             heads[r] = shadow_realm
             
+            temp_cir_prob = cir_event / tails_count
+            cir_prob = (cir_prob + temp_cir_prob) / j
+
+            temp_concat_prob = concat_event / tails_count
+            concat_prob = (concat_prob + temp_concat_prob) / j
+
             if j % 100000 == 0:
                 print(j, cir_output, concat_output)
             # print(f"cir_count {cir_event} concat_count {concat_event} \n heads {heads} tails {tails}")
             # print("------")
 
-        cir_output.append(cir_event)
-        concat_output.append(concat_event)
+        cir_output.append(cir_prob)
+        concat_output.append(concat_prob)
     return cir_output, concat_output
 
 size = len(cube_vol_list)
