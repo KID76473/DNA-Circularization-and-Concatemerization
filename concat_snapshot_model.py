@@ -21,7 +21,7 @@ import time
 # remove tail as well
 # Note: There's a chance a tail or head can directly spawn on an existing head or tail
 
-trials = 1500000
+trials = 20000000
 sphere_radius = 1
 
 num_steps = [500, 1000, 2000, 5000, 10000, 20000, 50000]
@@ -77,15 +77,16 @@ def run(simulated_vols, trials, tails_list):
         adjusted_big_cue_side_len = math.cbrt(simulated_vols[i])
         adjusted_big_cue_side_len_halved = adjusted_big_cue_side_len / 2
         shadow_realm = [-adjusted_big_cue_side_len, adjusted_big_cue_side_len, adjusted_big_cue_side_len]
-        cir_event = 0
         cir_prob = 0
-        concat_event = 0
         concat_prob = 0
         tails_count = round(tails_list[i])
         covar = num_steps[i] * np.identity(3)
         #print(f"boundary {adjusted_big_cue_side_len_halved}")
-        for j in range(trials):
+        
+        for j in range(1, trials + 1):
             rng = np.random.default_rng()
+            cir_event = 0
+            concat_event = 0
             heads = []
             tails = []
             for k in range(tails_count):
