@@ -3,8 +3,11 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 import direction_functions
+from numba import njit
+import dist_btw_nucleotides
 
 
+# @njit
 def simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output):
     directions = direction_functions.get_directions(num_dir)
     heads = np.zeros((N, N, N, dimension))
@@ -13,21 +16,6 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
     t0_func = time.time()
 
     for i in range(length):  # length
-        # # directions self-propelled
-        # random_directions = np.zeros((N, N, N, dimension))
-        # for x in range(N):
-        #     for y in range(N):
-        #         for z in range(N):
-        #             temp_directions = directions.copy()
-        #             np.random.shuffle(temp_directions)
-        #             for direction in temp_directions:
-        #                 # print(is_within_expel(last_dir[x, y, z], direction, expel))
-        #                 if not is_within_expel(last_dir[x, y, z], direction, expel):
-        #                     random_directions[x, y, z] = direction
-        #                     last_dir[x, y, z] = direction  # Update last_dir with the chosen direction
-        #                     break
-        # heads += random_directions
-
         # any direction
         random_directions = directions[np.random.choice(num_dir ** 2, size=(N, N, N))]
         heads += random_directions
@@ -106,12 +94,12 @@ def simulate(dimension, N, length, concentration, error, num_dir, print_log, sav
 # test
 dimension = 3
 N = 64  # number of molecules = N^3
-length = 2000
+length = 20000
 concentration = 29  # distance between every pair of adjacent points
 error = 1
 num_dir = 360  # number of angles
 print_log = 0  # print out heads every loop
-save_output = 1  # save output in output.txt
+save_output = 0  # save output in output.txt
 
 # test_directions(num_dir, get_directions(num_dir))
 
@@ -119,16 +107,17 @@ save_output = 1  # save output in output.txt
 
 # increasing distance and fixed DNA length
 t0 = time.time()
-save_summary = 1
-num = 10
-start = 35
+save_summary = 0
+num = 1
+# start = 35
+concentrations = dist_btw_nucleotides.get_data()
 array_cir = np.zeros(num)
 array_con = np.zeros(num)
 for j in range(num):
     # print(j)
-    concentration = start + j
+    concen = concentrations[0][j]
     for i in range(num):
-        temp1, temp2, _ = simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output)
+        temp1, temp2, _ = simulate(dimension, N, length, concen, error, num_dir, print_log, save_output)
         array_cir[j] += temp1
         array_con[j] += temp2
         print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
@@ -170,11 +159,11 @@ fig, ax = plt.subplots(figsize=(6, 6))
 # plt.legend()
 
 # plt.subplot(2, 1, 2)
-plt.plot(range(start, start + num), [1] * num, color='red')
-plt.scatter(range(start, start + num), array_cir / array_con)
+plt.plot(concentrations[0][0], [1] * num, color='red')
+plt.scatter(concentrations[0][0], array_cir / array_con)
 for i, l in enumerate(label):
-    ax.text(start + i, array_cir[i] / array_con[i], l)
-ax.set_title(f"Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from {start} to {start + 10}")
+    ax.text(concentrations[0][i], array_cir[i] / array_con[i], l)
+ax.set_title(f"Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from {concentrations[0][0]} to {concentrations[0][-1]}")
 # ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
 plt.grid(True)
 
