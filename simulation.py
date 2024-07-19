@@ -2,30 +2,11 @@ import sys
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-# set up all directions
-def get_directions(num):
-    directions = np.zeros((num ** 2, dimension))
-    angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
-    # print(np.shape(directions))
-    for i in range(num):  # angle of xy plane
-        for j in range(num):  # angle of z plane
-            directions[i * num + j, 2] = np.sin(angles[j])
-            directions[i * num + j, 1] = np.cos(angles[j]) * np.sin(angles[i])
-            directions[i * num + j, 0] = np.cos(angles[j]) * np.cos(angles[i])
-    # print(np.shape(directions))
-    return directions
-
-
-# test whether the length is 1 or not
-def test_directions(num, directions):
-    for i in range(num):  # determine precision
-        print(np.abs(directions[i, 0] ** 2 + directions[i, 1] ** 2 + directions[i, 2] ** 2 - 1) < 0.001)
+import direction_functions
 
 
 def simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output):
-    directions = get_directions(num_dir)
+    directions = direction_functions.get_directions(num_dir)
     heads = np.zeros((N, N, N, dimension))
     furthest = np.zeros((N, N, N, dimension))
     furthest_avg = 0

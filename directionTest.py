@@ -58,14 +58,18 @@ def visualize_directions(directions):
 #     for warning in w:
 #         print(f"Warning detected: {warning.message}")
 
-# directions = direction_functions.fibonacci_sphere(np.array([0, 0.707, 0.707]), np.pi / 5, samples=2000)
-# # print(np.shape(directions))
-# visualize_directions(directions)
+# # visualization
+# last_dir = np.array([0, 0.707, 0.707])
+# dir_a, _ = direction_functions.get_propelled_directions(45, np.array([1, 0, 0]), np.pi / 5)
+# dir_b, _ = direction_functions.fibonacci_sphere(last_dir, np.pi / 5, samples=2000)
+# print(np.shape(dir_a), np.shape(dir_b))
+# visualize_directions(dir_a)
 
+# speed
 t0 = time.time()
 last = np.array([0, 0, 0], dtype='float32')
 head = np.array([0, 0, 0], dtype='float32')
-for _ in range(4000):
+for _ in range(2000):
     temp, length = direction_functions.fibonacci_sphere(last, np.pi / 5)
     temp = temp[np.random.choice(length)]
     head += temp

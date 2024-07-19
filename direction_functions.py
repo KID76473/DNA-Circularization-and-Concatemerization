@@ -1,5 +1,4 @@
 import math
-import numba
 from numba import njit
 import numpy as np
 
@@ -28,6 +27,30 @@ def get_directions(num):
 
 
 # generates directions based on last step
+def get_propelled_directions(num, last, deg):
+    remain_all = False
+    if (last == 0).all():
+        remain_all = True
+    else:
+        phi = np.arccos(last[2])
+        # print(last[1] / np.cos(phi))
+        theta = np.arcsin(last[1] / np.sin(phi))
+        dist = deg  # = 2pi * r * deg / 2pi = deg
+    theta_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
+    phi_angles = np.linspace(0, np.pi, int(num / 2), endpoint=False)
+    d = []
+    for i in range(len(theta_angles)):  # angle of xy plane
+        for j in range(len(phi_angles)):  # angle of z plane
+            if remain_all or spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > dist:
+                # print(spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]))
+                arr = [np.sin(phi_angles[j]) * np.cos(theta_angles[i]),
+                       np.sin(phi_angles[j]) * np.sin(theta_angles[i]),
+                       np.cos(phi_angles[j])]
+                d.append(arr)
+    return np.array(d), len(d)
+
+
+# generates directions based on last step
 @njit
 def fibonacci_sphere(last, deg, samples=1000):
     remain_all = False  # exclude some directions too closed to last direction
@@ -38,10 +61,9 @@ def fibonacci_sphere(last, deg, samples=1000):
     phi = math.pi * (math.sqrt(5.) - 1.)  # golden angle in radians
     for i in range(samples):
         y = 1 - (i / float(samples - 1)) * 2  # y goes from 1 to -1
-        radius = math.sqrt(1 - y * y)  # radius at y
         theta = phi * i  # golden angle increment
-        x = math.cos(theta) * radius
-        z = math.sin(theta) * radius
+        x = math.cos(theta)
+        z = math.sin(theta)
         p1 = np.arcsin(z)
         t1 = np.arcsin(y / np.cos(p1))
         p2 = np.arcsin(last[2])
@@ -51,7 +73,7 @@ def fibonacci_sphere(last, deg, samples=1000):
     return np.array(points), len(points)
 
 
-# return the distance over sphere between two points
+# return the distance over sphere between two points with given theta and phi
 @njit
 def spherical_distance(a, b):
     return 2 * np.arcsin(np.sqrt((np.sin(np.abs(a[1] - b[1]) / 2)) ** 2 + np.cos(a[1]) * np.cos(b[1]) * (np.sin(np.abs(a[0] - b[0]) / 2)) ** 2))
