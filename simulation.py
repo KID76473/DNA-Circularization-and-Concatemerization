@@ -8,7 +8,11 @@ import dist_btw_nucleotides
 
 
 # @njit
-def simulate(dimension, N, length, concentration, error, num_dir, print_log, save_output):
+def simulate(length, concentration, print_log, save_output):
+    dimension = 3
+    N = 64
+    error = 1
+    num_dir = 360
     directions = direction_functions.get_directions(num_dir)
     heads = np.zeros((N, N, N, dimension))
     furthest = np.zeros((N, N, N, dimension))
@@ -99,7 +103,7 @@ concentration = 29  # distance between every pair of adjacent points
 error = 1
 num_dir = 360  # number of angles
 print_log = 0  # print out heads every loop
-save_output = 0  # save output in output.txt
+save_output = 1  # save output in output.txt
 
 # test_directions(num_dir, get_directions(num_dir))
 
@@ -107,8 +111,8 @@ save_output = 0  # save output in output.txt
 
 # increasing distance and fixed DNA length
 t0 = time.time()
-save_summary = 0
-num = 1
+save_summary = 1
+num = 10
 # start = 35
 concentrations = dist_btw_nucleotides.get_data()
 array_cir = np.zeros(num)
@@ -117,7 +121,7 @@ for j in range(num):
     # print(j)
     concen = concentrations[0][j]
     for i in range(num):
-        temp1, temp2, _ = simulate(dimension, N, length, concen, error, num_dir, print_log, save_output)
+        temp1, temp2, _ = simulate(length, concen, print_log, save_output)
         array_cir[j] += temp1
         array_con[j] += temp2
         print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))

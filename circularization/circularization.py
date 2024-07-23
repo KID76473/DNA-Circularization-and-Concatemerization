@@ -37,7 +37,7 @@ while i < num:
             index = int(j / 500)
             heads[index] = head
     # count number of circularization
-    for j in range(len(heads)):
+    for j in range(len(heads)):  # loop thru each length
         if (np.abs(heads[j]) < error).all():
             cirs[j] += 1
         i += 1

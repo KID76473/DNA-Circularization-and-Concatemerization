@@ -19,7 +19,7 @@ variance = 1
 deg = np.pi / 5
 filename = "fib_walk.txt"
 reactor_length = 3.4e-7
-reactor_volumne = reactor_length ** 3
+reactor_volume = reactor_length ** 3
 dna_num = [
     [1.95e+10, 9.77e+09, 4.89e+09, 1.95e+09, 9.77e+08, 4.89e+08, 1.95e+08],
     [1.95e+11, 9.77e+10, 4.89e+10, 1.95e+10, 9.77e+09, 4.89e+09, 1.95e+09],
@@ -27,7 +27,7 @@ dna_num = [
     [1.95e+13, 9.77e+12, 4.89e+12, 1.95e+12, 9.77e+11, 4.89e+11, 1.95e+11],
     [1.95e+14, 9.77e+13, 4.89e+13, 1.95e+13, 9.77e+12, 4.89e+12, 1.95e+12]
 ]
-density = reactor_volumne / np.array(dna_num)  # each row has length of small cube for same concentration but different dna length
+density = reactor_volume / np.array(dna_num)  # each row has length of small cube for same concentration but different dna length
 
 
 cir = np.zeros(length_size)

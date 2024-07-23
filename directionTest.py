@@ -58,25 +58,26 @@ def visualize_directions(directions):
 #     for warning in w:
 #         print(f"Warning detected: {warning.message}")
 
-# # visualization
-# last_dir = np.array([0, 0.707, 0.707])
-# dir_a, _ = direction_functions.get_propelled_directions(45, np.array([1, 0, 0]), np.pi / 5)
-# dir_b, _ = direction_functions.fibonacci_sphere(last_dir, np.pi / 5, samples=2000)
-# print(np.shape(dir_a), np.shape(dir_b))
-# visualize_directions(dir_a)
+# visualization
+origin = np.array([0, 0, 0])
+last_dir = np.array([0, 0.707, 0.707])
+dir_lattice, _ = direction_functions.get_propelled_directions(45, last_dir, np.pi / 5)
+dir_fib, _ = direction_functions.fibonacci_sphere2(last_dir, np.pi / 5, samples=2000)
+print(np.shape(dir_lattice), np.shape(dir_fib))
+visualize_directions(dir_fib)
 
-# speed
-t0 = time.time()
-last = np.array([0, 0, 0], dtype='float32')
-head = np.array([0, 0, 0], dtype='float32')
-for _ in range(2000):
-    temp, length = direction_functions.fibonacci_sphere(last, np.pi / 5)
-    temp = temp[np.random.choice(length)]
-    head += temp
-    last = temp
-    print(head)
-t1 = time.time()
-print(t1 - t0)
-# 1000: 13s 2.1s with numba
-# 2000: 25s  2.8s with numba
-# 4000: 51s 3.7s with numba
+# # speed
+# t0 = time.time()
+# last = np.array([0, 0, 0], dtype='float32')
+# head = np.array([0, 0, 0], dtype='float32')
+# for _ in range(2000):
+#     temp, length = direction_functions.fibonacci_sphere(last, np.pi / 5)
+#     temp = temp[np.random.choice(length)]
+#     head += temp
+#     last = temp
+#     print(head)
+# t1 = time.time()
+# print(t1 - t0)
+# # 1000: 13s 2.1s with numba
+# # 2000: 25s  2.8s with numba
+# # 4000: 51s 3.7s with numba
