@@ -60,11 +60,12 @@ def visualize_directions(directions):
 
 # visualization
 origin = np.array([0, 0, 0])
-last_dir = np.array([0, 0.707, 0.707])
-dir_lattice, _ = direction_functions.get_propelled_directions(45, last_dir, np.pi / 5)
-dir_fib, _ = direction_functions.fibonacci_sphere2(last_dir, np.pi / 5, samples=2000)
+# last_dir = np.array([0, 0.707, 0.707])
+last_dir = np.array([0, 0, 1])
+dir_lattice, _ = direction_functions.get_propelled_directions(60, last_dir, np.pi / 5)
+dir_fib, _ = direction_functions.fibonacci_sphere(last_dir, np.pi / 5, samples=2000)
 print(np.shape(dir_lattice), np.shape(dir_fib))
-visualize_directions(dir_fib)
+visualize_directions(dir_lattice)
 
 # # speed
 # t0 = time.time()
