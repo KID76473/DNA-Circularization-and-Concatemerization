@@ -41,5 +41,6 @@ with open("data/dist_btw_nucleotides", "w") as file:
     for x in avg_dist_btw_2_nuc:
         file.write(f"{x}\n")
 
+
 def get_data():
     return avg_dist_btw_2_nuc

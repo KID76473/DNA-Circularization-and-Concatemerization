@@ -28,10 +28,27 @@ def test_directions(directions):
 
 
 # Visualize the directions
-def visualize_directions(directions):
+def visualize_directions(directions, rand=np.array([0, 0, 0]), out_points=np.array([]), annotate=False):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
+
+    # Plotting the direction points
     ax.scatter(directions[:, 0], directions[:, 1], directions[:, 2])
+    ax.scatter(rand[0], rand[1], rand[2], color='r')
+    if len(out_points) != 0:
+        ax.scatter(out_points[:, 0], out_points[:, 1], out_points[:, 2], color='y')
+
+    # Annotating the direction points
+    if annotate:
+        for i in range(directions.shape[0]):
+            ax.text(directions[i, 0], directions[i, 1], directions[i, 2],
+                    f'({directions[i, 0]:.2f}, {directions[i, 1]:.2f}, {directions[i, 2]:.2f})',
+                    size=10, zorder=1, color='k')
+        if (rand != 0).all():
+            ax.text(rand[0], rand[1], rand[2],
+                    f'({rand[0]:.2f}, {rand[1]:.2f}, {rand[2]:.2f})',
+                    size=10, zorder=1, color='r')
+
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
@@ -58,14 +75,38 @@ def visualize_directions(directions):
 #     for warning in w:
 #         print(f"Warning detected: {warning.message}")
 
-# visualization
+# # test distance between two points over sphere
+# p1 = np.array([0, 0], dtype='float64')
+# p2 = np.array([np.pi / 2, np.pi], dtype='float64')
+# print(f"{direction_functions.my_way(p1, p2)} my way")
+# print(f"{direction_functions.spherical_distance(p1, p2)} given way")
+# print(f"{direction_functions.another_way(p1, p2)} another way")
+
+# # visualization
+# # one specific dir
 origin = np.array([0, 0, 0])
 # last_dir = np.array([0, 0.707, 0.707])
-last_dir = np.array([0, 0, 1])
-dir_lattice, _ = direction_functions.get_propelled_directions(60, last_dir, np.pi / 5)
-dir_fib, _ = direction_functions.fibonacci_sphere(last_dir, np.pi / 5, samples=2000)
-print(np.shape(dir_lattice), np.shape(dir_fib))
-visualize_directions(dir_lattice)
+# last_dir = np.array([1 / np.sqrt(3), 1 / np.sqrt(3), 1 / np.sqrt(3)])
+# last_dir = np.array([1 / 2, 1 / 3, -1 / 3])
+# last_dir = np.array([np.sqrt(2), -np.sqrt(2), 0])
+# last_dir = [0.08766495,  0.05693028, -0.9945219]
+
+# choose one random dir
+all_dirs = direction_functions.get_directions(360)
+rand_dir = all_dirs[np.random.choice(360 ** 2)]
+print(f"the last direction is: {rand_dir}")
+print("-------------------------------------")
+
+# rand_dir = np.array([0.99558784,  0.03476669, -0.08715574])
+
+p = np.arccos(rand_dir[2])
+t = np.arcsin(rand_dir[1] / np.sin(p))
+print(f"theta: {t}, phi: {p}")
+print(f"to degree: {direction_functions.to_degree([t, p])}")
+
+dir_fib, _, out = direction_functions.fibonacci_sphere(rand_dir, np.pi / 5, samples=2000)
+# print(np.shape(dir_lattice), np.shape(dir_fib))
+visualize_directions(dir_fib, rand_dir, out)
 
 # # speed
 # t0 = time.time()

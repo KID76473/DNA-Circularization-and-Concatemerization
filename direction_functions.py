@@ -1,6 +1,7 @@
 import math
 from numba import njit
 import numpy as np
+import haversine
 
 
 def get_6_directions():
@@ -27,74 +28,57 @@ def get_directions(num):
 
 
 # generates directions based on last step
-def get_propelled_directions(num, last, deg):
-    remain_all = False
-    if (last == 0).all():
-        remain_all = True
-    else:
-        phi = np.arcsin(last[2])
-        # print(last[1] / np.cos(phi))
-        theta = np.arcsin(last[1] / np.cos(phi))
-        dist = deg  # = 2pi * r * deg / 2pi = deg
-    theta_angles = np.linspace(0, 2 * np.pi, num, endpoint=False)
-    phi_angles = np.linspace(0, np.pi, int(num / 2), endpoint=False)
-    d = []
-    for i in range(len(theta_angles)):  # angle of xy plane
-        for j in range(len(phi_angles)):  # angle of z plane
-            if remain_all or spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]) > dist:
-                # print(spherical_distance([theta, phi], [theta_angles[i], phi_angles[j]]))
-                arr = [np.sin(phi_angles[j]) * np.cos(theta_angles[i]),
-                       np.sin(phi_angles[j]) * np.sin(theta_angles[i]),
-                       np.cos(phi_angles[j])]
-                d.append(arr)
-    return np.array(d), len(d)
-
-
-@njit
 def fibonacci_sphere(last, deg, samples=1000):
     remain_all = False  # exclude some directions too closed to last direction
     if (last == 0).all():
         remain_all = True  # remain all direction if it is the first step
     dist = deg  # = 2pi * r * deg / 2pi = deg
     points = []
+    out = []
     phi = math.pi * (math.sqrt(5.) - 1.)  # golden angle in radians
+
+    p2 = np.arccos(last[2])
+    # t2 = np.arcsin(last[1] / np.sin(p2))
+    t2 = np.arctan2(last[1], last[0])
+    pos2 = to_degree([t2, p2])
+
     for i in range(samples):
         y = 1 - (i / float(samples - 1)) * 2  # y goes from 1 to -1
         radius = math.sqrt(1 - y * y)  # radius at y
+
         theta = phi * i  # golden angle increment
+
         x = math.cos(theta) * radius
         z = math.sin(theta) * radius
-        p1 = np.arcsin(z)
-        t1 = np.arcsin(y / np.cos(p1))
-        p2 = np.arcsin(last[2])
-        t2 = np.arcsin(last[1] / np.cos(p2))
-        if remain_all or spherical_distance([t1, p1], [t2, p2]) > dist:
-            points.append((x, y, z))
-    return np.array(points), len(points)
+
+        p1 = np.arccos(z)
+        # t1 = np.arcsin(y / np.sin(p1))
+        t1 = np.arctan2(y, x)
+        pos1 = to_degree([t1, p1])
+
+        if remain_all or haversine.haversine(pos1, pos2) / 6371.008 > dist:
+            points.append([x, y, z])
+        #     print(f"in: {pos1, [x, y, z]}")
+        # else:
+        #     out.append([x, y, z])
+        #     print("!!!!!!!!!!!!!!!!!!!!")
+        #     print(f"out: {pos1, [x, y, z]}")
+        # print(f"hav | deg: {haversine.haversine(pos1, pos2) / 6371.008} | {deg}")
+        # print("------------------------")
+
+    return np.array(points), len(points), np.array(out)
 
 
-# return the distance over sphere between two points with given theta and phi
-@njit
-def spherical_distance(a, b):
-    return 2 * np.arcsin(np.sqrt((np.sin(np.abs(a[1] - b[1]) / 2)) ** 2 + np.cos(a[1]) * np.cos(b[1]) * (np.sin(np.abs(a[0] - b[0]) / 2)) ** 2))
-    # lat1, lon1 = a
-    # lat2, lon2 = b
-    #
-    # delta_lat = lat2 - lat1
-    # delta_lon = lon2 - lon1
-    #
-    # sin_lat = np.sin(delta_lat / 2) ** 2
-    # sin_lon = np.sin(delta_lon / 2) ** 2
-    # cos_lat1 = np.cos(lat1)
-    # cos_lat2 = np.cos(lat2)
-    #
-    # a = sin_lat + cos_lat1 * cos_lat2 * sin_lon
-    # c = 2 * np.arcsin(np.sqrt(a))
-    # # try:
-    # #     if a < 0:
-    # #         print("222222222222222222222222222222222222222222222222")
-    # #     c = 2 * np.arcsin(np.sqrt(a))
-    # # except ValueError as e:
-    # #     raise ValueError(f"Invalid input from inner to arcsin: {a}. Details: {e}")
-    #
-    # return c
+# Convert radian to degree. Return [lat, lon] which equals to [phi, theta]
+def to_degree(rad):  # rad[0] is theta, and rad[1] is phi
+    if rad[0] < 0:
+        rad[0] += 2 * np.pi
+    elif rad[0] > 2 * np.pi:
+        rad[0] -= 2 * np.pi
+    if rad[1] < 0:
+        rad[1] += np.pi
+    elif rad[1] > np.pi:
+        rad[1] -= np.pi
+    lat = rad[1] * 180 / np.pi - 90
+    lon = rad[0] * 180 / np.pi - 180
+    return [lat, lon]
