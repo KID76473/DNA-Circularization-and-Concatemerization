@@ -6,10 +6,10 @@ import time
 
 @njit
 def walk(position, last):
-    next_dir, upper_bound = direction_functions.fibonacci_sphere(last, deg)
-    next_dir = next_dir[np.random.choice(upper_bound)]
+    directions, upper_bound, _ = direction_functions.fibonacci_sphere(last, deg)
+    next_dir = directions[np.random.choice(upper_bound)]
     position += next_dir
-    last = next_dir
+    last = -next_dir
     return position, last
 
 
@@ -43,7 +43,7 @@ for n in range(num_trails):
     head = np.array([0, 0, 0], dtype='float64')
     last_dir = np.array([0, 0, 0], dtype='float64')
     for j in range(1, length_list[-1] + 1):  # loop through length
-        head, last_dir = walk(head, -last_dir)
+        head, last_dir = walk(head, last_dir)
         if j in length_list:
             length_index = length_list.index(j)
             # print(density[i])
