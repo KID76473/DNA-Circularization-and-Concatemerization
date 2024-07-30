@@ -31,9 +31,8 @@ for n in range(num_trails):
         head, last_dir = walk(head, last_dir)
     if (np.abs(head) < 1).all(axis=-1):  # check circularization
         cir += 1
-    else:
-        if (np.abs(head) % concentration < 1).all(axis=-1):  # check concatemerization
-            concat += 1
+    elif (np.abs(head) % concentration < 1).all(axis=-1):  # check concatemerization
+        concat += 1
     t = time.time()
     with open("data/test_model_sum.txt", 'a') as f:
         f.write(f"{n + 1}th loop at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
