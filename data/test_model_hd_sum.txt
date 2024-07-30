@@ -1,1 +1,7 @@
-The program started at 2024-07-30 11:37:18
+The program started at 2024-07-30 15:19:26
+1th loop at 2024-07-30 15:24:57
+circularization: 0.0
+concatemerization: 0.0
+2th loop at 2024-07-30 15:30:28
+circularization: 0.0
+concatemerization: 0.0

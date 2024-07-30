@@ -27,7 +27,7 @@ with open("data/test_model_sum.txt", 'w') as f:
 for n in range(num_trails):
     head = np.array([0, 0, 0], dtype='float64')
     last_dir = np.array([0, 0, 0], dtype='float64')
-    for _ in range(0, length):  # loop through length
+    for _ in range(length):  # loop through length
         head, last_dir = walk(head, last_dir)
     if (np.abs(head) < 1).all(axis=-1):  # check circularization
         cir += 1
