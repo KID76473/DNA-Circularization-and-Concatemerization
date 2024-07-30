@@ -5,3 +5,15 @@ concatemerization: 0.0
 2th loop at 2024-07-30 15:30:28
 circularization: 0.0
 concatemerization: 0.0
+3th loop at 2024-07-30 15:36:00
+circularization: 0.0
+concatemerization: 0.0
+4th loop at 2024-07-30 15:44:12
+circularization: 0.0
+concatemerization: 0.0
+5th loop at 2024-07-30 15:52:29
+circularization: 0.0
+concatemerization: 0.0
+6th loop at 2024-07-30 15:59:49
+circularization: 0.0
+concatemerization: 0.0

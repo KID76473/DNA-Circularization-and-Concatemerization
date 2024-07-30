@@ -27,7 +27,7 @@ length = 10000
 N = 4
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
-cir = np.zeros((N, N, N))
+cir = 0
 concat = 0
 
 with open("data/test_model_hd_sum.txt", 'w') as f:
