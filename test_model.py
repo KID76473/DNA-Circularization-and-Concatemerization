@@ -27,7 +27,7 @@ with open("data/test_model_sum.txt", 'w') as f:
 for n in range(num_trails):
     head = np.array([0, 0, 0], dtype='float64')
     last_dir = np.array([0, 0, 0], dtype='float64')
-    for _ in range(1, length):  # loop through length
+    for _ in range(0, length):  # loop through length
         head, last_dir = walk(head, last_dir)
     if (np.abs(head) < 1).all(axis=-1):  # check circularization
         cir += 1
@@ -39,11 +39,11 @@ for n in range(num_trails):
         f.write(f"{n + 1}th loop at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
         if n % 100 == 0:
             temp1, temp2 = cir / (n + 1), concat / (n + 1)
-            f.write(f"circularization: \n{temp1}\n")
-            f.write(f"concatemerization: \n{temp2}\n")
+            f.write(f"circularization: {temp1}\n")
+            f.write(f"concatemerization: {temp2}\n")
 
 with open("data/test_model_sum.txt", 'a') as f:
-    f.write(f"circularization: \n{cir / num_trails}\n")
-    f.write(f"concatemerization: \n{concat / num_trails}\n")
+    f.write(f"circularization: {cir / num_trails}\n")
+    f.write(f"concatemerization: {concat / num_trails}\n")
     t = time.time()
     f.write(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}")
