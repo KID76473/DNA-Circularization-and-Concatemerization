@@ -1,1 +1,35 @@
-The program started at 2024-07-30 11:36:14
+The program started at 2024-07-31 09:51:33
+1th loop at 2024-07-31 09:53:04
+circularization: 0.0
+concatemerization: 0.0
+2th loop at 2024-07-31 09:54:47
+3th loop at 2024-07-31 09:56:53
+4th loop at 2024-07-31 09:59:08
+5th loop at 2024-07-31 10:01:23
+6th loop at 2024-07-31 10:02:57
+7th loop at 2024-07-31 10:04:28
+8th loop at 2024-07-31 10:06:34
+9th loop at 2024-07-31 10:08:48
+10th loop at 2024-07-31 10:10:58
+11th loop at 2024-07-31 10:13:06
+12th loop at 2024-07-31 10:15:08
+13th loop at 2024-07-31 10:16:38
+14th loop at 2024-07-31 10:18:39
+15th loop at 2024-07-31 10:20:44
+16th loop at 2024-07-31 10:22:30
+17th loop at 2024-07-31 10:24:14
+18th loop at 2024-07-31 10:25:45
+19th loop at 2024-07-31 10:27:16
+20th loop at 2024-07-31 10:28:47
+21th loop at 2024-07-31 10:30:26
+22th loop at 2024-07-31 10:31:55
+23th loop at 2024-07-31 10:33:24
+24th loop at 2024-07-31 10:34:52
+25th loop at 2024-07-31 10:36:23
+26th loop at 2024-07-31 10:37:53
+27th loop at 2024-07-31 10:39:23
+28th loop at 2024-07-31 10:40:55
+29th loop at 2024-07-31 10:42:26
+30th loop at 2024-07-31 10:43:58
+31th loop at 2024-07-31 10:45:29
+32th loop at 2024-07-31 10:47:25

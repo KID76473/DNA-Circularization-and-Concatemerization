@@ -83,6 +83,7 @@ def visualize_directions(directions, rand=np.array([0, 0, 0]), out_points=np.arr
 # print(f"{direction_functions.another_way(p1, p2)} another way")
 
 # # visualization
+
 # # one specific dir
 origin = np.array([0, 0, 0])
 # last_dir = np.array([0, 0.707, 0.707])
@@ -99,14 +100,14 @@ print("-------------------------------------")
 
 # rand_dir = np.array([0.99558784,  0.03476669, -0.08715574])
 
-p = np.arccos(rand_dir[2])
-t = np.arcsin(rand_dir[1] / np.sin(p))
-print(f"theta: {t}, phi: {p}")
-print(f"to degree: {direction_functions.to_degree([t, p])}")
+# p = np.arccos(rand_dir[2])
+# t = np.arcsin(rand_dir[1] / np.sin(p))
+# print(f"theta: {t}, phi: {p}")
+# print(f"to degree: {direction_functions.to_degree([t, p])}")
 
-dir_fib, _, out = direction_functions.fibonacci_sphere(rand_dir, np.pi / 5, samples=2000)
-# print(np.shape(dir_lattice), np.shape(dir_fib))
-visualize_directions(dir_fib, rand_dir, out)
+dir_fib, length, out = direction_functions.fibonacci_sphere(rand_dir, np.pi / 5, samples=2000)
+print(length)
+# visualize_directions(dir_fib, rand_dir, out)
 
 # # speed
 # t0 = time.time()

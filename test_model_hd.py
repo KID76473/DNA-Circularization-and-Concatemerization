@@ -6,25 +6,25 @@ import time
 
 # @jit(nopython=True)
 def walk(position, last):
-    # one way
-    next_directions = np.zeros((N, N, N, 3))
-    for i in range(N):
-        for j in range(N):
-            for k in range(N):
-                candidates, upper_bound, _ = direction_functions.fibonacci_sphere(last[i, j, k], np.pi / 5, samples=100)
-                next_directions[i, j, k] = candidates[np.random.choice(upper_bound)]
-    position += next_directions
-    last = -next_directions
+    # # one way
+    # next_directions = np.zeros((N, N, N, 3))
+    # for i in range(N):
+    #     for j in range(N):
+    #         for k in range(N):
+    #             candidates, upper_bound, _ = direction_functions.fibonacci_sphere(last[i, j, k], np.pi / 5, samples=100)
+    #             next_directions[i, j, k] = candidates[np.random.choice(upper_bound)]
+    # position += next_directions
+    # last = -next_directions
 
-    # # another way
-    # all_directions = direction_functions.fibonacci_sphere(np.array([0, 0, 0]), 0)
+    # another way
+
 
     return position, last
 
 
 num_trails = 100000000
 length = 10000
-N = 4
+N = 8
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
 cir = 0
