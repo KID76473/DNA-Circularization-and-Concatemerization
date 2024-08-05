@@ -16,6 +16,6 @@ for i in range(length):
 #     print(x[0])
 #     print("-------------------------------")
 
-np.asarray(direction_set, dtype='object')
+direction_set = np.array(direction_set, dtype='object')
 print(direction_set)
-np.save('./data/direction_set.npy', direction_set)
+np.save('./data/direction_set', direction_set)
