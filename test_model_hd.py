@@ -1,35 +1,42 @@
 import numpy as np
 import direction_functions
 from numba import jit, njit
-import
 import time
 
 
 # @jit(nopython=True)
 def walk(position, last):
+    next_directions = np.zeros((N, N, N, 3))
+
     # # one way
-    # next_directions = np.zeros((N, N, N, 3))
     # for i in range(N):
     #     for j in range(N):
     #         for k in range(N):
     #             candidates, upper_bound, _ = direction_functions.fibonacci_sphere(last[i, j, k], np.pi / 5, samples=100)
     #             next_directions[i, j, k] = candidates[np.random.choice(upper_bound)]
-    # position += next_directions
-    # last = -next_directions
 
     # another way
+    for i in range(N):
+        for j in range(N):
+            for k in range(N):
+                index = np.where(indices == last[i, j, k])
+                print(index)
+                next_directions[i, j, k] = direction_set[np.random.choice(direction_set[index][0])]
 
-
+    position += next_directions
+    last = -next_directions
     return position, last
 
 
 num_trails = 100000000
 length = 10000
-N = 8
+N = 1
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
 cir = 0
 concat = 0
+direction_set = np.load('./data/direction_set.npy', allow_pickle=True)
+indices = np.load('./data/indices.npy')
 
 with open("data/test_model_hd_sum.txt", 'w') as f:
     t = time.time()
