@@ -2,6 +2,7 @@ import numpy as np
 import direction_functions
 from numba import jit, njit
 import time
+import haversine
 
 
 # @jit(nopython=True)
@@ -19,9 +20,23 @@ def walk(position, last):
     for i in range(N):
         for j in range(N):
             for k in range(N):
-                index = np.where(indices == last[i, j, k])
-                print(index)
-                next_directions[i, j, k] = direction_set[np.random.choice(direction_set[index][0])]
+                print("---------------------------------------")
+                print(f"the {k}th loop")
+                index = -1
+                p1 = np.arccos(last[i, j, k][2])
+                t1 = np.arctan2(last[i, j, k][1], last[i, j, k][0])
+                for n in range(len(indices)):
+                    p2 = np.arccos(indices[n][2])
+                    t2 = np.arctan2(indices[n][1], indices[n][0])
+                    if haversine.haversine([t1, p1], [t2, p2]) / 6371.008 < 0.001:
+                        index = n
+                        break
+                if index == -1:
+                    print("Cannot find direction!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                print(f"index: {index}")
+                # print(f"ergsfd: {direction_set[index][1]}")
+                # print(f"index: {np.random.choice(direction_set[index][0])}")
+                next_directions[i, j, k] = direction_set[index][1][np.random.choice(direction_set[index][0])]
 
     position += next_directions
     last = -next_directions
@@ -30,7 +45,7 @@ def walk(position, last):
 
 num_trails = 100000000
 length = 10000
-N = 1
+N = 4
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
 cir = 0
