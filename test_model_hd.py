@@ -20,20 +20,20 @@ def walk(position, last):
     for i in range(N):
         for j in range(N):
             for k in range(N):
-                print("---------------------------------------")
-                print(f"the {k}th loop")
+                # print("---------------------------------------")
+                # print(f"the {k}th loop")
                 index = -1
                 p1 = np.arccos(last[i, j, k][2])
                 t1 = np.arctan2(last[i, j, k][1], last[i, j, k][0])
                 for n in range(len(indices)):
                     p2 = np.arccos(indices[n][2])
                     t2 = np.arctan2(indices[n][1], indices[n][0])
-                    if haversine.haversine([t1, p1], [t2, p2]) / 6371.008 < 0.001:
+                    if haversine.haversine([t1, p1], [t2, p2]) / 6371.008 < 0.01:
                         index = n
                         break
                 if index == -1:
                     print("Cannot find direction!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                print(f"index: {index}")
+                # print(f"index: {index}")
                 # print(f"ergsfd: {direction_set[index][1]}")
                 # print(f"index: {np.random.choice(direction_set[index][0])}")
                 next_directions[i, j, k] = direction_set[index][1][np.random.choice(direction_set[index][0])]
@@ -45,7 +45,7 @@ def walk(position, last):
 
 num_trails = 100000000
 length = 10000
-N = 4
+N = 8
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
 cir = 0
@@ -58,7 +58,7 @@ with open("data/test_model_hd_sum.txt", 'w') as f:
     f.write(f"The program started at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
 
 for n in range(num_trails):
-    print(n)
+    print(f"{n}th trail")
     # head = np.array([0, 0, 0], dtype='float64')
     # last_dir = np.array([0, 0, 0], dtype='float64')
     head = np.zeros((N, N, N, 3))
