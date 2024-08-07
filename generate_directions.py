@@ -3,7 +3,7 @@ import numpy as np
 import direction_functions
 
 
-s = 1000
+s = 100
 all_directions, length, _ = direction_functions.fibonacci_sphere(np.zeros(3), 0, samples=s)
 direction_set = []
 indices = []

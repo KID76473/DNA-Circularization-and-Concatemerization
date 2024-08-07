@@ -45,7 +45,7 @@ def walk(position, last):
 
 num_trails = 100000000
 length = 10000
-N = 8
+N = 16
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
 cir = 0
