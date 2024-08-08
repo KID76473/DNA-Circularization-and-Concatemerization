@@ -20,3 +20,42 @@ concatemerization: 0.0
 7th loop at 2024-08-07 07:09:24
 circularization: 0.0
 concatemerization: 0.0
+8th loop at 2024-08-07 09:27:11
+circularization: 0.0
+concatemerization: 0.0
+9th loop at 2024-08-07 11:54:32
+circularization: 0.0
+concatemerization: 0.0
+10th loop at 2024-08-07 14:09:44
+circularization: 0.0
+concatemerization: 0.0
+11th loop at 2024-08-07 16:09:35
+circularization: 0.0
+concatemerization: 0.0
+12th loop at 2024-08-07 18:05:41
+circularization: 0.0
+concatemerization: 0.0
+13th loop at 2024-08-07 19:51:08
+circularization: 0.0
+concatemerization: 0.0
+14th loop at 2024-08-07 21:33:20
+circularization: 0.0
+concatemerization: 0.0
+15th loop at 2024-08-07 23:16:32
+circularization: 0.0
+concatemerization: 0.0
+16th loop at 2024-08-08 00:58:28
+circularization: 0.0
+concatemerization: 0.0
+17th loop at 2024-08-08 02:40:14
+circularization: 0.0
+concatemerization: 0.0
+18th loop at 2024-08-08 04:21:31
+circularization: 0.0
+concatemerization: 0.0
+19th loop at 2024-08-08 06:02:49
+circularization: 0.0
+concatemerization: 0.0
+20th loop at 2024-08-08 07:43:45
+circularization: 0.0
+concatemerization: 0.0
