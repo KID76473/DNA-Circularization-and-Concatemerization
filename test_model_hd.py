@@ -2,10 +2,9 @@ import numpy as np
 import direction_functions
 from numba import jit, njit
 import time
-import haversine
 
 
-# @jit(nopython=True)
+@jit(forceobj=True)
 def walk(position, last):
     next_directions = np.zeros((N, N, N, 3))
 
@@ -22,21 +21,37 @@ def walk(position, last):
             for k in range(N):
                 # print("---------------------------------------")
                 # print(f"the {k}th loop")
-                index = -1
-                p1 = np.arccos(last[i, j, k][2])
-                t1 = np.arctan2(last[i, j, k][1], last[i, j, k][0])
-                for n in range(len(indices)):
-                    p2 = np.arccos(indices[n][2])
-                    t2 = np.arctan2(indices[n][1], indices[n][0])
-                    if haversine.haversine([t1, p1], [t2, p2]) / 6371.008 < 0.01:
-                        index = n
-                        break
-                if index == -1:
-                    print("Cannot find direction!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                # print(f"index: {index}")
-                # print(f"ergsfd: {direction_set[index][1]}")
-                # print(f"index: {np.random.choice(direction_set[index][0])}")
-                next_directions[i, j, k] = direction_set[index][1][np.random.choice(direction_set[index][0])]
+                index_last = -1
+                # p1 = np.arccos(last[i, j, k][2])
+                # t1 = np.arctan2(last[i, j, k][1], last[i, j, k][0])
+                if (last[i, j, k] == 0).all():  # first time
+                    index_last = 0
+                    num = direction_set[index_last][0]
+                    next_directions[i, j, k] = direction_set[index_last][1][np.random.choice(num)]
+                    # print("last all 0")
+                else:  # non-first time
+                    for n in range(1, len(indices)):
+                        # p2 = np.arccos(indices[n][2])
+                        # t2 = np.arctan2(indices[n][1], indices[n][0])
+                        # print(last[i, j, k], indices[n])
+                        # print(np.sum(np.abs(last[i, j, k] - indices[n])))
+                        # if (last[i, j, k][0] == indices[n][0] and
+                        #     last[i, j, k][1] == indices[n][1] and
+                        #     last[i, j, k][2] == indices[n][2]):
+                        if (last[i, j, k] == indices[n]).all():
+                        # if np.sum(np.abs(last[i, j, k] - indices[n])) < 0.3:
+                        # if True:
+                        #     print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+                            index_last = n
+                            break
+                    if index_last == -1:
+                        print("Cannot find direction!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                        # raise ValueError("Cannot find direction!")
+                    # print(f"index_last: {index_last}")
+                    # print(f"ergsfd: {direction_set[index_last][1]}")
+                    # print(f"index_last: {np.random.choice(direction_set[index_last][0])}")
+                    num = direction_set[index_last][0]
+                    next_directions[i, j, k] = direction_set[index_last][1][np.random.choice(num)]
 
     position += next_directions
     last = -next_directions
@@ -45,7 +60,7 @@ def walk(position, last):
 
 num_trails = 100000000
 length = 10000
-N = 16
+N = 4
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
 cir = 0

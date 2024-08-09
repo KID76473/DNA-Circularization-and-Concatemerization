@@ -52,11 +52,11 @@ def fibonacci_sphere(last, deg, samples=1000):
         z = math.sin(theta) * radius
 
         p1 = np.arccos(z)
-        # t1 = np.arcsin(y / np.sin(p1))
+        # t1 = np.arcsin(y / np.sin(p1))  # this is wrong
         t1 = np.arctan2(y, x)
         pos1 = to_degree([t1, p1])
 
-        if remain_all or haversine.haversine(pos1, pos2) / 6371.008 > dist:
+        if remain_all or haversine.haversine(pos1, pos2) / 6371.0088 > dist:
             points.append([x, y, z])
         #     print(f"in: {pos1, [x, y, z]}")
         # else:
