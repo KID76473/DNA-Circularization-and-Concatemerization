@@ -5,9 +5,9 @@ import time
 # calculate the distance from the end point to the origin (circularzation)
 # claculate distance from end point to an evenly distrubuted point based on 
 
-num_trials = 100000000
+num_trials = 1000
 
-len_list = [10000]
+len_list = [500]
 
 avg_distance_btw_2_tails = 953.715332748677  # unit is length of nucleotide, this distance is for 300 ug/mL
 
@@ -36,13 +36,13 @@ def random_walk(pos, dir):
 
 def helper(pos, value) -> bool:
     for num in pos:
-        if num % value > 1:
+        if abs(num) % value > 1:
             return False
     return True
 
 def helper2(pos) -> bool:
     for num in pos:
-        if num > 1:
+        if abs(num) > 1:
             return False
     return True
 
