@@ -71,8 +71,9 @@ concat = 0
 direction_set = np.load('./data/direction_set.npy', allow_pickle=True)
 indices = np.load('./data/indices.npy')
 
-output_filename = sys.argv[1]
-with open("./test_model_output/" + str(output_filename), 'w') as f:
+output_filename = "./test_model_output/" + str(sys.argv[1])
+# output_filename = "./data/test_model_hd_sum.txt"
+with open(output_filename, 'w') as f:
     t = time.time()
     f.write(f"The program started at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
 
@@ -87,14 +88,16 @@ for n in range(num_trails):
     cir = np.sum((np.abs(head) < 1).all(axis=-1))
     concat = np.sum((np.abs(head) % concentration < 1).all(axis=-1)) - cir
     t = time.time()
-    with open("./test_model_output/" + str(output_filename), 'a') as f:
+    with open(output_filename, 'a') as f:
         f.write(f"{n + 1}th loop at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
         if n % 1 == 0:
             f.write(f"circularization: {cir / ((n + 1) * N ** 3)}\n")
             f.write(f"concatemerization: {concat / ((n + 1) * N ** 3)}\n")
+            f.write(f"# of molecules: {N ** 3 * n}\n")
 
-with open("./test_model_output/" + str(output_filename), 'a') as f:
+with open(output_filename, 'a') as f:
     f.write(f"circularization: {cir / (num_trails * N ** 3)}\n")
     f.write(f"concatemerization: {concat / (num_trails * N ** 3)}\n")
     t = time.time()
     f.write(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}")
+    f.write(f"# of molecules: {N ** 3 * num_trails}\n")
