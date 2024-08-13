@@ -1,0 +1,19 @@
+The program started at 2024-08-13 13:55:25
+1th loop at 2024-08-13 13:58:26
+circularization: 0.0
+concatemerization: 0.0
+2th loop at 2024-08-13 14:01:03
+circularization: 0.0
+concatemerization: 0.0
+3th loop at 2024-08-13 14:03:34
+circularization: 0.0
+concatemerization: 0.0
+4th loop at 2024-08-13 14:06:05
+circularization: 0.0
+concatemerization: 0.0
+5th loop at 2024-08-13 14:08:36
+circularization: 0.0
+concatemerization: 0.0
+6th loop at 2024-08-13 14:11:08
+circularization: 0.0
+concatemerization: 0.0

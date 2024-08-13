@@ -2,9 +2,11 @@ import numpy as np
 import direction_functions
 from numba import jit, njit
 import time
+import sys
 
 
-@jit(forceobj=True)
+@jit(forceobj=True, cache=True, parallel=True, fastmath=True)
+# @njit
 def walk(position, last):
     next_directions = np.zeros((N, N, N, 3))
 
@@ -26,7 +28,7 @@ def walk(position, last):
                 # t1 = np.arctan2(last[i, j, k][1], last[i, j, k][0])
                 if (last[i, j, k] == 0).all():  # first time
                     index_last = 0
-                    num = direction_set[index_last][0]
+                    num = 100  # revise the number here if try different samples
                     next_directions[i, j, k] = direction_set[index_last][1][np.random.choice(num)]
                     # print("last all 0")
                 else:  # non-first time
@@ -50,7 +52,8 @@ def walk(position, last):
                     # print(f"index_last: {index_last}")
                     # print(f"ergsfd: {direction_set[index_last][1]}")
                     # print(f"index_last: {np.random.choice(direction_set[index_last][0])}")
-                    num = direction_set[index_last][0]
+                    temp = direction_set[index_last]
+                    num = temp[0]
                     next_directions[i, j, k] = direction_set[index_last][1][np.random.choice(num)]
 
     position += next_directions
@@ -68,7 +71,8 @@ concat = 0
 direction_set = np.load('./data/direction_set.npy', allow_pickle=True)
 indices = np.load('./data/indices.npy')
 
-with open("data/test_model_hd_sum.txt", 'w') as f:
+output_filename = sys.argv[1]
+with open("./test_model_output/" + str(output_filename), 'w') as f:
     t = time.time()
     f.write(f"The program started at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
 
@@ -83,13 +87,13 @@ for n in range(num_trails):
     cir = np.sum((np.abs(head) < 1).all(axis=-1))
     concat = np.sum((np.abs(head) % concentration < 1).all(axis=-1)) - cir
     t = time.time()
-    with open("data/test_model_hd_sum.txt", 'a') as f:
+    with open("./test_model_output/" + str(output_filename), 'a') as f:
         f.write(f"{n + 1}th loop at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
         if n % 1 == 0:
             f.write(f"circularization: {cir / ((n + 1) * N ** 3)}\n")
             f.write(f"concatemerization: {concat / ((n + 1) * N ** 3)}\n")
 
-with open("data/test_model_hd_sum.txt", 'a') as f:
+with open("./test_model_output/" + str(output_filename), 'a') as f:
     f.write(f"circularization: {cir / (num_trails * N ** 3)}\n")
     f.write(f"concatemerization: {concat / (num_trails * N ** 3)}\n")
     t = time.time()
