@@ -1,0 +1,2509 @@
+The program started at 2024-08-13 17:00:12
+1th loop at 2024-08-13 17:02:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 64
+2th loop at 2024-08-13 17:04:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 128
+3th loop at 2024-08-13 17:06:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 192
+4th loop at 2024-08-13 17:08:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 256
+5th loop at 2024-08-13 17:10:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 320
+6th loop at 2024-08-13 17:12:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 384
+7th loop at 2024-08-13 17:14:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 448
+8th loop at 2024-08-13 17:15:59
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 512
+9th loop at 2024-08-13 17:17:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 576
+10th loop at 2024-08-13 17:19:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 640
+11th loop at 2024-08-13 17:21:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 704
+12th loop at 2024-08-13 17:23:54
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 768
+13th loop at 2024-08-13 17:25:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 832
+14th loop at 2024-08-13 17:27:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 896
+15th loop at 2024-08-13 17:29:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 960
+16th loop at 2024-08-13 17:30:47
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1024
+17th loop at 2024-08-13 17:32:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1088
+18th loop at 2024-08-13 17:34:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1152
+19th loop at 2024-08-13 17:36:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1216
+20th loop at 2024-08-13 17:38:41
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1280
+21th loop at 2024-08-13 17:40:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1344
+22th loop at 2024-08-13 17:42:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1408
+23th loop at 2024-08-13 17:44:37
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1472
+24th loop at 2024-08-13 17:46:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1536
+25th loop at 2024-08-13 17:48:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1600
+26th loop at 2024-08-13 17:50:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1664
+27th loop at 2024-08-13 17:52:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1728
+28th loop at 2024-08-13 17:54:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1792
+29th loop at 2024-08-13 17:56:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1856
+30th loop at 2024-08-13 17:58:25
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1920
+31th loop at 2024-08-13 18:00:23
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 1984
+32th loop at 2024-08-13 18:02:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2048
+33th loop at 2024-08-13 18:04:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2112
+34th loop at 2024-08-13 18:05:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2176
+35th loop at 2024-08-13 18:07:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2240
+36th loop at 2024-08-13 18:08:25
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2304
+37th loop at 2024-08-13 18:09:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2368
+38th loop at 2024-08-13 18:11:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2432
+39th loop at 2024-08-13 18:13:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2496
+40th loop at 2024-08-13 18:15:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2560
+41th loop at 2024-08-13 18:17:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2624
+42th loop at 2024-08-13 18:19:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2688
+43th loop at 2024-08-13 18:21:54
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2752
+44th loop at 2024-08-13 18:23:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2816
+45th loop at 2024-08-13 18:25:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2880
+46th loop at 2024-08-13 18:27:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 2944
+47th loop at 2024-08-13 18:29:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3008
+48th loop at 2024-08-13 18:31:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3072
+49th loop at 2024-08-13 18:33:48
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3136
+50th loop at 2024-08-13 18:35:47
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3200
+51th loop at 2024-08-13 18:37:47
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3264
+52th loop at 2024-08-13 18:39:47
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3328
+53th loop at 2024-08-13 18:41:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3392
+54th loop at 2024-08-13 18:43:37
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3456
+55th loop at 2024-08-13 18:45:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3520
+56th loop at 2024-08-13 18:46:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3584
+57th loop at 2024-08-13 18:48:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3648
+58th loop at 2024-08-13 18:50:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3712
+59th loop at 2024-08-13 18:52:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3776
+60th loop at 2024-08-13 18:54:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3840
+61th loop at 2024-08-13 18:55:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3904
+62th loop at 2024-08-13 18:57:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 3968
+63th loop at 2024-08-13 18:58:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4032
+64th loop at 2024-08-13 18:59:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4096
+65th loop at 2024-08-13 19:01:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4160
+66th loop at 2024-08-13 19:02:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4224
+67th loop at 2024-08-13 19:03:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4288
+68th loop at 2024-08-13 19:05:38
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4352
+69th loop at 2024-08-13 19:07:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4416
+70th loop at 2024-08-13 19:09:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4480
+71th loop at 2024-08-13 19:11:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4544
+72th loop at 2024-08-13 19:13:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4608
+73th loop at 2024-08-13 19:15:25
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4672
+74th loop at 2024-08-13 19:17:23
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4736
+75th loop at 2024-08-13 19:19:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4800
+76th loop at 2024-08-13 19:21:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4864
+77th loop at 2024-08-13 19:23:17
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4928
+78th loop at 2024-08-13 19:25:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 4992
+79th loop at 2024-08-13 19:27:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5056
+80th loop at 2024-08-13 19:29:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5120
+81th loop at 2024-08-13 19:31:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5184
+82th loop at 2024-08-13 19:33:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5248
+83th loop at 2024-08-13 19:35:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5312
+84th loop at 2024-08-13 19:36:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5376
+85th loop at 2024-08-13 19:38:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5440
+86th loop at 2024-08-13 19:40:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5504
+87th loop at 2024-08-13 19:41:54
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5568
+88th loop at 2024-08-13 19:43:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5632
+89th loop at 2024-08-13 19:44:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5696
+90th loop at 2024-08-13 19:46:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5760
+91th loop at 2024-08-13 19:47:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5824
+92th loop at 2024-08-13 19:48:37
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5888
+93th loop at 2024-08-13 19:49:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 5952
+94th loop at 2024-08-13 19:51:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6016
+95th loop at 2024-08-13 19:52:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6080
+96th loop at 2024-08-13 19:54:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6144
+97th loop at 2024-08-13 19:55:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6208
+98th loop at 2024-08-13 19:56:38
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6272
+99th loop at 2024-08-13 19:57:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6336
+100th loop at 2024-08-13 19:59:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6400
+101th loop at 2024-08-13 20:00:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6464
+102th loop at 2024-08-13 20:01:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6528
+103th loop at 2024-08-13 20:03:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6592
+104th loop at 2024-08-13 20:05:54
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6656
+105th loop at 2024-08-13 20:07:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6720
+106th loop at 2024-08-13 20:08:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6784
+107th loop at 2024-08-13 20:10:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6848
+108th loop at 2024-08-13 20:11:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6912
+109th loop at 2024-08-13 20:12:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 6976
+110th loop at 2024-08-13 20:14:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7040
+111th loop at 2024-08-13 20:15:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7104
+112th loop at 2024-08-13 20:16:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7168
+113th loop at 2024-08-13 20:17:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7232
+114th loop at 2024-08-13 20:19:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7296
+115th loop at 2024-08-13 20:20:24
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7360
+116th loop at 2024-08-13 20:21:41
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7424
+117th loop at 2024-08-13 20:22:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7488
+118th loop at 2024-08-13 20:24:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7552
+119th loop at 2024-08-13 20:25:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7616
+120th loop at 2024-08-13 20:26:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7680
+121th loop at 2024-08-13 20:28:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7744
+122th loop at 2024-08-13 20:29:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7808
+123th loop at 2024-08-13 20:30:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7872
+124th loop at 2024-08-13 20:32:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 7936
+125th loop at 2024-08-13 20:33:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8000
+126th loop at 2024-08-13 20:34:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8064
+127th loop at 2024-08-13 20:35:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8128
+128th loop at 2024-08-13 20:37:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8192
+129th loop at 2024-08-13 20:39:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8256
+130th loop at 2024-08-13 20:41:25
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8320
+131th loop at 2024-08-13 20:42:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8384
+132th loop at 2024-08-13 20:44:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8448
+133th loop at 2024-08-13 20:45:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8512
+134th loop at 2024-08-13 20:46:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8576
+135th loop at 2024-08-13 20:47:54
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8640
+136th loop at 2024-08-13 20:49:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8704
+137th loop at 2024-08-13 20:50:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8768
+138th loop at 2024-08-13 20:52:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8832
+139th loop at 2024-08-13 20:54:41
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8896
+140th loop at 2024-08-13 20:55:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 8960
+141th loop at 2024-08-13 20:57:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9024
+142th loop at 2024-08-13 20:58:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9088
+143th loop at 2024-08-13 20:59:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9152
+144th loop at 2024-08-13 21:01:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9216
+145th loop at 2024-08-13 21:02:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9280
+146th loop at 2024-08-13 21:04:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9344
+147th loop at 2024-08-13 21:05:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9408
+148th loop at 2024-08-13 21:06:48
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9472
+149th loop at 2024-08-13 21:08:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9536
+150th loop at 2024-08-13 21:09:24
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9600
+151th loop at 2024-08-13 21:10:41
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9664
+152th loop at 2024-08-13 21:11:59
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9728
+153th loop at 2024-08-13 21:13:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9792
+154th loop at 2024-08-13 21:14:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9856
+155th loop at 2024-08-13 21:15:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9920
+156th loop at 2024-08-13 21:17:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 9984
+157th loop at 2024-08-13 21:18:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10048
+158th loop at 2024-08-13 21:19:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10112
+159th loop at 2024-08-13 21:21:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10176
+160th loop at 2024-08-13 21:23:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10240
+161th loop at 2024-08-13 21:25:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10304
+162th loop at 2024-08-13 21:26:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10368
+163th loop at 2024-08-13 21:27:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10432
+164th loop at 2024-08-13 21:29:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10496
+165th loop at 2024-08-13 21:30:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10560
+166th loop at 2024-08-13 21:31:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10624
+167th loop at 2024-08-13 21:33:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10688
+168th loop at 2024-08-13 21:34:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10752
+169th loop at 2024-08-13 21:35:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10816
+170th loop at 2024-08-13 21:37:37
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10880
+171th loop at 2024-08-13 21:39:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 10944
+172th loop at 2024-08-13 21:41:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11008
+173th loop at 2024-08-13 21:43:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11072
+174th loop at 2024-08-13 21:45:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11136
+175th loop at 2024-08-13 21:47:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11200
+176th loop at 2024-08-13 21:49:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11264
+177th loop at 2024-08-13 21:51:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11328
+178th loop at 2024-08-13 21:53:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11392
+179th loop at 2024-08-13 21:55:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11456
+180th loop at 2024-08-13 21:57:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11520
+181th loop at 2024-08-13 21:59:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11584
+182th loop at 2024-08-13 22:01:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11648
+183th loop at 2024-08-13 22:03:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11712
+184th loop at 2024-08-13 22:05:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11776
+185th loop at 2024-08-13 22:07:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11840
+186th loop at 2024-08-13 22:09:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11904
+187th loop at 2024-08-13 22:11:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 11968
+188th loop at 2024-08-13 22:13:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12032
+189th loop at 2024-08-13 22:14:47
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12096
+190th loop at 2024-08-13 22:16:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12160
+191th loop at 2024-08-13 22:18:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12224
+192th loop at 2024-08-13 22:20:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12288
+193th loop at 2024-08-13 22:22:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12352
+194th loop at 2024-08-13 22:24:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12416
+195th loop at 2024-08-13 22:26:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12480
+196th loop at 2024-08-13 22:28:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12544
+197th loop at 2024-08-13 22:29:41
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12608
+198th loop at 2024-08-13 22:30:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12672
+199th loop at 2024-08-13 22:32:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12736
+200th loop at 2024-08-13 22:33:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12800
+201th loop at 2024-08-13 22:34:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12864
+202th loop at 2024-08-13 22:36:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12928
+203th loop at 2024-08-13 22:37:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 12992
+204th loop at 2024-08-13 22:38:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13056
+205th loop at 2024-08-13 22:40:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13120
+206th loop at 2024-08-13 22:41:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13184
+207th loop at 2024-08-13 22:42:38
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13248
+208th loop at 2024-08-13 22:43:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13312
+209th loop at 2024-08-13 22:45:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13376
+210th loop at 2024-08-13 22:46:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13440
+211th loop at 2024-08-13 22:47:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13504
+212th loop at 2024-08-13 22:49:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13568
+213th loop at 2024-08-13 22:50:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13632
+214th loop at 2024-08-13 22:51:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13696
+215th loop at 2024-08-13 22:53:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13760
+216th loop at 2024-08-13 22:54:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13824
+217th loop at 2024-08-13 22:55:38
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13888
+218th loop at 2024-08-13 22:56:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 13952
+219th loop at 2024-08-13 22:58:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14016
+220th loop at 2024-08-13 22:59:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14080
+221th loop at 2024-08-13 23:00:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14144
+222th loop at 2024-08-13 23:02:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14208
+223th loop at 2024-08-13 23:03:24
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14272
+224th loop at 2024-08-13 23:04:42
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14336
+225th loop at 2024-08-13 23:06:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14400
+226th loop at 2024-08-13 23:07:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14464
+227th loop at 2024-08-13 23:08:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14528
+228th loop at 2024-08-13 23:09:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14592
+229th loop at 2024-08-13 23:11:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14656
+230th loop at 2024-08-13 23:12:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14720
+231th loop at 2024-08-13 23:14:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14784
+232th loop at 2024-08-13 23:16:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14848
+233th loop at 2024-08-13 23:18:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14912
+234th loop at 2024-08-13 23:20:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 14976
+235th loop at 2024-08-13 23:22:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15040
+236th loop at 2024-08-13 23:24:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15104
+237th loop at 2024-08-13 23:25:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15168
+238th loop at 2024-08-13 23:27:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15232
+239th loop at 2024-08-13 23:29:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15296
+240th loop at 2024-08-13 23:30:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15360
+241th loop at 2024-08-13 23:31:47
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15424
+242th loop at 2024-08-13 23:33:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15488
+243th loop at 2024-08-13 23:34:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15552
+244th loop at 2024-08-13 23:35:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15616
+245th loop at 2024-08-13 23:36:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15680
+246th loop at 2024-08-13 23:38:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15744
+247th loop at 2024-08-13 23:39:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15808
+248th loop at 2024-08-13 23:40:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15872
+249th loop at 2024-08-13 23:42:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 15936
+250th loop at 2024-08-13 23:43:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16000
+251th loop at 2024-08-13 23:45:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16064
+252th loop at 2024-08-13 23:47:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16128
+253th loop at 2024-08-13 23:49:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16192
+254th loop at 2024-08-13 23:51:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16256
+255th loop at 2024-08-13 23:52:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16320
+256th loop at 2024-08-13 23:53:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16384
+257th loop at 2024-08-13 23:55:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16448
+258th loop at 2024-08-13 23:56:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16512
+259th loop at 2024-08-13 23:57:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16576
+260th loop at 2024-08-13 23:59:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16640
+261th loop at 2024-08-14 00:00:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16704
+262th loop at 2024-08-14 00:01:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16768
+263th loop at 2024-08-14 00:03:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16832
+264th loop at 2024-08-14 00:04:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16896
+265th loop at 2024-08-14 00:05:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 16960
+266th loop at 2024-08-14 00:06:54
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17024
+267th loop at 2024-08-14 00:08:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17088
+268th loop at 2024-08-14 00:09:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17152
+269th loop at 2024-08-14 00:11:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17216
+270th loop at 2024-08-14 00:13:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17280
+271th loop at 2024-08-14 00:15:25
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17344
+272th loop at 2024-08-14 00:16:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17408
+273th loop at 2024-08-14 00:18:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17472
+274th loop at 2024-08-14 00:19:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17536
+275th loop at 2024-08-14 00:20:38
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17600
+276th loop at 2024-08-14 00:21:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17664
+277th loop at 2024-08-14 00:23:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17728
+278th loop at 2024-08-14 00:24:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17792
+279th loop at 2024-08-14 00:25:48
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17856
+280th loop at 2024-08-14 00:27:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17920
+281th loop at 2024-08-14 00:28:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 17984
+282th loop at 2024-08-14 00:29:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18048
+283th loop at 2024-08-14 00:31:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18112
+284th loop at 2024-08-14 00:33:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18176
+285th loop at 2024-08-14 00:35:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18240
+286th loop at 2024-08-14 00:37:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18304
+287th loop at 2024-08-14 00:39:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18368
+288th loop at 2024-08-14 00:40:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18432
+289th loop at 2024-08-14 00:41:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18496
+290th loop at 2024-08-14 00:42:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18560
+291th loop at 2024-08-14 00:44:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18624
+292th loop at 2024-08-14 00:45:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18688
+293th loop at 2024-08-14 00:46:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18752
+294th loop at 2024-08-14 00:48:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18816
+295th loop at 2024-08-14 00:49:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18880
+296th loop at 2024-08-14 00:50:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 18944
+297th loop at 2024-08-14 00:51:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19008
+298th loop at 2024-08-14 00:53:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19072
+299th loop at 2024-08-14 00:54:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19136
+300th loop at 2024-08-14 00:55:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19200
+301th loop at 2024-08-14 00:57:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19264
+302th loop at 2024-08-14 00:58:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19328
+303th loop at 2024-08-14 00:59:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19392
+304th loop at 2024-08-14 01:01:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19456
+305th loop at 2024-08-14 01:02:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19520
+306th loop at 2024-08-14 01:03:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19584
+307th loop at 2024-08-14 01:04:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19648
+308th loop at 2024-08-14 01:06:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19712
+309th loop at 2024-08-14 01:07:59
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19776
+310th loop at 2024-08-14 01:09:17
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19840
+311th loop at 2024-08-14 01:10:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19904
+312th loop at 2024-08-14 01:11:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 19968
+313th loop at 2024-08-14 01:13:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20032
+314th loop at 2024-08-14 01:14:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20096
+315th loop at 2024-08-14 01:15:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20160
+316th loop at 2024-08-14 01:17:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20224
+317th loop at 2024-08-14 01:19:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20288
+318th loop at 2024-08-14 01:21:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20352
+319th loop at 2024-08-14 01:22:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20416
+320th loop at 2024-08-14 01:24:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20480
+321th loop at 2024-08-14 01:25:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20544
+322th loop at 2024-08-14 01:27:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20608
+323th loop at 2024-08-14 01:29:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20672
+324th loop at 2024-08-14 01:31:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20736
+325th loop at 2024-08-14 01:33:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20800
+326th loop at 2024-08-14 01:35:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20864
+327th loop at 2024-08-14 01:37:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20928
+328th loop at 2024-08-14 01:39:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 20992
+329th loop at 2024-08-14 01:41:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21056
+330th loop at 2024-08-14 01:43:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21120
+331th loop at 2024-08-14 01:45:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21184
+332th loop at 2024-08-14 01:47:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21248
+333th loop at 2024-08-14 01:49:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21312
+334th loop at 2024-08-14 01:51:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21376
+335th loop at 2024-08-14 01:53:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21440
+336th loop at 2024-08-14 01:55:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21504
+337th loop at 2024-08-14 01:57:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21568
+338th loop at 2024-08-14 01:59:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21632
+339th loop at 2024-08-14 02:01:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21696
+340th loop at 2024-08-14 02:03:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21760
+341th loop at 2024-08-14 02:05:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21824
+342th loop at 2024-08-14 02:07:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21888
+343th loop at 2024-08-14 02:09:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 21952
+344th loop at 2024-08-14 02:11:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22016
+345th loop at 2024-08-14 02:13:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22080
+346th loop at 2024-08-14 02:15:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22144
+347th loop at 2024-08-14 02:17:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22208
+348th loop at 2024-08-14 02:19:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22272
+349th loop at 2024-08-14 02:21:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22336
+350th loop at 2024-08-14 02:23:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22400
+351th loop at 2024-08-14 02:25:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22464
+352th loop at 2024-08-14 02:27:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22528
+353th loop at 2024-08-14 02:28:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22592
+354th loop at 2024-08-14 02:29:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22656
+355th loop at 2024-08-14 02:30:54
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22720
+356th loop at 2024-08-14 02:32:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22784
+357th loop at 2024-08-14 02:34:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22848
+358th loop at 2024-08-14 02:36:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22912
+359th loop at 2024-08-14 02:37:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 22976
+360th loop at 2024-08-14 02:38:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23040
+361th loop at 2024-08-14 02:40:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23104
+362th loop at 2024-08-14 02:41:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23168
+363th loop at 2024-08-14 02:42:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23232
+364th loop at 2024-08-14 02:44:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23296
+365th loop at 2024-08-14 02:45:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23360
+366th loop at 2024-08-14 02:46:38
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23424
+367th loop at 2024-08-14 02:47:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23488
+368th loop at 2024-08-14 02:49:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23552
+369th loop at 2024-08-14 02:50:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23616
+370th loop at 2024-08-14 02:51:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23680
+371th loop at 2024-08-14 02:53:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23744
+372th loop at 2024-08-14 02:54:25
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23808
+373th loop at 2024-08-14 02:55:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23872
+374th loop at 2024-08-14 02:57:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 23936
+375th loop at 2024-08-14 02:58:18
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24000
+376th loop at 2024-08-14 02:59:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24064
+377th loop at 2024-08-14 03:00:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24128
+378th loop at 2024-08-14 03:02:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24192
+379th loop at 2024-08-14 03:03:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24256
+380th loop at 2024-08-14 03:04:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24320
+381th loop at 2024-08-14 03:06:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24384
+382th loop at 2024-08-14 03:07:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24448
+383th loop at 2024-08-14 03:08:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24512
+384th loop at 2024-08-14 03:10:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24576
+385th loop at 2024-08-14 03:11:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24640
+386th loop at 2024-08-14 03:12:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24704
+387th loop at 2024-08-14 03:14:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24768
+388th loop at 2024-08-14 03:15:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24832
+389th loop at 2024-08-14 03:17:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24896
+390th loop at 2024-08-14 03:19:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 24960
+391th loop at 2024-08-14 03:21:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25024
+392th loop at 2024-08-14 03:23:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25088
+393th loop at 2024-08-14 03:25:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25152
+394th loop at 2024-08-14 03:27:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25216
+395th loop at 2024-08-14 03:29:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25280
+396th loop at 2024-08-14 03:31:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25344
+397th loop at 2024-08-14 03:32:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25408
+398th loop at 2024-08-14 03:34:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25472
+399th loop at 2024-08-14 03:35:41
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25536
+400th loop at 2024-08-14 03:37:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25600
+401th loop at 2024-08-14 03:39:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25664
+402th loop at 2024-08-14 03:40:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25728
+403th loop at 2024-08-14 03:41:37
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25792
+404th loop at 2024-08-14 03:42:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25856
+405th loop at 2024-08-14 03:44:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25920
+406th loop at 2024-08-14 03:46:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 25984
+407th loop at 2024-08-14 03:48:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26048
+408th loop at 2024-08-14 03:50:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26112
+409th loop at 2024-08-14 03:52:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26176
+410th loop at 2024-08-14 03:54:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26240
+411th loop at 2024-08-14 03:56:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26304
+412th loop at 2024-08-14 03:58:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26368
+413th loop at 2024-08-14 04:00:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26432
+414th loop at 2024-08-14 04:02:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26496
+415th loop at 2024-08-14 04:03:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26560
+416th loop at 2024-08-14 04:05:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26624
+417th loop at 2024-08-14 04:07:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26688
+418th loop at 2024-08-14 04:09:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26752
+419th loop at 2024-08-14 04:11:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26816
+420th loop at 2024-08-14 04:13:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26880
+421th loop at 2024-08-14 04:15:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 26944
+422th loop at 2024-08-14 04:17:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27008
+423th loop at 2024-08-14 04:19:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27072
+424th loop at 2024-08-14 04:20:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27136
+425th loop at 2024-08-14 04:21:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27200
+426th loop at 2024-08-14 04:23:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27264
+427th loop at 2024-08-14 04:24:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27328
+428th loop at 2024-08-14 04:25:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27392
+429th loop at 2024-08-14 04:27:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27456
+430th loop at 2024-08-14 04:29:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27520
+431th loop at 2024-08-14 04:30:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27584
+432th loop at 2024-08-14 04:32:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27648
+433th loop at 2024-08-14 04:34:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27712
+434th loop at 2024-08-14 04:36:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27776
+435th loop at 2024-08-14 04:38:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27840
+436th loop at 2024-08-14 04:40:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27904
+437th loop at 2024-08-14 04:42:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 27968
+438th loop at 2024-08-14 04:44:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28032
+439th loop at 2024-08-14 04:46:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28096
+440th loop at 2024-08-14 04:48:13
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28160
+441th loop at 2024-08-14 04:50:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28224
+442th loop at 2024-08-14 04:52:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28288
+443th loop at 2024-08-14 04:54:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28352
+444th loop at 2024-08-14 04:56:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28416
+445th loop at 2024-08-14 04:58:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28480
+446th loop at 2024-08-14 05:00:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28544
+447th loop at 2024-08-14 05:01:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28608
+448th loop at 2024-08-14 05:03:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28672
+449th loop at 2024-08-14 05:05:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28736
+450th loop at 2024-08-14 05:07:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28800
+451th loop at 2024-08-14 05:09:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28864
+452th loop at 2024-08-14 05:11:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28928
+453th loop at 2024-08-14 05:13:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 28992
+454th loop at 2024-08-14 05:15:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29056
+455th loop at 2024-08-14 05:16:59
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29120
+456th loop at 2024-08-14 05:18:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29184
+457th loop at 2024-08-14 05:20:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29248
+458th loop at 2024-08-14 05:21:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29312
+459th loop at 2024-08-14 05:22:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29376
+460th loop at 2024-08-14 05:24:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29440
+461th loop at 2024-08-14 05:25:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29504
+462th loop at 2024-08-14 05:26:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29568
+463th loop at 2024-08-14 05:28:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29632
+464th loop at 2024-08-14 05:29:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29696
+465th loop at 2024-08-14 05:31:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29760
+466th loop at 2024-08-14 05:33:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29824
+467th loop at 2024-08-14 05:35:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29888
+468th loop at 2024-08-14 05:36:56
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 29952
+469th loop at 2024-08-14 05:38:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30016
+470th loop at 2024-08-14 05:40:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30080
+471th loop at 2024-08-14 05:42:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30144
+472th loop at 2024-08-14 05:44:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30208
+473th loop at 2024-08-14 05:45:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30272
+474th loop at 2024-08-14 05:47:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30336
+475th loop at 2024-08-14 05:48:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30400
+476th loop at 2024-08-14 05:49:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30464
+477th loop at 2024-08-14 05:51:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30528
+478th loop at 2024-08-14 05:52:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30592
+479th loop at 2024-08-14 05:53:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30656
+480th loop at 2024-08-14 05:55:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30720
+481th loop at 2024-08-14 05:56:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30784
+482th loop at 2024-08-14 05:57:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30848
+483th loop at 2024-08-14 05:59:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30912
+484th loop at 2024-08-14 06:00:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 30976
+485th loop at 2024-08-14 06:01:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31040
+486th loop at 2024-08-14 06:03:11
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31104
+487th loop at 2024-08-14 06:04:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31168
+488th loop at 2024-08-14 06:05:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31232
+489th loop at 2024-08-14 06:07:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31296
+490th loop at 2024-08-14 06:08:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31360
+491th loop at 2024-08-14 06:09:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31424
+492th loop at 2024-08-14 06:11:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31488
+493th loop at 2024-08-14 06:12:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31552
+494th loop at 2024-08-14 06:13:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31616
+495th loop at 2024-08-14 06:15:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31680
+496th loop at 2024-08-14 06:16:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31744
+497th loop at 2024-08-14 06:18:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31808
+498th loop at 2024-08-14 06:20:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31872
+499th loop at 2024-08-14 06:22:09
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 31936
+500th loop at 2024-08-14 06:24:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32000
+501th loop at 2024-08-14 06:26:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32064
+502th loop at 2024-08-14 06:28:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32128
+503th loop at 2024-08-14 06:30:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32192
+504th loop at 2024-08-14 06:32:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32256
+505th loop at 2024-08-14 06:34:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32320
+506th loop at 2024-08-14 06:35:49
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32384
+507th loop at 2024-08-14 06:37:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32448
+508th loop at 2024-08-14 06:39:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32512
+509th loop at 2024-08-14 06:41:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32576
+510th loop at 2024-08-14 06:43:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32640
+511th loop at 2024-08-14 06:45:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32704
+512th loop at 2024-08-14 06:47:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32768
+513th loop at 2024-08-14 06:49:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32832
+514th loop at 2024-08-14 06:50:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32896
+515th loop at 2024-08-14 06:52:10
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 32960
+516th loop at 2024-08-14 06:53:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33024
+517th loop at 2024-08-14 06:54:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33088
+518th loop at 2024-08-14 06:56:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33152
+519th loop at 2024-08-14 06:57:24
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33216
+520th loop at 2024-08-14 06:58:42
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33280
+521th loop at 2024-08-14 07:00:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33344
+522th loop at 2024-08-14 07:01:17
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33408
+523th loop at 2024-08-14 07:02:37
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33472
+524th loop at 2024-08-14 07:04:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33536
+525th loop at 2024-08-14 07:06:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33600
+526th loop at 2024-08-14 07:08:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33664
+527th loop at 2024-08-14 07:10:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33728
+528th loop at 2024-08-14 07:12:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33792
+529th loop at 2024-08-14 07:13:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33856
+530th loop at 2024-08-14 07:15:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33920
+531th loop at 2024-08-14 07:17:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 33984
+532th loop at 2024-08-14 07:19:41
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34048
+533th loop at 2024-08-14 07:21:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34112
+534th loop at 2024-08-14 07:23:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34176
+535th loop at 2024-08-14 07:25:37
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34240
+536th loop at 2024-08-14 07:27:36
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34304
+537th loop at 2024-08-14 07:29:35
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34368
+538th loop at 2024-08-14 07:31:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34432
+539th loop at 2024-08-14 07:33:32
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34496
+540th loop at 2024-08-14 07:35:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34560
+541th loop at 2024-08-14 07:37:29
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34624
+542th loop at 2024-08-14 07:39:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34688
+543th loop at 2024-08-14 07:41:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34752
+544th loop at 2024-08-14 07:43:24
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34816
+545th loop at 2024-08-14 07:45:23
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34880
+546th loop at 2024-08-14 07:47:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 34944
+547th loop at 2024-08-14 07:49:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35008
+548th loop at 2024-08-14 07:51:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35072
+549th loop at 2024-08-14 07:53:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35136
+550th loop at 2024-08-14 07:55:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35200
+551th loop at 2024-08-14 07:57:21
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35264
+552th loop at 2024-08-14 07:59:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35328
+553th loop at 2024-08-14 08:01:20
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35392
+554th loop at 2024-08-14 08:03:19
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35456
+555th loop at 2024-08-14 08:04:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35520
+556th loop at 2024-08-14 08:06:07
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35584
+557th loop at 2024-08-14 08:08:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35648
+558th loop at 2024-08-14 08:10:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35712
+559th loop at 2024-08-14 08:12:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35776
+560th loop at 2024-08-14 08:14:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35840
+561th loop at 2024-08-14 08:16:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35904
+562th loop at 2024-08-14 08:18:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 35968
+563th loop at 2024-08-14 08:20:03
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36032
+564th loop at 2024-08-14 08:22:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36096
+565th loop at 2024-08-14 08:23:50
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36160
+566th loop at 2024-08-14 08:25:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36224
+567th loop at 2024-08-14 08:26:27
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36288
+568th loop at 2024-08-14 08:27:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36352
+569th loop at 2024-08-14 08:29:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36416
+570th loop at 2024-08-14 08:30:23
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36480
+571th loop at 2024-08-14 08:31:59
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36544
+572th loop at 2024-08-14 08:33:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36608
+573th loop at 2024-08-14 08:35:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36672
+574th loop at 2024-08-14 08:37:53
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36736
+575th loop at 2024-08-14 08:39:52
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36800
+576th loop at 2024-08-14 08:41:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36864
+577th loop at 2024-08-14 08:43:44
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36928
+578th loop at 2024-08-14 08:45:02
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 36992
+579th loop at 2024-08-14 08:46:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37056
+580th loop at 2024-08-14 08:47:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37120
+581th loop at 2024-08-14 08:49:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37184
+582th loop at 2024-08-14 08:50:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37248
+583th loop at 2024-08-14 08:51:48
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37312
+584th loop at 2024-08-14 08:53:05
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37376
+585th loop at 2024-08-14 08:54:23
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37440
+586th loop at 2024-08-14 08:55:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37504
+587th loop at 2024-08-14 08:56:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37568
+588th loop at 2024-08-14 08:58:16
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37632
+589th loop at 2024-08-14 08:59:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37696
+590th loop at 2024-08-14 09:00:55
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37760
+591th loop at 2024-08-14 09:02:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37824
+592th loop at 2024-08-14 09:03:28
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37888
+593th loop at 2024-08-14 09:04:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 37952
+594th loop at 2024-08-14 09:06:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38016
+595th loop at 2024-08-14 09:07:22
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38080
+596th loop at 2024-08-14 09:08:39
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38144
+597th loop at 2024-08-14 09:09:57
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38208
+598th loop at 2024-08-14 09:11:14
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38272
+599th loop at 2024-08-14 09:12:31
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38336
+600th loop at 2024-08-14 09:14:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38400
+601th loop at 2024-08-14 09:16:00
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38464
+602th loop at 2024-08-14 09:17:23
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38528
+603th loop at 2024-08-14 09:18:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38592
+604th loop at 2024-08-14 09:20:46
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38656
+605th loop at 2024-08-14 09:22:45
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38720
+606th loop at 2024-08-14 09:24:04
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38784
+607th loop at 2024-08-14 09:25:25
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38848
+608th loop at 2024-08-14 09:27:24
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38912
+609th loop at 2024-08-14 09:29:12
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 38976
+610th loop at 2024-08-14 09:30:30
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39040
+611th loop at 2024-08-14 09:31:48
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39104
+612th loop at 2024-08-14 09:33:06
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39168
+613th loop at 2024-08-14 09:34:23
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39232
+614th loop at 2024-08-14 09:35:40
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39296
+615th loop at 2024-08-14 09:36:58
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39360
+616th loop at 2024-08-14 09:38:15
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39424
+617th loop at 2024-08-14 09:39:33
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39488
+618th loop at 2024-08-14 09:40:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39552
+619th loop at 2024-08-14 09:42:08
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39616
+620th loop at 2024-08-14 09:43:26
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39680
+621th loop at 2024-08-14 09:44:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39744
+622th loop at 2024-08-14 09:46:01
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39808
+623th loop at 2024-08-14 09:47:43
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39872
+624th loop at 2024-08-14 09:49:42
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 39936
+625th loop at 2024-08-14 09:51:17
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 40000
+626th loop at 2024-08-14 09:52:34
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 40064
+627th loop at 2024-08-14 09:53:51
+circularization: 0.0
+concatemerization: 0.0
+# of molecules: 40128

@@ -39,6 +39,8 @@ for filename in filenames:
 
 # Calculate the average of cir/num for each i
 averages = {i: sum(values) / len(values) for i, values in data.items()}
+output_file = open("360_cant_go_back_out.txt", "w")
+output_file.write(str(averages))
 
 # Plot the data
 plt.figure(figsize=(10, 6))
