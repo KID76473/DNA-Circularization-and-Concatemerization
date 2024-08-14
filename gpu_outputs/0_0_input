@@ -1,0 +1,50 @@
+output_prefix = 0_0_
+topology = 0_0_topo_file.txt
+conf_file = 0_0_init_config.txt
+
+steps = 1e5
+
+data_output_1 = {
+    name = h_bonds.txt
+    print_every = 1e4
+    col_1 = {
+        type = hb_list
+        order_parameters_file = 0_0_pairs_of_interest.txt
+    }
+}
+
+backend = CUDA
+debug = 1
+
+use_edge = 1
+edge_n_forces = 1
+CUDA_list = verlet
+CUDA_sort_every = 0
+cells_auto_optimisation = 1
+verlet_skin = 0.5
+max_density_multiplier = 10
+
+sim_type = MD
+
+thermostat = john
+
+dt = .001
+newtonian_steps = 412
+T = 37C
+diff_coeff = 10
+
+refresh_vel = true
+fix_diffusion = true
+
+restart_step_counter = true
+no_stdout_energy = true
+
+trajectory_print_momenta = false
+
+print_energy_every = 1e8
+print_conf_interval = 1e6
+time_scale = linear
+
+trajectory_file = trajectory.txt
+lastconf_file = last_conf.txt
+energy_file = energy.txt
