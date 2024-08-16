@@ -93,7 +93,7 @@ for n in range(num_trails):
         if n % 1 == 0:
             f.write(f"circularization: {cir / ((n + 1) * N ** 3)}\n")
             f.write(f"concatemerization: {concat / ((n + 1) * N ** 3)}\n")
-            f.write(f"# of molecules: {N ** 3 * n}\n")
+            f.write(f"# of molecules: {N ** 3 * (n + 1)}\n")
 
 with open(output_filename, 'a') as f:
     f.write(f"circularization: {cir / (num_trails * N ** 3)}\n")

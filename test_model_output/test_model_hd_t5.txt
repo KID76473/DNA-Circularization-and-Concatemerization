@@ -1,37 +1,45 @@
-The program started at 2024-08-13 13:55:25
-1th loop at 2024-08-13 13:58:22
+The program started at 2024-08-15 10:34:52
+1th loop at 2024-08-15 10:37:36
 circularization: 0.0
 concatemerization: 0.0
-2th loop at 2024-08-13 14:00:53
+# of molecules: 64
+2th loop at 2024-08-15 10:40:11
 circularization: 0.0
 concatemerization: 0.0
-3th loop at 2024-08-13 14:03:21
+# of molecules: 128
+3th loop at 2024-08-15 10:42:41
 circularization: 0.0
 concatemerization: 0.0
-4th loop at 2024-08-13 14:05:46
+# of molecules: 192
+4th loop at 2024-08-15 10:45:17
 circularization: 0.0
 concatemerization: 0.0
-5th loop at 2024-08-13 14:08:11
+# of molecules: 256
+5th loop at 2024-08-15 10:47:56
 circularization: 0.0
 concatemerization: 0.0
-6th loop at 2024-08-13 14:10:39
+# of molecules: 320
+6th loop at 2024-08-15 10:50:28
 circularization: 0.0
 concatemerization: 0.0
-7th loop at 2024-08-13 14:13:10
+# of molecules: 384
+7th loop at 2024-08-15 10:52:58
 circularization: 0.0
 concatemerization: 0.0
-8th loop at 2024-08-13 14:15:40
+# of molecules: 448
+8th loop at 2024-08-15 10:55:29
 circularization: 0.0
 concatemerization: 0.0
-9th loop at 2024-08-13 14:18:09
+# of molecules: 512
+9th loop at 2024-08-15 10:57:57
 circularization: 0.0
 concatemerization: 0.0
-10th loop at 2024-08-13 14:20:38
+# of molecules: 576
+10th loop at 2024-08-15 11:00:28
 circularization: 0.0
 concatemerization: 0.0
-11th loop at 2024-08-13 14:23:07
+# of molecules: 640
+11th loop at 2024-08-15 11:02:59
 circularization: 0.0
 concatemerization: 0.0
-12th loop at 2024-08-13 14:25:30
-circularization: 0.0
-concatemerization: 0.0
+# of molecules: 704

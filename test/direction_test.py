@@ -105,7 +105,7 @@ print("-------------------------------------")
 # print(f"theta: {t}, phi: {p}")
 # print(f"to degree: {direction_functions.to_degree([t, p])}")
 
-dir_fib, length, out = direction_functions.fibonacci_sphere(rand_dir, np.pi / 5, samples=100)
+dir_fib, length, out = direction_functions.fibonacci_sphere(np.zeros(3), 0, samples=1000)
 # print(length)
 visualize_directions(dir_fib, rand_dir, out)
 

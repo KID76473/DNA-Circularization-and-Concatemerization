@@ -1,3 +1,4 @@
+import numpy as np
 import mpmath as mp
 
 len_of_nucleo = mp.fmul(3.4, mp.power(10, -10))
@@ -37,9 +38,11 @@ for i in range(len(num_tails_grams_list)):
         dist_btw_2_nuc = mp.cbrt(vol_per_nuc)
         avg_dist_btw_2_nuc[i].append(float(dist_btw_2_nuc))
 
+# print("print!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 with open("data/dist_btw_nucleotides", "w") as file:
     for x in avg_dist_btw_2_nuc:
         file.write(f"{x}\n")
+np.save('./data/dist_btw_nucleotides', avg_dist_btw_2_nuc)
 
 
 def get_data():
