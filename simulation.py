@@ -4,9 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import direction_functions
 from numba import njit
+from numba import vectorize
 
 
-# @njit
+# @vectorize(target='cuda')
 def simulate(length, concen, print_log, save_output):
     dimension = 3
     N = 64
@@ -95,7 +96,11 @@ def simulate(length, concen, print_log, save_output):
 # test
 dimension = 3
 N = 64  # number of molecules = N^3
-length = 20000
+# 500, 1000, 2000, 5000, 10000, 20000, 50000
+# 0    1     2     3     4      5      6
+length_index = 2
+length_list = [500, 1000, 2000, 5000, 10000, 20000, 50000]
+length = length_list[length_index]
 # concentration = 29  # distance between every pair of adjacent points
 error = 1
 num_dir = 1000
@@ -114,11 +119,12 @@ save_summary = 1
 num = 10
 # start = 35
 concentrations = np.load("./data/dist_btw_nucleotides.npy")
-array_cir = np.zeros(num)
-array_con = np.zeros(num)
-for j in range(len(concentrations[0])):  # loop thru concentrations
+c_len = len(concentrations)
+array_cir = np.zeros(c_len)
+array_con = np.zeros(c_len)
+for j in range(c_len):  # loop thru concentrations
     # print(j)
-    c = concentrations[0][j]
+    c = concentrations[j][1]
     for i in range(num):  # repeat 10 times and take average
         temp1, temp2, _ = simulate(length, c, print_log, save_output)
         array_cir[j] += temp1
@@ -145,7 +151,7 @@ for j in range(len(concentrations[0])):  # loop thru concentrations
 #     array_con[j] /= num
 
 label = []
-for i in range(num):
+for i in range(c_len):
     label.append([array_cir[i], array_con[i]])
 
 if save_summary:
@@ -162,13 +168,18 @@ fig, ax = plt.subplots(figsize=(6, 6))
 # plt.legend()
 
 # plt.subplot(2, 1, 2)
-plt.plot(concentrations[0][0], [1] * num, color='red')
-plt.scatter(concentrations[0][0], array_cir / array_con)
-for i, l in enumerate(label):
-    ax.text(concentrations[0][i], array_cir[i] / array_con[i], l)
-ax.set_title(f"Ratio of Circularization / Concatemerization \nover 100 Simulations for each distance from {concentrations[0][0]} to {concentrations[0][-1]}")
+plt.plot(concentrations[:, length_index], [1] * c_len, color='red')
+if 0 in array_con:
+    plt.scatter(concentrations[:, length_index], array_cir, c='blue', label='cir')
+    plt.scatter(concentrations[:, length_index], array_con, c='black', label='con')
+else:
+    plt.scatter(concentrations[:, length_index], array_cir / array_con)
+    for i, l in enumerate(label):
+        ax.text(concentrations[i, length_index], array_cir[i] / array_con[i], l)
+ax.set_title(f"Ratio of Cir / Con \nover 100 Simulations for length = {length}nu")
 # ax.set_title("Ratio of Circularization / Concatemerization \nover 100 Simulations for each DNA length from 1k to 10k")
 plt.grid(True)
 
 plt.tight_layout()
+plt.legend()
 plt.show()

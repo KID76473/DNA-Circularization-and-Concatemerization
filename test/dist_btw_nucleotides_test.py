@@ -5,4 +5,5 @@ concentrations = np.load("../data/dist_btw_nucleotides.npy")
 print(concentrations)
 print(type(concentrations))
 print(np.shape(concentrations))
-for
+print(len(concentrations))
+print(concentrations[:][0])
