@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 concentrations = np.load("./data/dist_btw_nucleotides.npy")
 c_len = len(concentrations)
-length_index = 1
+length_index = 5
 length_list = [500, 1000, 2000, 5000, 10000, 20000, 50000]
 length = length_list[length_index]
 array_cir = np.load('./data/circularization.npy')

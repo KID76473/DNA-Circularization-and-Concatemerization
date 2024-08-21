@@ -13,8 +13,8 @@ def simulate(length, concen, print_log, save_output):
     N = 64
     error = 1
     heads = np.zeros((N, N, N, dimension))
-    furthest = np.zeros((N, N, N, dimension))
-    furthest_avg = 0
+    # furthest = np.zeros((N, N, N, dimension))
+    # furthest_avg = 0
     t0_func = time.time()
 
     for i in range(length):  # length
@@ -24,9 +24,9 @@ def simulate(length, concen, print_log, save_output):
 
         # record if heads reach the furthest distance from tail
         heads_squared_dist = np.sum(heads ** 2, axis=-1)
-        furthest_squared_dist = np.sum(furthest ** 2, axis=-1)
-        mask = heads_squared_dist > furthest_squared_dist
-        furthest[mask] = heads[mask]
+        # furthest_squared_dist = np.sum(furthest ** 2, axis=-1)
+        # mask = heads_squared_dist > furthest_squared_dist
+        # furthest[mask] = heads[mask]
 
         if print_log:
             print("-------------------------------")
@@ -36,19 +36,19 @@ def simulate(length, concen, print_log, save_output):
 
     t1_func = time.time()
 
-    for x in range(N):
-        for y in range(N):
-            for z in range(N):
-                furthest_avg += (furthest[x, y, z, 0] ** 2 + furthest[x, y, z, 1] ** 2 + furthest[
-                    x, y, z, 2] ** 2) ** 1 / 2
-    furthest_avg /= N ** 3
+    # for x in range(N):
+    #     for y in range(N):
+    #         for z in range(N):
+    #             furthest_avg += (furthest[x, y, z, 0] ** 2 + furthest[x, y, z, 1] ** 2 + furthest[
+    #                 x, y, z, 2] ** 2) ** 1 / 2
+    # furthest_avg /= N ** 3
 
     circular = np.sum((np.abs(heads) < error).all(axis=-1))
     concatemer = np.sum((np.abs(heads) % concen < error).all(axis=-1)) - circular
 
     if save_output:
         np.save('./data/heads.npy', heads)
-        np.save('./data/furthest.npy', furthest)
+        # np.save('./data/furthest.npy', furthest)
         output = sys.stdout
         with open('data/output.txt', 'w') as f:
             sys.stdout = f
@@ -69,12 +69,12 @@ def simulate(length, concen, print_log, save_output):
             # print(f"Rate of circularization: {circular / (N ** 3)}")
             # print(f"Rate of concatemerization: {concatemer / (N ** 3)} ")
             print(f"connected / not connect: {(circular + concatemer) / N ** 3}, which should be {4 * np.pi * error ** 3 / (concen ** 3 * 3)}")
-            print(f"average of furthest distance from tail / length = {furthest_avg} / {length}")
+            # print(f"average of furthest distance from tail / length = {furthest_avg} / {length}")
             print(f"It takes {t1_func - t0_func} seconds")
             print(f"The program finished at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t1_func))}")
             sys.stdout = output
 
-    return circular, concatemer, furthest_avg
+    return circular, concatemer
 
 
 # 3mm test tube, 3.5nm each step
@@ -98,7 +98,7 @@ dimension = 3
 N = 64  # number of molecules = N^3
 # 500, 1000, 2000, 5000, 10000, 20000, 50000
 # 0    1     2     3     4      5      6
-length_index = 2
+length_index = 6
 length_list = [500, 1000, 2000, 5000, 10000, 20000, 50000]
 length = length_list[length_index]
 # concentration = 29  # distance between every pair of adjacent points
@@ -126,7 +126,7 @@ for j in range(c_len):  # loop thru concentrations
     # print(j)
     c = concentrations[j][1]
     for i in range(num):  # repeat 10 times and take average
-        temp1, temp2, _ = simulate(length, c, print_log, save_output)
+        temp1, temp2 = simulate(length, c, print_log, save_output)
         array_cir[j] += temp1
         array_con[j] += temp2
         print(str(j) + str(i) + ": " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
