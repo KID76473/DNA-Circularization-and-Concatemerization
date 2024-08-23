@@ -62,7 +62,7 @@ def walk(position, last):
 
 
 num_trails = 100000000
-length = 10000
+length = 100000
 N = 4
 deg = np.pi / 5
 concentration = 953.715332748677  # unit is length of nucleotide
@@ -71,8 +71,8 @@ concat = 0
 direction_set = np.load('./data/direction_set.npy', allow_pickle=True)
 indices = np.load('./data/indices.npy')
 
-output_filename = "./test_model_output/" + str(sys.argv[1])
-# output_filename = "./data/test_model_hd_sum.txt"
+# output_filename = "./test_model_output/" + str(sys.argv[1])
+output_filename = "./data/test_model_hd_sum.txt"
 with open(output_filename, 'w') as f:
     t = time.time()
     f.write(f"The program started at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t))}\n")
@@ -94,6 +94,9 @@ for n in range(num_trails):
             f.write(f"circularization: {cir / ((n + 1) * N ** 3)}\n")
             f.write(f"concatemerization: {concat / ((n + 1) * N ** 3)}\n")
             f.write(f"# of molecules: {N ** 3 * (n + 1)}\n")
+            f.write(f"head:\n")
+            f.write(str(head))
+            f.write('\n')
 
 with open(output_filename, 'a') as f:
     f.write(f"circularization: {cir / (num_trails * N ** 3)}\n")
