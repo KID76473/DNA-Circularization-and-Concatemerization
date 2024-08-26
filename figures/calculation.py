@@ -2,11 +2,6 @@ import numpy as np
 import scipy
 
 
-def fun(l: int):
-    sigma_sq = l * (1 / 3) ** 2
-    return l ** 2 * np.exp(- l ** 2 / (2 * sigma_sq)) / (2 * np.pi * sigma_sq) ** (3 / 2)
-
-
 def sphere_volume(r: float) -> float:
     return 4 * np.pi * r ** 3 / 3
 
@@ -17,8 +12,9 @@ def container_volume(h: float) -> float:
 
 radius = 1  # radius of error
 height = 0.05  # 0.15m at max
-V = container_volume(height)
-# V = 0.1  # mL
+# V = container_volume(height)
+V = 0.1  # mL
+molar_mass = 487  # g / # of molecules
 num_tails_grams_list = [
     [1.9544436711e+10, 9.7727900978e+09, 4.8865379969e+09, 1.9546495079e+09, 9.7733047227e+08, 4.8866666573e+08, 1.9546700939e+08],
     [1.95444367118e+11, 9.77279009781e+10, 4.88653799692e+10, 1.9546495079e+10, 9.77330472273e+09, 4.88666665729e+09, 1.95467009396e+09],
@@ -33,6 +29,16 @@ length_list = [500, 1000, 2000, 5000, 10000, 20000, 50000]
 # calculate concentration
 result_concentration = []
 for l in length_list:
-    integral = scipy.integrate.quad(fun(l), 0, 1)
-    n = V / (4 * np.pi * radius ** 3 / 3)
-    result_concentration.append()
+    sigma_sq = l * (1 / 3) ** 2
+    fun = lambda x: x ** 2 * np.exp(- x ** 2 / (2 * sigma_sq)) / (2 * np.pi * sigma_sq) ** (3 / 2)
+    integral = scipy.integrate.quad(fun, 0, 1)
+    # print(integral[0])
+    n = V * integral[0] / (4 * np.pi * radius ** 3 / 3)
+    result_concentration.append(n * molar_mass / V)
+
+print("Concentration in molar per mL:")
+print(result_concentration)
+
+# fixed concentration
+# calculate length
+
