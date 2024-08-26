@@ -28,9 +28,9 @@ length_list = [500, 1000, 2000, 5000, 10000, 20000, 50000]
 # fixed length
 # calculate concentration
 result_concentration = []
+fun = lambda x: x ** 2 * np.exp(- x ** 2 / (2 * sigma_sq)) / (2 * np.pi * sigma_sq) ** (3 / 2)
 for l in length_list:
     sigma_sq = l * (1 / 3) ** 2
-    fun = lambda x: x ** 2 * np.exp(- x ** 2 / (2 * sigma_sq)) / (2 * np.pi * sigma_sq) ** (3 / 2)
     integral = scipy.integrate.quad(fun, 0, 1)
     # print(integral[0])
     n = V * integral[0] / (4 * np.pi * radius ** 3 / 3)
@@ -41,4 +41,20 @@ print(result_concentration)
 
 # fixed concentration
 # calculate length
-
+result_length = []
+concentrations = [0.1, 1, 10, 100, 1000]
+pairs = [[], [], [], [], [], []]
+index = 0
+for c in concentrations:
+    num_tail = []
+    steps = range(100, 100000)
+    for s in steps:
+        n = c * V / (s * molar_mass)
+        num_tail.append(n)
+        sigma_sq = s * (1 / 3) ** 2
+        if np.abs(scipy.integrate.quad(fun, 0, 1)[0] - n * 4 * np.pi * 1 ** 3 / (V * 3)) < 0.01:
+            print("Probability of cir and con are closed")
+            print(f"length: {s}")
+            print(f"concentration: {n * molar_mass / V}, {c}")
+            pairs[index].append([s, c])
+    index += 1
