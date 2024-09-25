@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import math
 
 #model 1 is the # tails * sphere / total vol
 model1 =  [[3.211628228924419e-11, 1.6091080921329013e-11, 8.053775404841235e-12, 3.211628228924419e-12, 1.6091080921329012e-12, 8.053775404841236e-13, 3.2116282289244193e-13], 
@@ -7,14 +8,30 @@ model1 =  [[3.211628228924419e-11, 1.6091080921329013e-11, 8.053775404841235e-12
          [3.211628228924419e-08, 1.6091080921329013e-08, 8.053775404841235e-09, 3.2116282289244193e-09, 1.6091080921329013e-09, 8.053775404841235e-10, 3.211628228924419e-10],
         [3.2116282289244187e-07, 1.6091080921329012e-07, 8.053775404841235e-08, 3.211628228924419e-08, 1.6091080921329013e-08, 8.053775404841235e-09, 3.2116282289244193e-09]]
 
-calculated_cir_prob_6_dir = [5.89299191739383e-5, 2.08504968733022e-5, 7.37452810116553e-6, 
-                             1.86604420114764e-6, 6.59795734661119e-7, 2.33281766771726e-7, 
-                             5.90174654293721e-8]
+# calculated_cir_prob_6_dir = [5.89299191739383e-5, 2.08504968733022e-5, 7.37452810116553e-6, 
+#                              1.86604420114764e-6, 6.59795734661119e-7, 2.33281766771726e-7, 
+#                              5.90174654293721e-8]
+
+calculated_cir_prob_5_dir = [5077 / 157600000, 1800 / 157600000, 608 / 157600000, 155 / 157600000, 57 / 157600000, 25 / 157600000, 3 / 157600000]
+
+
+cir_list = calculated_cir_prob_5_dir
+
+# log base 2 of calculated cir prob 6 dir values
+# for i in range(len(calculated_cir_prob_6_dir)):
+#     num = math.log2(calculated_cir_prob_6_dir[i])
+#     calculated_cir_prob_6_dir[i] = num
 
 concen_list = [.1, 1, 10, 100, 1000]
 
 length = [500, 1000, 2000, 5000, 10000, 20000, 50000]
 num_lens = len(length)
+
+#log base 2 of the model1 concat probs
+# for i in range(len(concen_list)):
+#     for j in range(len(length)):
+#         val = math.log2(model1[i][j])
+#         model1[i][j] = val
 
 colors = ["red", "blue", "green", "black", "pink"]
 
@@ -27,14 +44,14 @@ fig, ax1 = plt.subplots()
 for i in range(0, size):
     ax1.plot(length, model1[i], color = colors[i], marker = 'o', label = f"{str(concen_list[i])} ug / mL")
     for j in range(0, num_lens):
-        ax1.annotate(f"{round(model1[i][j], 13)}", (length[j], model1[i][j]), xycoords='data', xytext=(length[j] * 1.00000001, model1[i][j] * 1.2))
+        ax1.annotate(f"{round(model1[i][j], 13)}", (length[j], model1[i][j]), xycoords='data', xytext=(length[j] * 1.00000001, model1[i][j] * 1.00001))
 
-ax1.plot(length, calculated_cir_prob_6_dir, color = 'purple', marker = 'o', label = "6 dir calculated")
+ax1.plot(length, cir_list, color = 'purple', marker = 'o', label = "5 dir simulated")
 for j in range(0, num_lens):
-    ax1.annotate(f"{round(calculated_cir_prob_6_dir[j], 10)}", (length[j], calculated_cir_prob_6_dir[j]), xycoords='data', xytext=(length[j] * 1.00000001, calculated_cir_prob_6_dir[j] * 1.2))
+    ax1.annotate(f"{round(cir_list[j], 13)}", (length[j], cir_list[j]), xycoords='data', xytext=(length[j] * 1.00000001, cir_list[j] * 1.000001))
 
 ax1.set_xlabel('length')
-ax1.set_yscale('log', base = 2)
+ax1.set_yscale('log')
 ax1.set_ylabel('Predicted concatemerization probablity', color = 'black')
 ax1.tick_params(axis='y', labelcolor = 'black')
 ax1.legend(loc = 'upper right')

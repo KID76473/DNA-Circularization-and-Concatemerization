@@ -1,5 +1,2 @@
-length: 500 total_cir: 0 total: 1000 
-length: 1000 total_cir: 0 total: 1000 
-length: 1500 total_cir: 0 total: 1000 
-length: 2000 total_cir: 0 total: 1000 
-time taken: 3.167897939682007
+length: 10000 total_cir: 0 total: 100000 
+time taken: 357.02378964424133

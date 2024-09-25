@@ -5,9 +5,9 @@ import time
 # calculate the distance from the end point to the origin (circularzation)
 # claculate distance from end point to an evenly distrubuted point based on 
 
-num_trials = 1000
+num_trials = 125000000
 
-len_list = [500]
+len_list = [500, 1000, 2000, 5000, 10000, 20000, 50000]
 
 avg_distance_btw_2_tails = 953.715332748677  # unit is length of nucleotide, this distance is for 300 ug/mL
 

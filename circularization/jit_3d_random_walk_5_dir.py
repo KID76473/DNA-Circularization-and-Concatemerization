@@ -6,11 +6,11 @@ import numpy as np
 import time
 from numba import njit, types
 
-len_list = np.array([50000])
+len_list = np.array([2000])
 
 dir_list = np.array([-3, -2, -1, 1, 2, 3])
 
-file_output = open("jit_3d_rand_walk_5_dir_50_to_50k", "w")
+file_output = open("jit_3d_rand_walk_5_dir_500_to_2000", "w")
 
 @njit
 def random_walk(pos, dir):
@@ -32,10 +32,10 @@ def random_walk(pos, dir):
 def run(len_listi):
     dir_listi = np.array([-3, -2, -1, 1, 2, 3])
     start_pos = np.array([0, 0, 0]) #[x, y, z]
-    x_vals = list([500, 1000, 2000, 5000, 10000, 20000, 30000, 40000, 50000])
-    y_vals = list([0, 0, 0, 0, 0, 0, 0, 0, 0])
+    x_vals = list([500, 1000, 2000])
+    y_vals = list([0, 0, 0])
     for num in len_listi:
-        for i in range(1000000000): # num_trails
+        for i in range(50000000): # num_trails
             pos = np.array([0, 0, 0], dtype=np.int64)
             not_allowed = 0
 
@@ -50,9 +50,8 @@ def run(len_listi):
                         y_vals[x_vals.index(j)] += 1
 
             if i % 100000 == 0:
-                print(num, i, y_vals)
-    print(x_vals)
-    print(y_vals)
+                print(i, x_vals, y_vals)
+
     return x_vals, y_vals
 
 t0 = time.time()
